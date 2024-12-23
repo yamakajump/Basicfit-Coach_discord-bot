@@ -1,6 +1,4 @@
-const { scheduleJob } = require('node-schedule');
-const fs = require('fs');
-const path = require('path');
+const scheduleNotifications = require('./notificationScheduler');
 
 module.exports = {
     name: 'ready',
@@ -16,6 +14,6 @@ module.exports = {
         }
 
         // Planifier les notifications
-        scheduleNotifications(client);
+        // scheduleNotifications(client);
     },
 };
