@@ -64,6 +64,28 @@ module.exports = {
                     content: 'Vos séances pour Lundi à Vendredi ont été enregistrées. Veuillez compléter Samedi et Dimanche.',
                     ephemeral: true,
                 });
+
+                // Créer et envoyer le second modal (Samedi et Dimanche)
+                const modal2 = new ModalBuilder()
+                    .setCustomId('logsessionModal2')
+                    .setTitle('Planification : Samedi et Dimanche');
+
+                const weekend = ['Samedi', 'Dimanche'];
+
+                const actionRows = weekend.map(day => {
+                    const input = new TextInputBuilder()
+                        .setCustomId(`session_${day.toLowerCase()}`)
+                        .setLabel(`${day} : Heure de la séance ou "aucune"`)
+                        .setPlaceholder('HH:MM ou aucune')
+                        .setStyle(TextInputStyle.Short)
+                        .setRequired(false);
+
+                    return new ActionRowBuilder().addComponents(input);
+                });
+
+                modal2.addComponents(...actionRows);
+
+                await interaction.showModal(modal2);
             }
 
             // Traiter le second modal (Samedi et Dimanche)
