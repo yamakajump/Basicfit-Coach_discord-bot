@@ -46,7 +46,7 @@ module.exports = {
         // Ajouter un champ texte pour l'heure
         const hourInput = new TextInputBuilder()
             .setCustomId('sessionHour')
-            .setLabel('Heure de votre séance (ou écrire \"aucune\" si pas de séance)')
+            .setLabel('Heure de votre séance ou \"aucune\"')
             .setPlaceholder('18:00 ou aucune')
             .setStyle(TextInputStyle.Short)
             .setRequired(true);
