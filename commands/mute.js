@@ -12,8 +12,8 @@ module.exports = {
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const member = interaction.guild.members.cache.get(user.id);
-        const mutedRoleId = '1308349548711907360'; // Remplace par l'ID du rôle 'Repos forcé'
-        const generalChannelId = '1320760751509606400'; // Remplace par l'ID du salon 💪〣général
+        const mutedRoleId = '1320760751509606400'; // Remplace par l'ID du rôle 'Repos forcé'
+        const generalChannelId = '1308349548711907360'; // Remplace par l'ID du salon 💪〣général
 
         const mutedRole = interaction.guild.roles.cache.get(mutedRoleId);
         const generalChannel = interaction.guild.channels.cache.get(generalChannelId);
