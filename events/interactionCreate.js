@@ -58,7 +58,11 @@ module.exports = {
 
                 weekdays.forEach(day => {
                     const input = interaction.fields.getTextInputValue(`session_${day}`);
-                    sessions[userId][day] = isValidTime(input) ? input : null;
+                    if (input.trim() !== '') {
+                        sessions[userId][day] = isValidTime(input) ? input : null;
+                    } else {
+                        sessions[userId][day] = null;
+                    }
                 });
 
                 saveSessions(sessions);
@@ -84,7 +88,11 @@ module.exports = {
 
                 weekend.forEach(day => {
                     const input = interaction.fields.getTextInputValue(`session_${day}`);
-                    sessions[userId][day] = isValidTime(input) ? input : null;
+                    if (input.trim() !== '') {
+                        sessions[userId][day] = isValidTime(input) ? input : null;
+                    } else {
+                        sessions[userId][day] = null;
+                    }
                 });
 
                 saveSessions(sessions);
