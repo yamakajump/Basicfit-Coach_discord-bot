@@ -61,11 +61,6 @@ module.exports = {
 
                 saveSessions(sessions);
 
-                await interaction.reply({
-                    content: 'Vos séances pour Lundi à Vendredi ont été enregistrées. Veuillez compléter Samedi et Dimanche.',
-                    ephemeral: true,
-                });
-
                 // Créer et envoyer le second modal (Samedi et Dimanche)
                 const modal2 = new ModalBuilder()
                     .setCustomId('logsessionModal2')
