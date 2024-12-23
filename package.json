@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "date-fns-tz": "^3.2.0",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.7",
     "node-schedule": "^2.1.1"
@@ -8,7 +9,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
