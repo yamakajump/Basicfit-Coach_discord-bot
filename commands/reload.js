@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Redémarre le bot si une minute s\'est écoulée depuis son lancement.'),
     async execute(interaction) {
         const currentTime = Date.now();
-        const elapsedTime = (currentTime - botStartTime) / 1000; // Temps écoulé en secondes
+        const elapsedTime = (currentTime - botStartTime) / 1000;
 
         if (elapsedTime < 60) {
             await interaction.reply({
@@ -18,8 +18,8 @@ module.exports = {
             return;
         }
 
-        await interaction.reply('Le bot va redémarrer...');
+        await interaction.reply('Je reviens vite mes GymBro !');
         console.log('Le bot redémarre suite à une demande via /reload.');
-        process.exit(0); // Arrête le processus pour que votre gestionnaire le redémarre
+        process.exit(0);
     },
 };

@@ -12,7 +12,7 @@ module.exports = {
         // envoie un message dans le salon de général à chaque démarrage du bot
         const generalChannel = client.channels.cache.get('1308349548711907360');
         if (generalChannel) {
-            generalChannel.send('Le bot est redémarré !');
+            generalChannel.send('Je suis de retour mes GymBro !');
         }
     },
 };
