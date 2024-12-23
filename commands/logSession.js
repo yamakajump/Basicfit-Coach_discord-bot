@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
+const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -22,28 +22,20 @@ module.exports = {
         .setName('logsession')
         .setDescription('Ouvre un formulaire pour enregistrer vos séances.'),
     async execute(interaction) {
-        // Créer un modal pour choisir le jour
+        // Créer un modal pour saisir le jour et l'heure
         const modal = new ModalBuilder()
             .setCustomId('logsessionModal')
             .setTitle('Enregistrement de séance');
 
-        // Ajouter une liste déroulante pour choisir le jour
-        const dayInput = new StringSelectMenuBuilder()
+        // Champ texte pour le jour
+        const dayInput = new TextInputBuilder()
             .setCustomId('sessionDay')
-            .setPlaceholder('Choisissez un jour')
-            .addOptions(
-                { label: 'Lundi', value: 'lundi' },
-                { label: 'Mardi', value: 'mardi' },
-                { label: 'Mercredi', value: 'mercredi' },
-                { label: 'Jeudi', value: 'jeudi' },
-                { label: 'Vendredi', value: 'vendredi' },
-                { label: 'Samedi', value: 'samedi' },
-                { label: 'Dimanche', value: 'dimanche' }
-            );
+            .setLabel('Jour de la semaine (ex : lundi)')
+            .setPlaceholder('lundi')
+            .setStyle(TextInputStyle.Short)
+            .setRequired(true);
 
-        const rowDay = new ActionRowBuilder().addComponents(dayInput);
-
-        // Ajouter un champ texte pour l'heure
+        // Champ texte pour l'heure
         const hourInput = new TextInputBuilder()
             .setCustomId('sessionHour')
             .setLabel('Heure de votre séance ou \"aucune\"')
@@ -51,9 +43,9 @@ module.exports = {
             .setStyle(TextInputStyle.Short)
             .setRequired(true);
 
-        const rowHour = new ActionRowBuilder().addComponents(hourInput);
-
         // Ajouter les champs au modal
+        const rowDay = new ActionRowBuilder().addComponents(dayInput);
+        const rowHour = new ActionRowBuilder().addComponents(hourInput);
         modal.addComponents(rowDay, rowHour);
 
         // Afficher le modal à l'utilisateur
