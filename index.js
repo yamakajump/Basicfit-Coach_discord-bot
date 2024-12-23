@@ -56,5 +56,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
     }
 })();
 
+global.botStartTime = Date.now();
+
 // Lancer le bot
 client.login(process.env.TOKEN);
