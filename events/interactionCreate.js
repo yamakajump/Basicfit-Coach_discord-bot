@@ -1,4 +1,4 @@
-const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
+const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -20,26 +20,10 @@ function saveSessions(sessions) {
 module.exports = {
     name: 'interactionCreate',
     execute: async (interaction, client) => {
-        if (interaction.isCommand()) {
-            const command = client.commands.get(interaction.commandName);
-            if (!command) {
-                console.error(`Commande ${interaction.commandName} non trouvée.`);
-                return;
-            }
+        const sessions = loadSessions();
+        const userId = interaction.user.id;
 
-            try {
-                await command.execute(interaction);
-            } catch (error) {
-                console.error(`Erreur lors de l'exécution de la commande ${interaction.commandName}:`, error);
-                await interaction.reply({
-                    content: 'Une erreur s\'est produite lors de l\'exécution de cette commande.',
-                    ephemeral: true,
-                });
-            }
-        } else if (interaction.isModalSubmit()) {
-            const sessions = loadSessions();
-            const userId = interaction.user.id;
-
+        if (interaction.isModalSubmit()) {
             // Créer une entrée pour l'utilisateur s'il n'existe pas encore
             if (!sessions[userId]) {
                 sessions[userId] = {};
@@ -61,27 +45,19 @@ module.exports = {
 
                 saveSessions(sessions);
 
-                // Créer et envoyer le second modal (Samedi et Dimanche)
-                const modal2 = new ModalBuilder()
-                    .setCustomId('logsessionModal2')
-                    .setTitle('Planification : Samedi et Dimanche');
+                // Répondre avec un bouton pour continuer avec le second modal
+                const button = new ButtonBuilder()
+                    .setCustomId('continueToWeekend')
+                    .setLabel('Compléter Samedi et Dimanche')
+                    .setStyle(ButtonStyle.Primary);
 
-                const weekend = ['Samedi', 'Dimanche'];
+                const row = new ActionRowBuilder().addComponents(button);
 
-                const actionRows = weekend.map(day => {
-                    const input = new TextInputBuilder()
-                        .setCustomId(`session_${day.toLowerCase()}`)
-                        .setLabel(`${day} : Heure de la séance ou "aucune"`)
-                        .setPlaceholder('HH:MM ou aucune')
-                        .setStyle(TextInputStyle.Short)
-                        .setRequired(false);
-
-                    return new ActionRowBuilder().addComponents(input);
+                await interaction.reply({
+                    content: 'Vos séances pour Lundi à Vendredi ont été enregistrées. Cliquez sur le bouton ci-dessous pour compléter Samedi et Dimanche.',
+                    components: [row],
+                    ephemeral: true,
                 });
-
-                modal2.addComponents(...actionRows);
-
-                await interaction.showModal(modal2);
             }
 
             // Traiter le second modal (Samedi et Dimanche)
@@ -100,6 +76,30 @@ module.exports = {
                     ephemeral: true,
                 });
             }
+        }
+
+        // Si le bouton est cliqué, envoyer le second modal
+        if (interaction.isButton() && interaction.customId === 'continueToWeekend') {
+            const modal2 = new ModalBuilder()
+                .setCustomId('logsessionModal2')
+                .setTitle('Planification : Samedi et Dimanche');
+
+            const weekend = ['Samedi', 'Dimanche'];
+
+            const actionRows = weekend.map(day => {
+                const input = new TextInputBuilder()
+                    .setCustomId(`session_${day.toLowerCase()}`)
+                    .setLabel(`${day} : Heure de la séance ou "aucune"`)
+                    .setPlaceholder('HH:MM ou aucune')
+                    .setStyle(TextInputStyle.Short)
+                    .setRequired(false);
+
+                return new ActionRowBuilder().addComponents(input);
+            });
+
+            modal2.addComponents(...actionRows);
+
+            await interaction.showModal(modal2);
         }
     },
 };
