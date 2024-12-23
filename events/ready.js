@@ -1,3 +1,7 @@
+const { scheduleJob } = require('node-schedule');
+const fs = require('fs');
+const path = require('path');
+
 module.exports = {
     name: 'ready',
     once: true,
@@ -18,7 +22,7 @@ module.exports = {
         ];
 
         // Programmer le message quotidien à 7h
-        scheduleJob('34 14 * * *', async () => {
+        scheduleJob('36 14 * * *', async () => {
             for (const { userId, channelId } of userChannels) {
                 const channel = client.channels.cache.get(channelId);
                 if (!channel) {
