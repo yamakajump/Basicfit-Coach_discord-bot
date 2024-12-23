@@ -23,6 +23,24 @@ module.exports = {
         const sessions = loadSessions();
         const userId = interaction.user.id;
 
+        if (interaction.isCommand()) {
+            const command = client.commands.get(interaction.commandName);
+            if (!command) {
+                console.error(`Commande ${interaction.commandName} non trouvée.`);
+                return;
+            }
+
+            try {
+                await command.execute(interaction);
+            } catch (error) {
+                console.error(`Erreur lors de l'exécution de la commande ${interaction.commandName}:`, error);
+                await interaction.reply({
+                    content: 'Une erreur s\'est produite lors de l\'exécution de cette commande.',
+                    ephemeral: true,
+                });
+            }
+        } 
+        
         if (interaction.isModalSubmit()) {
             // Créer une entrée pour l'utilisateur s'il n'existe pas encore
             if (!sessions[userId]) {
