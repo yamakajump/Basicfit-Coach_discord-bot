@@ -15,14 +15,14 @@ module.exports = {
         // Mapping des utilisateurs et leurs salons
         const userChannels = [
             { userId: '634433284285268006', channelId: '1320740603486539835' }, // Tristan
-            { userId: '690488124480028692', channelId: '1320741423032832050' }, // Corentin
+            { userId: '690488124480028692', channelId: '1320741324256968786' }, // Corentin
             { userId: '829613924391059476', channelId: '1320741423032832050' }, // Nathan
             { userId: '396373256053194752', channelId: '1320741448630534175' }, // Rémy
             { userId: '430759169407320087', channelId: '1320741501768044575' }, // Axel
         ];
 
         // Programmer le message quotidien à 7h
-        scheduleJob('41 13 * * *', async () => {
+        scheduleJob('45 13 * * *', async () => {
             for (const { userId, channelId } of userChannels) {
                 const channel = client.channels.cache.get(channelId);
                 if (!channel) {
