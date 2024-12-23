@@ -21,32 +21,27 @@ function saveSessions(sessions) {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('logsession')
-        .setDescription('Ouvre un formulaire pour enregistrer vos séances.'),
+        .setDescription('Enregistre vos heures de séance pour la semaine.'),
     async execute(interaction) {
-        // Créer un modal pour saisir les heures de séance pour chaque jour
         const modal = new ModalBuilder()
-            .setCustomId('logsessionModal')
-            .setTitle('Planification hebdomadaire');
+            .setCustomId('logsessionModal1')
+            .setTitle('Planification : Lundi à Vendredi');
 
-        // Liste des jours de la semaine
-        const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        const weekdays = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
 
-        // Créer une ActionRow pour chaque jour avec un champ de texte
-        const actionRows = days.map(day => {
+        const actionRows = weekdays.map(day => {
             const input = new TextInputBuilder()
-                .setCustomId(`session_${day.toLowerCase()}`) // ID unique pour chaque jour
+                .setCustomId(`session_${day.toLowerCase()}`)
                 .setLabel(`${day} : Heure de la séance ou "aucune"`)
                 .setPlaceholder('HH:MM ou aucune')
                 .setStyle(TextInputStyle.Short)
-                .setRequired(false); // Rendre chaque champ facultatif
+                .setRequired(false);
 
             return new ActionRowBuilder().addComponents(input);
         });
 
-        // Ajouter toutes les ActionRows au modal
         modal.addComponents(...actionRows);
 
-        // Afficher le modal à l'utilisateur
         await interaction.showModal(modal);
     },
 };
