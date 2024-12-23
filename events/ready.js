@@ -19,10 +19,11 @@ module.exports = {
             { userId: '829613924391059476', channelId: '1320741423032832050' }, // Nathan
             { userId: '396373256053194752', channelId: '1320741448630534175' }, // Rémy
             { userId: '430759169407320087', channelId: '1320741501768044575' }, // Axel
+            { userId: '479675859222003712', channelId: '1320746909316550697' }, // Alexis 
         ];
 
         // Programmer le message quotidien à 7h
-        scheduleJob('46 13 * * *', async () => {
+        scheduleJob('48 13 * * *', async () => {
             for (const { userId, channelId } of userChannels) {
                 const channel = client.channels.cache.get(channelId);
                 if (!channel) {
