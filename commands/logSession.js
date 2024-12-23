@@ -1,54 +1,29 @@
-const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
-const fs = require('fs');
-const path = require('path');
-
-// Fichier pour stocker les horaires des séances
-const dataPath = path.join(__dirname, '../data/sessions.json');
-
-// Charger ou initialiser les données des séances
-function loadSessions() {
-    if (!fs.existsSync(dataPath)) {
-        fs.writeFileSync(dataPath, JSON.stringify({}));
-    }
-    return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-}
-
-function saveSessions(sessions) {
-    fs.writeFileSync(dataPath, JSON.stringify(sessions, null, 4));
-}
+const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('logsession')
-        .setDescription('Ouvre un formulaire pour enregistrer vos séances.'),
+        .setDescription('Enregistre vos heures de séance pour la semaine.'),
     async execute(interaction) {
-        // Créer un modal pour saisir le jour et l'heure
         const modal = new ModalBuilder()
             .setCustomId('logsessionModal')
-            .setTitle('Enregistrement de séance');
+            .setTitle('Planification des séances hebdomadaires');
 
-        // Champ texte pour le jour
-        const dayInput = new TextInputBuilder()
-            .setCustomId('sessionDay')
-            .setLabel('Jour de la semaine (ex : lundi)')
-            .setPlaceholder('lundi')
-            .setStyle(TextInputStyle.Short)
-            .setRequired(true);
+        const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
-        // Champ texte pour l'heure
-        const hourInput = new TextInputBuilder()
-            .setCustomId('sessionHour')
-            .setLabel('Heure de votre séance ou \"aucune\"')
-            .setPlaceholder('18:00 ou aucune')
-            .setStyle(TextInputStyle.Short)
-            .setRequired(true);
+        const actionRows = days.map(day => {
+            const input = new TextInputBuilder()
+                .setCustomId(`session_${day.toLowerCase()}`)
+                .setLabel(`${day} : Heure de la séance ou "aucune"`)
+                .setPlaceholder('HH:MM ou "aucune"')
+                .setStyle(TextInputStyle.Short)
+                .setRequired(false);
 
-        // Ajouter les champs au modal
-        const rowDay = new ActionRowBuilder().addComponents(dayInput);
-        const rowHour = new ActionRowBuilder().addComponents(hourInput);
-        modal.addComponents(rowDay, rowHour);
+            return new ActionRowBuilder().addComponents(input);
+        });
 
-        // Afficher le modal à l'utilisateur
+        modal.addComponents(actionRows);
+
         await interaction.showModal(modal);
     },
 };
