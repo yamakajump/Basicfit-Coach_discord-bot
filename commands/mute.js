@@ -12,8 +12,8 @@ module.exports = {
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const member = interaction.guild.members.cache.get(user.id);
-        const mutedRoleId = '1320760751509606400'; // Remplace par l'ID du rôle 'Repos forcé'
-        const generalChannelId = '1308349548711907360'; // Remplace par l'ID du salon 💪〣général
+        const mutedRoleId = '1308349548711907360'; // Remplace par l'ID du rôle 'Repos forcé'
+        const generalChannelId = '1320760751509606400'; // Remplace par l'ID du salon 💪〣général
 
         const mutedRole = interaction.guild.roles.cache.get(mutedRoleId);
         const generalChannel = interaction.guild.channels.cache.get(generalChannelId);
@@ -32,11 +32,13 @@ module.exports = {
 
         try {
             await member.roles.add(mutedRole);
-            await interaction.reply(`${user.username} a été mute avec succès.`);
 
-            // Notifier dans le salon général
+            // Envoyer un seul message dans le salon général
             if (generalChannel) {
                 generalChannel.send(`${user.username} a été mute par ${interaction.user.username}.`);
+            } else {
+                // Si le salon général n'existe pas, répondre à l'utilisateur
+                interaction.reply(`${user.username} a été mute avec succès.`);
             }
         } catch (error) {
             console.error(error);
