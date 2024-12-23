@@ -21,14 +21,14 @@ module.exports = {
         }
 
         if (member.roles.cache.has(mutedRole.id)) {
-            return interaction.reply({ content: `${user.username} est déjà mute.`, ephemeral: true });
+            return interaction.reply({ content: `<@${user.id}> est déjà en 😈 Repos forcé.`, ephemeral: true });
         }
 
         try {
             await member.roles.add(mutedRole);
 
-            // Envoyer un seul message via interaction.reply()
-            await interaction.reply(`${user.username} a été mute avec succès par ${interaction.user.username}.`);
+            // Répondre à l'utilisateur via interaction.reply() avec la mention
+            await interaction.reply(`<@${user.id}> Tu as dépassé ta limite ! Fais une pause et reviens plus fort après ton repos forcé.`);
         } catch (error) {
             console.error(error);
             interaction.reply({ content: "Une erreur s'est produite lors de l'attribution du rôle.", ephemeral: true });
