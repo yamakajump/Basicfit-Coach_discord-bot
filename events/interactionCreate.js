@@ -1,4 +1,5 @@
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { scheduleNotifications, resetNotifications } = require('./notificationScheduler');
 const fs = require('fs');
 const path = require('path');
 
@@ -80,6 +81,8 @@ module.exports = {
                     components: [row],
                     ephemeral: true,
                 });
+
+                resetNotifications(client); // Réinitialiser les notifications
             }
 
             // Traiter le second modal (Samedi et Dimanche)
@@ -101,6 +104,8 @@ module.exports = {
                     content: 'Vos séances pour Samedi et Dimanche ont été enregistrées. Merci !',
                     ephemeral: true,
                 });
+
+                resetNotifications(client); // Réinitialiser les notifications
             }
         }
 

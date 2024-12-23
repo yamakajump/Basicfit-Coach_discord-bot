@@ -38,7 +38,5 @@ module.exports = {
                 }
             }
         });
-
-        console.log('Messages quotidiens programmés pour 7h.');
     },
 };

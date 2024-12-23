@@ -14,5 +14,8 @@ module.exports = {
         if (generalChannel) {
             generalChannel.send('Je suis de retour mes GymBro !');
         }
+
+        // Planifier les notifications
+        scheduleNotifications(client);
     },
 };
