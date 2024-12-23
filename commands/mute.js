@@ -13,17 +13,11 @@ module.exports = {
         const user = interaction.options.getUser('user');
         const member = interaction.guild.members.cache.get(user.id);
         const mutedRoleId = '1320760751509606400'; // ID du rôle 'Repos forcé'
-        const generalChannelId = '1308349548711907360'; // ID du salon 💪〣général
 
         const mutedRole = interaction.guild.roles.cache.get(mutedRoleId);
-        const generalChannel = interaction.guild.channels.cache.get(generalChannelId);
 
         if (!mutedRole) {
             return interaction.reply({ content: `Le rôle avec l'ID \`${mutedRoleId}\` n'existe pas. Vérifiez l'ID avant d'utiliser cette commande.`, ephemeral: true });
-        }
-
-        if (!generalChannel) {
-            console.error(`Le salon avec l'ID ${generalChannelId} n'existe pas.`);
         }
 
         if (member.roles.cache.has(mutedRole.id)) {
@@ -33,13 +27,8 @@ module.exports = {
         try {
             await member.roles.add(mutedRole);
 
-            // Répondre à l'utilisateur via interaction.reply()
-            await interaction.reply(`${user.username} a été mute avec succès.`);
-
-            // En option, notifier dans le salon général
-            if (generalChannel) {
-                generalChannel.send(`${user.username} a été mute par ${interaction.user.username}.`);
-            }
+            // Envoyer un seul message via interaction.reply()
+            await interaction.reply(`${user.username} a été mute avec succès par ${interaction.user.username}.`);
         } catch (error) {
             console.error(error);
             interaction.reply({ content: "Une erreur s'est produite lors de l'attribution du rôle.", ephemeral: true });
