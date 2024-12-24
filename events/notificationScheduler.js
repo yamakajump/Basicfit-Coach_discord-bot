@@ -8,8 +8,9 @@ const path = require("path");
 // ID du canal où envoyer les notifications
 const CHANNEL_ID = "1320775045940904090";
 
-// Fichier contenant les horaires des séances
+// Fichiers pour les données
 const dataPath = path.join(__dirname, "../data/sessions.json");
+const leaderboardPath = path.join(__dirname, "../data/Leaderboard.json");
 
 // Charger ou initialiser les données des séances
 function loadSessions() {
@@ -17,6 +18,37 @@ function loadSessions() {
     fs.writeFileSync(dataPath, JSON.stringify({}));
   }
   return JSON.parse(fs.readFileSync(dataPath, "utf8"));
+}
+
+// Charger ou initialiser les données du leaderboard
+function loadLeaderboard() {
+  if (!fs.existsSync(leaderboardPath)) {
+    fs.writeFileSync(leaderboardPath, JSON.stringify({}));
+  }
+  return JSON.parse(fs.readFileSync(leaderboardPath, "utf8"));
+}
+
+// Sauvegarder les données du leaderboard
+function saveLeaderboard(data) {
+  fs.writeFileSync(leaderboardPath, JSON.stringify(data, null, 2));
+}
+
+// Ajouter un score au leaderboard
+function addScore(userId, day) {
+  const leaderboard = loadLeaderboard();
+
+  if (!leaderboard[userId]) {
+    leaderboard[userId] = { total: 0 };
+  }
+
+  if (!leaderboard[userId][day]) {
+    leaderboard[userId][day] = 0;
+  }
+
+  leaderboard[userId][day] += 1;
+  leaderboard[userId].total += 1;
+
+  saveLeaderboard(leaderboard);
 }
 
 // Stocker les tâches planifiées
@@ -51,11 +83,11 @@ function scheduleNotifications(client) {
 
             const actionRow = new ActionRowBuilder().addComponents(
               new ButtonBuilder()
-                .setCustomId(`confirm_${userId}_${day}_${time}_yes`)
+                .setCustomId(`confirm_${userId}_${day}_yes`)
                 .setLabel("Oui")
                 .setStyle(ButtonStyle.Success),
               new ButtonBuilder()
-                .setCustomId(`confirm_${userId}_${day}_${time}_no`)
+                .setCustomId(`confirm_${userId}_${day}_no`)
                 .setLabel("Non")
                 .setStyle(ButtonStyle.Danger)
             );
@@ -75,6 +107,18 @@ function scheduleNotifications(client) {
         scheduledJobs.push(job);
       }
     }
+  }
+}
+
+// Gérer les interactions des boutons
+async function handleButtonInteraction(interaction) {
+  const [action, userId, day] = interaction.customId.split("_");
+
+  if (action === "confirm" && interaction.customId.endsWith("yes")) {
+    addScore(userId, day);
+    await interaction.reply({ content: `Score ajouté pour ${day} ! ✅`, ephemeral: true });
+  } else if (action === "confirm" && interaction.customId.endsWith("no")) {
+    await interaction.reply({ content: `Pas de problème, à la prochaine ! ❌`, ephemeral: true });
   }
 }
 
@@ -124,4 +168,4 @@ function resetNotifications(client) {
   scheduleNotifications(client);
 }
 
-module.exports = { scheduleNotifications, resetNotifications };
+module.exports = { scheduleNotifications, resetNotifications, handleButtonInteraction };
