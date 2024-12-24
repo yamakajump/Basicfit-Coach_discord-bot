@@ -11,7 +11,6 @@ module.exports = {
         .setName('motivation')
         .setDescription('Recevoir une citation motivante aléatoire !'),
     async execute(interaction) {
-        console.log('La commande motivation a été appelée.');
         const randomIndex = Math.floor(Math.random() * motivations.citations.length);
         const randomCitation = motivations.citations[randomIndex];
         await interaction.reply(randomCitation);

@@ -1,3 +1,4 @@
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const schedule = require("node-schedule");
 const { formatInTimeZone } = require("date-fns-tz");
 const { parse } = require("date-fns");
@@ -60,7 +61,7 @@ function scheduleNotifications(client) {
             );
 
             await channel.send({
-              content: `<@${userId}> C'est l'heure de ta séance du **${day}** à **${time}**. Bonne séance ! 💪`,
+              content: `<@${userId}> C'est l'heure de ta séance du **${day}** à **${time}**. Bonne séance ! 💪 \r### **Séance réalisée ?**`,
               components: [actionRow],
             });
           } catch (error) {
@@ -118,6 +119,8 @@ function getNextOccurrence(day, time, timezone) {
 
 // Réinitialiser les notifications après modification des données
 function resetNotifications(client) {
+  scheduledJobs.forEach((job) => job.cancel());
+  scheduledJobs = [];
   scheduleNotifications(client);
 }
 
