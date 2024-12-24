@@ -6,6 +6,9 @@ require('dotenv').config();
 // Créez une instance du bot
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+// ID du canal pour rapporter les erreurs
+const ERROR_CHANNEL_ID = '1320725724994474015';
+
 // Collection des commandes
 client.commands = new Collection();
 const commands = [];
@@ -53,10 +56,41 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
         console.log('Les commandes slash ont été enregistrées avec succès.');
     } catch (error) {
         console.error('Erreur lors de l\'enregistrement des commandes:', error);
+        reportError(client, `Erreur lors de l'enregistrement des commandes:\n\`\`\`${error.message}\`\`\``);
     }
 })();
 
 global.botStartTime = Date.now();
+
+// Gestion des erreurs globales
+client.on('error', (error) => {
+    console.error('Erreur client Discord:', error);
+    reportError(client, `Erreur client Discord:\n\`\`\`${error.message}\`\`\``);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Rejet non géré:', reason);
+    reportError(client, `Rejet non géré:\n\`\`\`${reason}\`\`\``);
+});
+
+process.on('uncaughtException', (error) => {
+    console.error('Exception non capturée:', error);
+    reportError(client, `Exception non capturée:\n\`\`\`${error.message}\`\`\``);
+});
+
+// Fonction pour envoyer des erreurs au salon
+async function reportError(client, message) {
+    try {
+        const channel = await client.channels.fetch(ERROR_CHANNEL_ID);
+        if (!channel || !channel.isTextBased()) {
+            console.error('Le canal d\'erreur spécifié est introuvable ou non valide.');
+            return;
+        }
+        await channel.send(message);
+    } catch (err) {
+        console.error('Impossible d\'envoyer le message d\'erreur:', err);
+    }
+}
 
 // Lancer le bot
 client.login(process.env.TOKEN);
