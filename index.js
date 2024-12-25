@@ -62,35 +62,5 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 global.botStartTime = Date.now();
 
-// Gestion des erreurs globales
-client.on('error', (error) => {
-    console.error('Erreur client Discord:', error);
-    reportError(client, `Erreur client Discord:\n\`\`\`${error.message}\`\`\``);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Rejet non géré:', reason);
-    reportError(client, `Rejet non géré:\n\`\`\`${reason}\`\`\``);
-});
-
-process.on('uncaughtException', (error) => {
-    console.error('Exception non capturée:', error);
-    reportError(client, `Exception non capturée:\n\`\`\`${error.message}\`\`\``);
-});
-
-// Fonction pour envoyer des erreurs au salon
-async function reportError(client, message) {
-    try {
-        const channel = await client.channels.fetch(ERROR_CHANNEL_ID);
-        if (!channel || !channel.isTextBased()) {
-            console.error('Le canal d\'erreur spécifié est introuvable ou non valide.');
-            return;
-        }
-        await channel.send(message);
-    } catch (err) {
-        console.error('Impossible d\'envoyer le message d\'erreur:', err);
-    }
-}
-
 // Lancer le bot
 client.login(process.env.TOKEN);

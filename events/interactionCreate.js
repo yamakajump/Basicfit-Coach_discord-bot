@@ -3,6 +3,21 @@ const { scheduleNotifications, resetNotifications } = require('./notificationSch
 const fs = require('fs');
 const path = require('path');
 
+// Fichier pour stocker le classement des séances
+const topSeancePath = path.join(__dirname, '../data/topSeance.json');
+
+// Charger ou initialiser les données du classement
+function loadTopSeance() {
+    if (!fs.existsSync(topSeancePath)) {
+        fs.writeFileSync(topSeancePath, JSON.stringify({}));
+    }
+    return JSON.parse(fs.readFileSync(topSeancePath, 'utf8'));
+}
+
+function saveTopSeance(data) {
+    fs.writeFileSync(topSeancePath, JSON.stringify(data, null, 4));
+}
+
 // Fichier pour stocker les horaires des séances
 const dataPath = path.join(__dirname, '../data/sessions.json');
 
@@ -110,27 +125,66 @@ module.exports = {
         }
 
         // Si le bouton est cliqué, envoyer le second modal
-        if (interaction.isButton() && interaction.customId === 'continueToWeekend') {
-            const modal2 = new ModalBuilder()
-                .setCustomId('logsessionModal2')
-                .setTitle('Planification : Samedi et Dimanche');
+        if (interaction.isButton()) {
+            if (interaction.customId === 'continueToWeekend') {
+                const modal2 = new ModalBuilder()
+                    .setCustomId('logsessionModal2')
+                    .setTitle('Planification : Samedi et Dimanche');
+    
+                const weekend = ['Samedi', 'Dimanche'];
+    
+                const actionRows = weekend.map(day => {
+                    const input = new TextInputBuilder()
+                        .setCustomId(`session_${day.toLowerCase()}`)
+                        .setLabel(`${day} : Heure de la séance ou "aucune"`)
+                        .setPlaceholder('HH:MM ou aucune')
+                        .setStyle(TextInputStyle.Short)
+                        .setRequired(false);
+    
+                    return new ActionRowBuilder().addComponents(input);
+                });
+    
+                modal2.addComponents(...actionRows);
+    
+                await interaction.showModal(modal2);
+            }
+            
+            const [action, targetUserId, day, response] = interaction.customId.split('_');
 
-            const weekend = ['Samedi', 'Dimanche'];
-
-            const actionRows = weekend.map(day => {
-                const input = new TextInputBuilder()
-                    .setCustomId(`session_${day.toLowerCase()}`)
-                    .setLabel(`${day} : Heure de la séance ou "aucune"`)
-                    .setPlaceholder('HH:MM ou aucune')
-                    .setStyle(TextInputStyle.Short)
-                    .setRequired(false);
-
-                return new ActionRowBuilder().addComponents(input);
-            });
-
-            modal2.addComponents(...actionRows);
-
-            await interaction.showModal(modal2);
+            if (action === 'confirm') {
+                const topSeance = loadTopSeance();
+            
+                // Initialiser les données de l'utilisateur si elles n'existent pas
+                if (!topSeance[targetUserId]) {
+                    topSeance[targetUserId] = { yes: 0, no: 0 };
+                }
+            
+                // Mise à jour du classement
+                if (response === 'yes') {
+                    topSeance[targetUserId].yes += 1;
+                    await interaction.reply({
+                        content: '✅ Séance validée. Continue comme ça ! 💪',
+                        ephemeral: true,
+                    });
+                } else if (response === 'no') {
+                    topSeance[targetUserId].no += 1;
+                    await interaction.reply({
+                        content: '❌ Séance non effectuée. On fera mieux la prochaine fois ! 😊',
+                        ephemeral: true,
+                    });
+                }
+            
+                // Sauvegarder les mises à jour dans le classement
+                saveTopSeance(topSeance);
+            
+                // Supprimer le message où était le bouton et le message de réponse après 30 secondes
+                try {
+                    const originalMessage = await interaction.message.fetch();
+                    await originalMessage.delete();
+                } catch (error) {
+                    console.error(`Erreur lors de la suppression des messages :`, error);
+                }
+            }
         }
     },
 };

@@ -1,66 +1,45 @@
-// Commande /topSeance pour le bot Discord
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
-// Chemin vers le fichier des sessions
-const sessionsFile = path.join(__dirname, '../data/sessions.json');
+// Fichier contenant le classement des séances
+const topSeancePath = path.join(__dirname, '../data/topSeance.json');
 
-// Charger les données des sessions
-function loadSessions() {
-    if (!fs.existsSync(sessionsFile)) {
-        return {};
+// Charger ou initialiser les données du classement
+function loadTopSeance() {
+    if (!fs.existsSync(topSeancePath)) {
+        fs.writeFileSync(topSeancePath, JSON.stringify({}));
     }
-    return JSON.parse(fs.readFileSync(sessionsFile, 'utf-8'));
+    return JSON.parse(fs.readFileSync(topSeancePath, 'utf8'));
 }
 
-// Sauvegarder les données des sessions
-function saveSessions(data) {
-    fs.writeFileSync(sessionsFile, JSON.stringify(data, null, 2));
-}
-
-// Commande
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('topseance')
-        .setDescription('Affiche le classement des utilisateurs par jours de séance'),
-
+        .setDescription('Affiche le classement des séances validées et non effectuées.'),
     async execute(interaction) {
-        const sessions = loadSessions();
+        const topSeance = loadTopSeance();
 
-        // Générer un classement pour chaque jour
-        const leaderboard = {};
-        Object.keys(sessions).forEach(userId => {
-            Object.keys(sessions[userId]).forEach(day => {
-                if (!leaderboard[day]) {
-                    leaderboard[day] = [];
-                }
-                leaderboard[day].push({
-                    userId,
-                    score: sessions[userId][day]
-                });
+        if (Object.keys(topSeance).length === 0) {
+            await interaction.reply({
+                content: 'Aucun utilisateur n\'a encore enregistré de séances.',
+                ephemeral: true,
             });
+            return;
+        }
+
+        // Trier les utilisateurs par nombre de séances validées ("Oui")
+        const sortedUsers = Object.entries(topSeance)
+            .sort(([, a], [, b]) => b.yes - a.yes);
+
+        // Construire le message du classement
+        const leaderboard = sortedUsers.map(([userId, stats], index) => {
+            return `**#${index + 1}** - <@${userId}> : ✅ **${stats.yes}** séances validées, ❌ **${stats.no}** séances non effectuées`;
+        }).join('\n');
+
+        await interaction.reply({
+            content: `**Classement des séances :**\n\n${leaderboard}`,
+            ephemeral: false,
         });
-
-        // Trier les classements par score décroissant
-        for (const day in leaderboard) {
-            leaderboard[day].sort((a, b) => b.score - a.score);
-        }
-
-        // Générer un embed
-        const embed = new MessageEmbed()
-            .setTitle('Classement des séances')
-            .setColor('#FFA500')
-            .setDescription('Voici le classement des utilisateurs par jour.');
-
-        for (const day in leaderboard) {
-            const dayLeaderboard = leaderboard[day]
-                .map((entry, index) => `#${index + 1} <@${entry.userId}> - **${entry.score} séances**`)
-                .join('\n');
-            embed.addField(day, dayLeaderboard || 'Aucune donnée', false);
-        }
-
-        await interaction.reply({ embeds: [embed] });
     },
 };
