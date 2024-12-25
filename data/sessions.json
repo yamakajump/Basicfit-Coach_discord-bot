@@ -1,6 +1,6 @@
 {
     "690488124480028692": {
-        "lundi": "17:30",
+        "lundi": "17:40",
         "mardi": "17:30",
         "mercredi": "17:30",
         "jeudi": "17:30",
@@ -10,11 +10,11 @@
     },
     "634433284285268006": {
         "lundi": "19:00",
-        "mardi": "19:00",
+        "mardi": "10:15",
         "mercredi": "19:00",
         "jeudi": null,
         "vendredi": "19:00",
-        "samedi": "14:00",
+        "samedi": null,
         "dimanche": null
     }
 }
