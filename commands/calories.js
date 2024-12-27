@@ -66,6 +66,6 @@ module.exports = {
 
         const besoins = (mb * facteurs[activite]).toFixed(2);
 
-        await interaction.reply(`🍎 **Besoins caloriques estimés** :\n\n- **Calories par jour** : ${besoins} kcal`);
+        await interaction.reply(`:cookie~1: **Besoins caloriques estimés** :\n\n- **Calories par jour** : ${besoins} kcal`);
     },
 };
