@@ -32,6 +32,6 @@ module.exports = {
         else classification = "Obésité";
 
         // Réponse
-        await interaction.reply(`\<a:rouge:843212747998232666> **Résultat de votre IMC** :\n\n- **IMC** : ${imc}\n- **Classification** : ${classification}`);
+        await interaction.reply(`\<:rouge:843212747998232666> **Résultat de votre IMC** :\n\n- **IMC** : ${imc}\n- **Classification** : ${classification}`);
     },
 };
