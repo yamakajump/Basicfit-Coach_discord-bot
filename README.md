@@ -17,10 +17,8 @@ Le bot propose plusieurs commandes pour aider les utilisateurs :
 | `/fatloss`     | Estime le déficit calorique nécessaire pour atteindre un poids cible.      |
 | `/maxrp`       | Calcule le poids maximum pour une répétition (1RM).                       |
 | `/energyburn`  | Estime les calories brûlées en fonction de l'activité et de la durée.      |
-| `/8ball`       | Répond à une question par une réponse aléatoire.                          |
 | `/birthday`    | Enregistre et affiche les anniversaires des membres du serveur.           |
 | `/clear`       | Supprime un certain nombre de messages dans un canal.                     |
-| `/rps`         | Joue à Pierre-Feuille-Ciseaux avec le bot.                                |
 | `/mute`        | Attribue un rôle "mute" à un utilisateur.                                |
 | `/unmute`      | Retire le rôle "mute" d'un utilisateur.                                   |
 
