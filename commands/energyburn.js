@@ -54,7 +54,7 @@ module.exports = {
         };
 
         // Réponse
-        await interaction.reply(`\<a:6IconFire:1249765113234198650> **Estimation des calories brûlées** :\n\n` +
+        await interaction.reply(`\<a:feu:1321793901350223932> **Estimation des calories brûlées** :\n\n` +
             `- **Activité** : ${activiteText[activite]}\n` +
             `- **Durée** : ${duree} minutes\n` +
             `- **Poids** : ${poids} kg\n\n` +
