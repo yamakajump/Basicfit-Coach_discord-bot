@@ -51,6 +51,6 @@ module.exports = {
         bodyFatPercentage = bodyFatPercentage.toFixed(2);
 
         // Réponse
-        await interaction.reply(`📊 **Résultat de votre pourcentage de masse grasse :**\n\n- **Masse grasse estimée** : ${bodyFatPercentage}%`);
+        await interaction.reply(`\<:coin_info:1321862685578756167> **Résultat de votre pourcentage de masse grasse :**\n\n- **Masse grasse estimée** : ${bodyFatPercentage}%`);
     },
 };
