@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cron": "^3.3.1",
     "date-fns-tz": "^3.2.0",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.7",
