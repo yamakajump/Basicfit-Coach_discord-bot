@@ -40,6 +40,6 @@ module.exports = {
         let objectifTexte = objectif === 'perte' ? 'Perte de poids' :
                             objectif === 'maintien' ? 'Maintien' : 'Prise de masse';
 
-        await interaction.reply(`🍗 **Besoins en protéines** :\n\n- **Objectif** : ${objectifTexte}\n- **Quantité recommandée** : ${besoinsProteines} g par jour`);
+        await interaction.reply(`\<:cookie:1321862688095080548> **Besoins en protéines** :\n\n- **Objectif** : ${objectifTexte}\n- **Quantité recommandée** : ${besoinsProteines} g par jour`);
     },
 };
