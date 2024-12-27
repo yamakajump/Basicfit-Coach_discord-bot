@@ -20,7 +20,7 @@ module.exports = {
         ];
 
         // Programmer le message quotidien à 7h
-        scheduleJob('0 6 * * *', async () => {
+        scheduleJob('0 7 * * *', async () => {
             for (const { userId, channelId } of userChannels) {
                 const channel = client.channels.cache.get(channelId);
                 if (!channel) {

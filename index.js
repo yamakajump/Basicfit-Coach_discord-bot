@@ -1,3 +1,4 @@
+const cron = require('node-cron'); // Nécessaire pour exécuter des tâches quotidiennes
 const fs = require('fs');
 const path = require('path');
 const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
@@ -22,6 +23,13 @@ for (const file of commandFiles) {
     const command = require(filePath);
     client.commands.set(command.data.name, command);
     commands.push(command.data.toJSON());
+}
+
+// Charger les anniversaires
+const birthdaysFile = path.join(__dirname, 'data/birthdays.json');
+let birthdays = {};
+if (fs.existsSync(birthdaysFile)) {
+    birthdays = JSON.parse(fs.readFileSync(birthdaysFile, 'utf-8'));
 }
 
 // Charger les événements
@@ -58,6 +66,24 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
         console.error('Erreur lors de l\'enregistrement des commandes:', error);
         reportError(client, `Erreur lors de l'enregistrement des commandes:\n\`\`\`${error.message}\`\`\``);
     }
+
+
+// Tâche quotidienne pour vérifier les anniversaires
+cron.schedule('0 0 * * *', async () => {
+    const today = new Date();
+    const todayFormatted = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+
+    const birthdayMembers = Object.values(birthdays).filter(entry => entry.date === todayFormatted);
+
+    for (const member of birthdayMembers) {
+        const guild = client.guilds.cache.first(); // Changez pour un serveur spécifique si nécessaire
+        const channel = guild.channels.cache.find(ch => ch.name === 'général' || ch.name === 'general');
+
+        if (channel) {
+            await channel.send(`🎂 Joyeux anniversaire à **${member.username}** ! 🥳🎉`);
+        }
+    }
+    
 })();
 
 global.botStartTime = Date.now();
