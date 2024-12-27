@@ -12,10 +12,10 @@
         "lundi": "19:00",
         "mardi": "19:00",
         "mercredi": "19:00",
-        "jeudi": null,
+        "jeudi": "19:00",
         "vendredi": "19:00",
         "samedi": "14:00",
-        "dimanche": null
+        "dimanche": "14:00"
     },
     "829613924391059476": {
         "lundi": "19:30",
