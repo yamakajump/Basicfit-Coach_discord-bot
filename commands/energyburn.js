@@ -54,10 +54,10 @@ module.exports = {
         };
 
         // Réponse
-        await interaction.reply(`🔥 **Estimation des calories brûlées** :\n\n` +
+        await interaction.reply(`\<a:6IconFire:1249765113234198650> **Estimation des calories brûlées** :\n\n` +
             `- **Activité** : ${activiteText[activite]}\n` +
             `- **Durée** : ${duree} minutes\n` +
             `- **Poids** : ${poids} kg\n\n` +
-            `💥 **Calories brûlées** : ${caloriesBrulees} kcal`);
+            `\<:explosion:1322215916741595217> **Calories brûlées** : ${caloriesBrulees} kcal`);
     },
 };
