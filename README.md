@@ -25,7 +25,7 @@ Le bot propose plusieurs commandes pour aider les utilisateurs :
 | `/unmute`      | Retire le rôle "mute" d'un utilisateur.                                   |
 
 ### **Messages quotidiens**
-- Envoie automatiquement une citation motivante tous les jours à une heure prédéfinie dans un canal spécifique.
+- Le bot envoie une citation motivante chaque jour à 7h dans un canal spécifique.
 
 ---
 
