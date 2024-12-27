@@ -119,4 +119,6 @@ Les contributions sont les bienvenues ! Pour contribuer :
 
 ## Licence
 
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le redistribuer tant que vous respectez les termes de la licence.
+Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le redistribuer tant que vous respectez les termes de la licence.  
+Voir le fichier [LICENSE](./LICENSE) pour plus de détails.
+
