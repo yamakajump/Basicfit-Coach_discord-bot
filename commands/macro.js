@@ -55,6 +55,6 @@ module.exports = {
                               objectif === 'maintien' ? 'Maintien' :
                               objectif === 'prise' ? 'Prise de masse' : 'Recomposition corporelle';
 
-        await interaction.reply(`🍎 **Répartition des macronutriments** :\n\n- **Objectif** : ${objectifTexte}\n- **Calories totales** : ${calories} kcal\n\n📊 **Macronutriments** :\n- **Protéines** : ${proteinesGr} g (${proteinesPct}%)\n- **Lipides** : ${lipidesGr} g (${lipidesPct}%)\n- **Glucides** : ${glucidesGr} g (${glucidesPct}%)`);
+        await interaction.reply(`:coin_info:  **Répartition des macronutriments** :\n\n- **Objectif** : ${objectifTexte}\n- **Calories totales** : ${calories} kcal\n\n📊 **Macronutriments** :\n- **Protéines** : ${proteinesGr} g (${proteinesPct}%)\n- **Lipides** : ${lipidesGr} g (${lipidesPct}%)\n- **Glucides** : ${glucidesGr} g (${glucidesPct}%)`);
     },
 };
