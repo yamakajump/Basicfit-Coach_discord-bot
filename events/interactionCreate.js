@@ -151,6 +151,15 @@ module.exports = {
             
             const [action, targetUserId, day, response] = interaction.customId.split('_');
 
+            // vérifie si c'est le bon utilisateur qui a cliqué sur le bouton
+            if (targetUserId !== userId) {
+                await interaction.reply({
+                    content: 'Vous ne pouvez pas confirmer ou annuler les séances d\'un autre utilisateur.',
+                    ephemeral: true,
+                });
+                return;
+            }
+
             if (action === 'confirm') {
                 const topSeance = loadTopSeance();
             
