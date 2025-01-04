@@ -1,5 +1,5 @@
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const { scheduleNotifications, resetNotifications } = require('./notificationScheduler');
+const { resetNotifications } = require('./notificationScheduler');
 const fs = require('fs');
 const path = require('path');
 
