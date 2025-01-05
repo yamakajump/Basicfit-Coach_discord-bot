@@ -27,10 +27,10 @@
         "dimanche": null
     },
     "396373256053194752": {
-        "lundi": null,
-        "mardi": null,
-        "mercredi": null,
-        "jeudi": null,
-        "vendredi": null
+        "lundi": "17:30",
+        "mardi": "17:30",
+        "mercredi": "17:30",
+        "jeudi": "17:30",
+        "vendredi": "17:30"
     }
 }
