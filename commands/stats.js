@@ -115,11 +115,11 @@ module.exports = {
                         break;
                     }
                 
-                    // Grouper les visites par semaine (ISO Week)
+                    // Grouper les visites par semaine (non ISO)
                     const weeks = new Set();
                     visitsWeek.forEach(date => {
                         const year = date.getUTCFullYear();
-                        const week = date.getUTCISOWeek();
+                        const week = Math.floor((date - new Date(year, 0, 1)) / (1000 * 60 * 60 * 24 * 7)); // Approximation des semaines
                         weeks.add(`${year}-W${week}`);
                     });
                 
@@ -132,8 +132,8 @@ module.exports = {
                         const [year1, week1] = sortedWeeks[i - 1].split('-W').map(Number);
                         const [year2, week2] = sortedWeeks[i].split('-W').map(Number);
                 
-                        // Calculer si les semaines sont consécutives (gérer le changement d'année)
-                        if ((year1 === year2 && week2 === week1 + 1) || (year2 === year1 + 1 && week1 === 52 && week2 === 1)) {
+                        // Vérifier si les semaines sont consécutives (gérer le changement d'année)
+                        if ((year1 === year2 && week2 === week1 + 1) || (year2 === year1 + 1 && week1 === 51 && week2 === 0)) {
                             currentWeekStreak++;
                             maxWeekStreak = Math.max(maxWeekStreak, currentWeekStreak);
                         } else {
