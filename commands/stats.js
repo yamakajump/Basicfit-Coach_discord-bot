@@ -148,12 +148,89 @@ module.exports = {
                     break;
 
                 case 'averageWeek':
-                    await interaction.reply({ content: `Moyenne hebdomadaire calculée pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visitsWeek = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        })
+                        .sort((a, b) => a - b); // Sort dates chronologically
+                
+                    if (!visitsWeek.length) {
+                        await interaction.reply({
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Group visits by ISO week-year
+                    const weeklyVisits = {};
+                    visitsWeek.forEach(date => {
+                        const week = date.getUTCISOWeek();
+                        const year = date.getUTCFullYear();
+                        const weekKey = `${year}-W${week}`;
+                
+                        if (!weeklyVisits[weekKey]) {
+                            weeklyVisits[weekKey] = 0;
+                        }
+                        weeklyVisits[weekKey]++;
+                    });
+                
+                    // Calculate average days per week
+                    const totalWeeks = Object.keys(weeklyVisits).length;
+                    const totalVisits = Object.values(weeklyVisits).reduce((a, b) => a + b, 0);
+                    const averagePerWeek = (totalVisits / totalWeeks).toFixed(2);
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `📊 **Average Week** : <@${utilisateur.id}> va à la salle en moyenne **${averagePerWeek} jours par semaine** !`
+                    });
                     break;
 
+
                 case 'bestMonth':
-                    await interaction.reply({ content: `Meilleur mois identifié pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visitsMonth = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                    if (!visitsMonth.length) {
+                        await interaction.reply({
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Group visits by month-year
+                    const monthlyVisits = {};
+                    visitsMonth.forEach(date => {
+                        const month = date.getUTCMonth() + 1; // Months are zero-indexed
+                        const year = date.getUTCFullYear();
+                        const monthKey = `${year}-${month.toString().padStart(2, '0')}`;
+                
+                        if (!monthlyVisits[monthKey]) {
+                            monthlyVisits[monthKey] = 0;
+                        }
+                        monthlyVisits[monthKey]++;
+                    });
+                
+                    // Find the month with the most visits
+                    const bestMonth = Object.entries(monthlyVisits).reduce((best, current) =>
+                        current[1] > best[1] ? current : best
+                    );
+                
+                    const [bestMonthKey, bestMonthCount] = bestMonth;
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `📅 **Best Month** : Le mois où ${utilisateur.username} est allé le plus souvent à la salle est : **${bestMonthKey}** avec **${bestMonthCount} visites** !`
+                    });
                     break;
+
 
                 case 'favoriteDay':
                     await interaction.reply({ content: `Jour préféré calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
