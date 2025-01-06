@@ -168,12 +168,12 @@ function generateHeatmap(jsonData, outputPath) {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = '#212121'; // Fond global
+    ctx.fillStyle = '#2A2A2A'; // Fond global
     ctx.fillRect(0, 0, width, height);
 
     let yOffset = padding;
     Object.keys(yearData).forEach((year, index) => {
-        ctx.fillStyle = '#2A2A2A'; // Gris foncé pour le fond de l'année
+        ctx.fillStyle = '#212121'; // Gris foncé pour le fond de l'année
         ctx.fillRect(padding, yOffset - 30, width - padding * 2, 30);
 
         ctx.fillStyle = '#FFFFFF'; // Blanc pour le texte de l'année
@@ -194,7 +194,7 @@ function generateHeatmap(jsonData, outputPath) {
 function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
-    ctx.fillStyle = '#2A2A2A'; // Couleur des jours de la semaine
+    ctx.fillStyle = '#212121'; // Couleur des jours de la semaine
     ctx.font = '10px Arial';
     ctx.textAlign = 'right';
     daysOfWeek.forEach((day, index) => {
@@ -208,7 +208,7 @@ function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
 
             // Couleurs selon l'intensité
             if (intensity === 0) {
-                ctx.fillStyle = '#FFFFFF'; // Case vide : blanc
+                ctx.fillStyle = '#212121'; // Case vide
             } else if (intensity === 1) {
                 ctx.fillStyle = '#FB7819'; // Clair
             } else {
@@ -226,7 +226,7 @@ function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
 function drawMonths(ctx, yOffset, cellSize, cellGap, padding, width) {
     const months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'];
 
-    ctx.fillStyle = '#2A2A2A'; // Gris foncé pour le texte des mois
+    ctx.fillStyle = '#212121'; // Gris clair pour le texte des mois
     ctx.font = '10px Arial';
     ctx.textAlign = 'center';
 
