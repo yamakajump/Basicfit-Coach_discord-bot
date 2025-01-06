@@ -49,7 +49,7 @@ module.exports = {
             switch (statistique) {
                 case 'heatmap':
                     const heatmapPath = path.join(dataDir, `${utilisateur.id}_heatmap.png`);
-                    generateHeatmap(jsonData, heatmapPath);
+                    generateHeatmap(jsonData, heatmapPath, utilisateur.username);
         
                     const attachment = new AttachmentBuilder(heatmapPath, { name: 'heatmap.png' });
         
@@ -145,7 +145,7 @@ module.exports = {
     },
 };
 
-function generateHeatmap(jsonData, outputPath) {
+function generateHeatmap(jsonData, outputPath, username) {
     const visits = jsonData.visits || [];
     const visitDates = visits.map(visit => new Date(visit.date.split('-').reverse().join('-')));
 
@@ -160,20 +160,28 @@ function generateHeatmap(jsonData, outputPath) {
     const cellSize = 15;
     const cellGap = 2;
     const padding = 50;
+    const titleHeight = 40; // Espace pour le titre
     const fontSize = 12;
 
     const width = 53 * (cellSize + cellGap) + padding * 2;
-    const height = (Object.keys(yearData).length * (7 * (cellSize + cellGap) + 80)) + padding;
+    const height = (Object.keys(yearData).length * (7 * (cellSize + cellGap) + 80)) + padding + titleHeight;
 
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = '#2A2A2A'; // Fond global
+    // Fond global
+    ctx.fillStyle = '#2A2A2A';
     ctx.fillRect(0, 0, width, height);
 
-    let yOffset = padding;
+    // Titre
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '20px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(`Visites BasicFit de ${username}`, width / 2, padding - 10);
+
+    let yOffset = padding + titleHeight; // Décalage pour le titre
     Object.keys(yearData).forEach((year, index) => {
-        ctx.fillStyle = '#212121'; // Gris foncé pour le fond de l'année
+        ctx.fillStyle = '#212121'; // Fond gris foncé pour l'année
         ctx.fillRect(padding, yOffset - 30, width - padding * 2, 30);
 
         ctx.fillStyle = '#FFFFFF'; // Blanc pour le texte de l'année
@@ -183,7 +191,7 @@ function generateHeatmap(jsonData, outputPath) {
 
         drawYearHeatmap(ctx, yearData[year], yOffset, cellSize, cellGap, padding);
 
-        drawMonths(ctx, yOffset, cellSize, cellGap, padding, width); // Ajout des mois
+        drawMonths(ctx, yOffset, cellSize, cellGap, padding, width); // Ajouter les mois
 
         yOffset += 7 * (cellSize + cellGap) + 80; // Décalage pour les années
     });
