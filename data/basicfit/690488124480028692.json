@@ -1,0 +1,1360 @@
+{
+  "member": {
+    "birth_date": "2003-09-11T22:00:00.000Z",
+    "card_number_s": "V003287258",
+    "email": "corentin.batard2003@gmail.com",
+    "first_name": "Corentin",
+    "gender_s": "male",
+    "gxr_views_s": 0,
+    "home_club": "Basic-Fit Séné Place des Vosges",
+    "iban": "***********************9314",
+    "iban_account_holder": "Corentin",
+    "last_name": "Batard",
+    "mail_opt_1_s": true,
+    "mail_opt_2_s": true,
+    "mail_opt_3_s": false,
+    "mail_opt_4_s": true,
+    "mail_opt_5_s": false,
+    "mailing_city": "Vannes",
+    "mailing_country": "France",
+    "mailing_house_number": "3",
+    "mailing_street": "Allée de l'île meaban",
+    "membership_number_s": "A43006239",
+    "middle_name": "",
+    "mobile_number": ""
+  },
+  "memberships": [
+    {
+      "contract_end_date_g": "2024-09-03T00:00:00.000",
+      "join_date_g": "2023-09-05T00:00:00.000",
+      "membership_name_g": "Premium",
+      "start_date_g": "2023-09-05T00:00:00.000",
+      "end_date_g": null,
+      "payment_plan": {
+        "interval": "fourWeeks",
+        "joining_fee": 9.99,
+        "term_fee": 29.99,
+        "minimal_contract_period": "52weeks"
+      }
+    }
+  ],
+  "friends": [
+    {
+      "birth_date_g": "1999-01-01T00:00:00.000",
+      "first_name_g": "Rémy",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Rémy Tregret",
+      "last_name_g": "Tregret"
+    },
+    {
+      "birth_date_g": "2004-04-22T00:00:00.000",
+      "first_name_g": "Nathan",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Nathan Basol",
+      "last_name_g": "Basol"
+    },
+    {
+      "birth_date_g": "1999-01-01T00:00:00.000",
+      "first_name_g": "Axel ",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Axel  Jemai",
+      "last_name_g": "Jemai "
+    },
+    {
+      "birth_date_g": "2003-02-09T00:00:00.000",
+      "first_name_g": "Ewen",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Ewen Hertel",
+      "last_name_g": "Hertel"
+    },
+    {
+      "birth_date_g": "1999-01-01T00:00:00.000",
+      "first_name_g": "Louis-Marie ",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Louis-Marie  Plantard",
+      "last_name_g": "Plantard "
+    },
+    {
+      "birth_date_g": "1972-08-08T00:00:00.000",
+      "first_name_g": "Vincent",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Vincent Batard",
+      "last_name_g": "Batard"
+    },
+    {
+      "birth_date_g": "2004-06-04T00:00:00.000",
+      "first_name_g": "Hugo",
+      "gender_g": "female",
+      "hidden_g": false,
+      "name_g": "Hugo CHAVENEAU",
+      "last_name_g": "CHAVENEAU"
+    }
+  ],
+  "articles": [
+    {
+      "articlePrice": 0,
+      "articleArticle": "Basic-Fit Sporttas",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "Basic-Fit Sporttas",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "Massage chair (FR)",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "Massage chair (FR)",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "LiveGX",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "Pro-App FR (0,-)",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "Pro-App FR (0,-)",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    },
+    {
+      "articlePrice": 0,
+      "articleArticle": "LiveGX",
+      "peopleMembershipArticleStartdate": "2023-09-05T00:00:00.000",
+      "peopleMembershipArticleEnddate": null
+    }
+  ],
+  "transactions": {
+    "invoices": [
+      {
+        "from": "2024-12-24T00:00:00.000Z",
+        "to": "2025-01-20T00:00:00.000Z",
+        "amount": "€ 29,99",
+        "paid": true
+      },
+      {
+        "from": "2024-11-26T00:00:00.000Z",
+        "to": "2024-12-23T00:00:00.000Z",
+        "amount": "€ 29,99",
+        "paid": true
+      },
+      {
+        "from": "2024-10-29T00:00:00.000Z",
+        "to": "2024-11-25T00:00:00.000Z",
+        "amount": "€ 29,99",
+        "paid": true
+      },
+      {
+        "from": "2024-03-19T00:00:00.000Z",
+        "to": "2024-04-15T00:00:00.000Z",
+        "amount": "€ 32,49",
+        "paid": true
+      },
+      {
+        "from": "2024-02-20T00:00:00.000Z",
+        "to": "2024-03-18T00:00:00.000Z",
+        "amount": "€ 32,49",
+        "paid": true
+      },
+      {
+        "from": "2024-01-23T00:00:00.000Z",
+        "to": "2024-02-19T00:00:00.000Z",
+        "amount": "€ 32,49",
+        "paid": true
+      },
+      {
+        "from": "2023-12-26T00:00:00.000Z",
+        "to": "2024-01-22T00:00:00.000Z",
+        "amount": "€ 32,49",
+        "paid": true
+      },
+      {
+        "from": "2023-11-28T00:00:00.000Z",
+        "to": "2023-12-25T00:00:00.000Z",
+        "amount": "€ 29,99",
+        "paid": true
+      },
+      {
+        "from": "2023-10-31T00:00:00.000Z",
+        "to": "2023-11-27T00:00:00.000Z",
+        "amount": "€ 29,99",
+        "paid": true
+      },
+      {
+        "from": "2023-09-05T00:00:00.000",
+        "to": "2023-09-05T00:00:00.000Z",
+        "amount": "€ 250,92",
+        "paid": true
+      }
+    ],
+    "payments": [
+      {
+        "date": "2024-12-23T00:00:00.000Z",
+        "description": "Period: 24-12-2024 / 20-01-2025 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2024-11-25T00:00:00.000Z",
+        "description": "Period: 26-11-2024 / 23-12-2024 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2024-10-28T00:00:00.000Z",
+        "description": "Period: 29-10-2024 / 25-11-2024 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2024-09-29T23:00:00.000Z",
+        "description": "Period: 01-10-2024 / 28-10-2024 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2024-09-01T23:00:00.000Z",
+        "description": "Period: 03-09-2024 / 30-09-2024 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2024-08-04T23:00:00.000Z",
+        "description": "Period: 06-08-2024 / 02-09-2024 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2024-07-07T23:00:00.000Z",
+        "description": "Period: 09-07-2024 / 05-08-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2024-06-09T23:00:00.000Z",
+        "description": "Period: 11-06-2024 / 08-07-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2024-05-12T23:00:00.000Z",
+        "description": "Period: 14-05-2024 / 10-06-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2024-04-14T23:00:00.000Z",
+        "description": "Period: 16-04-2024 / 13-05-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2024-03-18T00:00:00.000Z",
+        "description": "Period: 19-03-2024 / 15-04-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2024-02-19T00:00:00.000Z",
+        "description": "Period: 20-02-2024 / 18-03-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2024-01-22T00:00:00.000Z",
+        "description": "Period: 23-01-2024 / 19-02-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2023-12-25T00:00:00.000Z",
+        "description": "Period: 26-12-2023 / 22-01-2024 (SEPA)",
+        "amount": "€ 32,49",
+        "code": "dd"
+      },
+      {
+        "date": "2023-11-27T00:00:00.000Z",
+        "description": "Period: 28-11-2023 / 25-12-2023 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-10-30T00:00:00.000Z",
+        "description": "Period: 31-10-2023 / 27-11-2023 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-10-01T23:00:00.000Z",
+        "description": "Period: 03-10-2023 / 30-10-2023 (SEPA)",
+        "amount": "€ 29,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-09-04T23:00:00.000Z",
+        "description": "Adyen: Order ID: 04376764",
+        "amount": "€ 1",
+        "code": "bpm"
+      }
+    ]
+  },
+  "visits": [
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "26-12-2024",
+      "time": "16:44"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "26-12-2024",
+      "time": "16:44"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "23-12-2024",
+      "time": "16:50"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "23-12-2024",
+      "time": "16:50"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "20-12-2024",
+      "time": "16:52"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "20-12-2024",
+      "time": "16:52"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "18-12-2024",
+      "time": "17:04"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "18-12-2024",
+      "time": "17:04"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "16-12-2024",
+      "time": "16:40"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "16-12-2024",
+      "time": "16:40"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "12-12-2024",
+      "time": "16:49"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "12-12-2024",
+      "time": "16:48"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "10-12-2024",
+      "time": "17:24"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "10-12-2024",
+      "time": "17:23"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "5-12-2024",
+      "time": "16:45"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "5-12-2024",
+      "time": "16:43"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "3-12-2024",
+      "time": "16:42"
+    },
+    {
+      "club": "Basic-Fit Trignac Rue des Courlis",
+      "date": "3-12-2024",
+      "time": "16:42"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "27-11-2024",
+      "time": "16:51"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "20-11-2024",
+      "time": "16:47"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "15-11-2024",
+      "time": "16:44"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "14-11-2024",
+      "time": "16:51"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "13-11-2024",
+      "time": "16:36"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "12-11-2024",
+      "time": "16:25"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "7-11-2024",
+      "time": "16:35"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "6-11-2024",
+      "time": "16:27"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "5-11-2024",
+      "time": "17:04"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "4-11-2024",
+      "time": "16:27"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "31-10-2024",
+      "time": "16:36"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "28-10-2024",
+      "time": "16:43"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "25-10-2024",
+      "time": "14:06"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "24-10-2024",
+      "time": "14:23"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "22-10-2024",
+      "time": "18:11"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-10-2024",
+      "time": "18:20"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "19-10-2024",
+      "time": "08:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "18-10-2024",
+      "time": "18:24"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-10-2024",
+      "time": "15:17"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "15-10-2024",
+      "time": "18:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "14-10-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "12-10-2024",
+      "time": "09:14"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "12-10-2024",
+      "time": "09:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-10-2024",
+      "time": "18:09"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "8-10-2024",
+      "time": "18:09"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-10-2024",
+      "time": "18:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-10-2024",
+      "time": "12:45"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-10-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "1-10-2024",
+      "time": "18:02"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-9-2024",
+      "time": "17:34"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "25-9-2024",
+      "time": "16:17"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "24-9-2024",
+      "time": "17:38"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "23-9-2024",
+      "time": "16:11"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "19-9-2024",
+      "time": "17:11"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "19-9-2024",
+      "time": "17:11"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "18-9-2024",
+      "time": "17:51"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "18-9-2024",
+      "time": "17:51"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-9-2024",
+      "time": "17:57"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "16-9-2024",
+      "time": "17:48"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "14-9-2024",
+      "time": "12:42"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "13-9-2024",
+      "time": "14:02"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "12-9-2024",
+      "time": "17:39"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "12-9-2024",
+      "time": "17:39"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-9-2024",
+      "time": "17:52"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "9-9-2024",
+      "time": "17:47"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-9-2024",
+      "time": "10:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-9-2024",
+      "time": "10:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-9-2024",
+      "time": "17:47"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-9-2024",
+      "time": "17:30"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "2-9-2024",
+      "time": "17:41"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "28-6-2024",
+      "time": "11:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-6-2024",
+      "time": "16:30"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-6-2024",
+      "time": "16:30"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "25-6-2024",
+      "time": "18:34"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "25-6-2024",
+      "time": "18:33"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-6-2024",
+      "time": "15:27"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-6-2024",
+      "time": "15:27"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "20-6-2024",
+      "time": "15:33"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "20-6-2024",
+      "time": "15:31"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-6-2024",
+      "time": "18:27"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-6-2024",
+      "time": "18:27"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "12-6-2024",
+      "time": "12:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "12-6-2024",
+      "time": "12:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-6-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-6-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-6-2024",
+      "time": "18:33"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-6-2024",
+      "time": "18:33"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-6-2024",
+      "time": "14:05"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-6-2024",
+      "time": "14:05"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-6-2024",
+      "time": "18:22"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-6-2024",
+      "time": "18:22"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "27-5-2024",
+      "time": "18:29"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "22-5-2024",
+      "time": "18:20"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "22-5-2024",
+      "time": "18:20"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-5-2024",
+      "time": "18:22"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-5-2024",
+      "time": "18:22"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "15-5-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "13-5-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "13-5-2024",
+      "time": "18:25"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "9-5-2024",
+      "time": "12:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-5-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-5-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "23-4-2024",
+      "time": "07:11"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-4-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-4-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "15-4-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "15-4-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-4-2024",
+      "time": "18:18"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-4-2024",
+      "time": "18:17"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "8-4-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "8-4-2024",
+      "time": "18:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "20-3-2024",
+      "time": "18:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "20-3-2024",
+      "time": "18:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "18-3-2024",
+      "time": "18:16"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "18-3-2024",
+      "time": "18:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "11-3-2024",
+      "time": "18:24"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "11-3-2024",
+      "time": "18:24"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-3-2024",
+      "time": "18:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-3-2024",
+      "time": "18:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-3-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-3-2024",
+      "time": "18:18"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "28-2-2024",
+      "time": "18:13"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "28-2-2024",
+      "time": "18:13"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-2-2024",
+      "time": "18:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-2-2024",
+      "time": "18:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-2-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-2-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "19-2-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "19-2-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "14-2-2024",
+      "time": "18:00"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "14-2-2024",
+      "time": "17:59"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "12-2-2024",
+      "time": "18:06"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "12-2-2024",
+      "time": "18:03"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-2-2024",
+      "time": "18:38"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-2-2024",
+      "time": "18:38"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "31-1-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "31-1-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "29-1-2024",
+      "time": "18:34"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "29-1-2024",
+      "time": "18:34"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-1-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "26-1-2024",
+      "time": "18:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "25-1-2024",
+      "time": "18:04"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "25-1-2024",
+      "time": "18:04"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "23-1-2024",
+      "time": "19:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "23-1-2024",
+      "time": "19:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "22-1-2024",
+      "time": "18:58"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "22-1-2024",
+      "time": "18:58"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-1-2024",
+      "time": "14:29"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "17-1-2024",
+      "time": "14:29"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "16-1-2024",
+      "time": "19:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "11-1-2024",
+      "time": "13:34"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "11-1-2024",
+      "time": "13:34"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-1-2024",
+      "time": "19:18"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "10-1-2024",
+      "time": "19:17"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "9-1-2024",
+      "time": "14:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "8-1-2024",
+      "time": "19:22"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "8-1-2024",
+      "time": "19:22"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "24-12-2023",
+      "time": "09:58"
+    },
+    {
+      "club": "Basic-Fit Saint-Brevin-les-Pins Avenue des Frères Lumière",
+      "date": "24-12-2023",
+      "time": "09:57"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "22-12-2023",
+      "time": "13:52"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-12-2023",
+      "time": "14:01"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "20-12-2023",
+      "time": "19:18"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "20-12-2023",
+      "time": "19:18"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "19-12-2023",
+      "time": "19:18"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "18-12-2023",
+      "time": "19:29"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "18-12-2023",
+      "time": "19:29"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "15-12-2023",
+      "time": "13:23"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "15-12-2023",
+      "time": "13:23"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-12-2023",
+      "time": "13:15"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-12-2023",
+      "time": "13:15"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "13-12-2023",
+      "time": "19:16"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "13-12-2023",
+      "time": "19:16"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "12-12-2023",
+      "time": "19:43"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-12-2023",
+      "time": "19:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-12-2023",
+      "time": "19:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "9-12-2023",
+      "time": "09:50"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "9-12-2023",
+      "time": "09:50"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-12-2023",
+      "time": "13:42"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "7-12-2023",
+      "time": "13:41"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-12-2023",
+      "time": "19:15"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-12-2023",
+      "time": "19:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-12-2023",
+      "time": "19:17"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "5-12-2023",
+      "time": "19:17"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "1-12-2023",
+      "time": "13:22"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "1-12-2023",
+      "time": "13:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "30-11-2023",
+      "time": "07:20"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "30-11-2023",
+      "time": "07:19"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-11-2023",
+      "time": "17:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "21-11-2023",
+      "time": "17:21"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "19-11-2023",
+      "time": "16:16"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "16-11-2023",
+      "time": "17:42"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "14-11-2023",
+      "time": "17:26"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "8-11-2023",
+      "time": "18:13"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-11-2023",
+      "time": "17:30"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "6-11-2023",
+      "time": "17:29"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-11-2023",
+      "time": "15:14"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "2-11-2023",
+      "time": "08:45"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-10-2023",
+      "time": "17:06"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "4-10-2023",
+      "time": "17:06"
+    },
+    {
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "date": "18-9-2023",
+      "time": "17:12"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "13-9-2023",
+      "time": "16:49"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "13-9-2023",
+      "time": "16:49"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-9-2023",
+      "time": "16:20"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-9-2023",
+      "time": "16:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "5-9-2023",
+      "time": "16:52"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "5-9-2023",
+      "time": "16:52"
+    }
+  ]
+}
