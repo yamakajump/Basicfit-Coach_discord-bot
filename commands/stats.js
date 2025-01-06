@@ -48,10 +48,9 @@ module.exports = {
         try {
             switch (statistique) {
                 case 'heatmap':
-                    const heatmapPath = path.join(dataDir, `${utilisateur.id}_heatmap.png`);
-                    generateHeatmap(jsonData, heatmapPath, interaction.member.displayName);
+                    const imageBuffer = generateHeatmap(jsonData, interaction.member.displayName);
         
-                    const attachment = new AttachmentBuilder(heatmapPath, { name: 'heatmap.png' });
+                    const attachment = new AttachmentBuilder(imageBuffer, { name: 'heatmap.png' });
         
                     await interaction.reply({
                         content: `Voici la heatmap des visites de ${utilisateur.username} :`,
@@ -145,7 +144,7 @@ module.exports = {
     },
 };
 
-function generateHeatmap(jsonData, outputPath, username) {
+function generateHeatmap(jsonData, username) {
     const visits = jsonData.visits || [];
     const visitDates = visits.map(visit => new Date(visit.date.split('-').reverse().join('-')));
 
@@ -196,8 +195,10 @@ function generateHeatmap(jsonData, outputPath, username) {
         yOffset += 7 * (cellSize + cellGap) + 80; // Décalage pour les années
     });
 
-    fs.writeFileSync(outputPath, canvas.toBuffer('image/png'));
+    // Retourner le buffer de l'image
+    return canvas.toBuffer('image/png');
 }
+
 
 function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
