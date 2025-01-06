@@ -164,38 +164,88 @@ function generateHeatmap(jsonData, outputPath) {
     const visits = jsonData.visits || [];
     const visitDates = visits.map(visit => new Date(visit.date.split('-').reverse().join('-')));
 
-    // Préparation des données pour la heatmap
-    const dayCounts = {};
+    // Préparation des données par année
+    const yearData = {};
     visitDates.forEach(date => {
+        const year = date.getFullYear();
         const dayOfYear = getDayOfYear(date);
-        dayCounts[dayOfYear] = (dayCounts[dayOfYear] || 0) + 1;
+        if (!yearData[year]) yearData[year] = {};
+        yearData[year][dayOfYear] = (yearData[year][dayOfYear] || 0) + 1;
     });
 
-    // Configuration de la heatmap
-    const width = 53 * 15; // 53 semaines, 15 pixels par semaine
-    const height = 7 * 15; // 7 jours, 15 pixels par jour
+    // Configuration générale
     const cellSize = 15;
+    const cellGap = 2;
+    const padding = 50;
+    const fontSize = 12;
+
+    const width = 53 * (cellSize + cellGap) + padding * 2; // 53 semaines
+    const height = (Object.keys(yearData).length * (7 * (cellSize + cellGap) + 50)) + padding; // Années empilées
 
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    // Couleurs pour les intensités
-    const colors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
+    // Fond global
+    ctx.fillStyle = '#212121';
+    ctx.fillRect(0, 0, width, height);
+
+    // Dessiner chaque année
+    let yOffset = padding;
+    Object.keys(yearData).forEach((year, index) => {
+        // Fond de l'année
+        ctx.fillStyle = '#2F2F2F';
+        ctx.fillRect(padding, yOffset - 30, width - padding * 2, 30);
+
+        // Texte de l'année
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = `${fontSize}px Arial`;
+        ctx.textAlign = 'center';
+        ctx.fillText(year, width / 2, yOffset - 10);
+
+        // Dessiner la heatmap
+        drawYearHeatmap(ctx, yearData[year], yOffset, cellSize, cellGap, padding);
+
+        // Décalage pour la prochaine année
+        yOffset += 7 * (cellSize + cellGap) + 50;
+    });
+
+    // Sauvegarder l'image
+    fs.writeFileSync(outputPath, canvas.toBuffer('image/png'));
+}
+
+function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
+    const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+
+    // Dessiner les jours de la semaine (à droite)
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '10px Arial';
+    ctx.textAlign = 'right';
+    daysOfWeek.forEach((day, index) => {
+        ctx.fillText(day, padding - 5, yOffset + index * (cellSize + cellGap) + cellSize / 2);
+    });
 
     // Dessiner les cellules
     for (let week = 0; week < 53; week++) {
         for (let day = 0; day < 7; day++) {
             const dayOfYear = week * 7 + day + 1;
-            const intensity = dayCounts[dayOfYear] || 0;
-            const colorIndex = Math.min(intensity, colors.length - 1);
+            const intensity = data[dayOfYear] || 0;
 
-            ctx.fillStyle = colors[colorIndex];
-            ctx.fillRect(week * cellSize, day * cellSize, cellSize, cellSize);
+            // Couleurs selon l'intensité
+            if (intensity === 0) {
+                ctx.fillStyle = '#212121'; // Vide
+            } else if (intensity === 1) {
+                ctx.fillStyle = '#FB7819'; // Clair
+            } else {
+                ctx.fillStyle = '#FF6500'; // Foncé
+            }
+
+            // Calcul des positions
+            const x = padding + week * (cellSize + cellGap);
+            const y = yOffset + day * (cellSize + cellGap);
+
+            ctx.fillRect(x, y, cellSize, cellSize);
         }
     }
-
-    // Sauvegarder l'image
-    fs.writeFileSync(outputPath, canvas.toBuffer('image/png'));
 }
 
 function getDayOfYear(date) {
