@@ -51,32 +51,43 @@ module.exports = {
                     break;
 
                 case 'streakDay':
-                    const visits = jsonData.visits.map(date => new Date(date).getTime()).sort((a, b) => a - b);
+                    // Récupérer les visites à partir des données JSON
+                    const visits = jsonData.visits
+                        .map(entry => {
+                            // Convertir les dates au format standard
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`).getTime();
+                        })
+                        .sort((a, b) => a - b); // Trier par ordre chronologique
                 
+                    // Vérifier si des visites existent
                     if (!visits.length) {
-                        await interaction.reply({ content: `Aucune visite enregistrée pour ${utilisateur.username}.`, ephemeral: true });
+                        await interaction.reply({ 
+                            content: `Aucune visite enregistrée pour ${utilisateur.username}.` 
+                        });
                         break;
                     }
                 
+                    // Initialisation des variables pour calculer les streaks
                     let maxStreak = 1;
                     let currentStreak = 1;
                 
+                    // Parcourir les visites pour calculer le streak maximal
                     for (let i = 1; i < visits.length; i++) {
                         const diffInDays = (visits[i] - visits[i - 1]) / (1000 * 60 * 60 * 24); // Différence en jours
                         if (diffInDays === 1) {
                             currentStreak++;
                             maxStreak = Math.max(maxStreak, currentStreak);
-                        } else {
+                        } else if (diffInDays > 1) {
                             currentStreak = 1;
                         }
                     }
                 
+                    // Envoyer le résultat au canal
                     await interaction.reply({
-                        content: `Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours**.`,
-                        ephemeral: true
+                        content: `🏋️ **Streak Day** : Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours** !`
                     });
                     break;
-
 
                 case 'streakWeek':
                     await interaction.reply({ content: `Streak Week calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
