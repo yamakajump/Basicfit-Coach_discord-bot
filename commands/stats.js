@@ -94,7 +94,7 @@ module.exports = {
                 
                     // Envoyer le résultat au canal
                     await interaction.reply({
-                        content: `🏋️ **Streak Day** : Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours** !`
+                        content: `\<a:feu:1321793901350223932> **Streak Day** : Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours** !`
                     });
                     break;
 
