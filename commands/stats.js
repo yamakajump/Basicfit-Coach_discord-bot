@@ -268,7 +268,7 @@ module.exports = {
                 
                     // Send the result to the channel
                     await interaction.reply({
-                        content: `\<:coin_info:1321862685578756167> **Favorite Day** : Le jour où <@${utilisateur.id}> va le plus souvent à la salle est : **${favoriteDay}** avec **${favoriteDayCount} visites** !`
+                        content: `\<:info:1322215662621425674> **Favorite Day** : Le jour où <@${utilisateur.id}> va le plus souvent à la salle est : **${favoriteDay}** avec **${favoriteDayCount} visites** !`
                     });
                     break;
 
