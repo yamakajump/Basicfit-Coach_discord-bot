@@ -48,8 +48,11 @@ module.exports = {
         try {
             switch (statistique) {
                 case 'heatmap':
-                    const imageBuffer = generateHeatmap(jsonData, utilisateur.username); // Utilise le nom de l'utilisateur choisi
-                
+                    // Récupérer le pseudo du membre dans ce serveur
+                    const memberDisplayName = interaction.guild.members.cache.get(utilisateur.id)?.displayName || utilisateur.username;
+        
+                    const imageBuffer = generateHeatmap(jsonData, memberDisplayName); // Utilise le pseudo du serveur ou le nom d'utilisateur
+        
                     const attachment = new AttachmentBuilder(imageBuffer, { name: 'heatmap.png' });
         
                     await interaction.reply({
@@ -57,8 +60,7 @@ module.exports = {
                         files: [attachment],
                     });
                     break;
-
-
+                    
                 case 'streakDay':
                     // Récupérer les visites à partir des données JSON
                     const visits = jsonData.visits
