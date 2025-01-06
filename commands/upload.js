@@ -10,9 +10,21 @@ const PREFIX = '/basicfit';
 // Fonction pour charger et sauvegarder les données JSON
 async function uploadData(userId, jsonData) {
     try {
-        const filePath = path.join(__dirname, `${userId}.json`);
+        // Définit le chemin du dossier ../data
+        const dataDir = path.join(__dirname, '../data');
+        
+        // Crée le dossier s'il n'existe pas
+        if (!fs.existsSync(dataDir)) {
+            fs.mkdirSync(dataDir, { recursive: true });
+        }
+
+        // Définit le chemin complet du fichier (../data/<userId>.json)
+        const filePath = path.join(dataDir, `${userId}.json`);
+        
+        // Écrit les données JSON dans le fichier
         fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
-        return 'Données téléchargées avec succès !';
+        
+        return 'Données téléchargées avec succès dans ../data !';
     } catch (error) {
         return `Erreur lors de l'upload des données : ${error.message}`;
     }
