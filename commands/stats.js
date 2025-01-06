@@ -168,7 +168,7 @@ function generateHeatmap(jsonData, outputPath) {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = '#FFFFFF'; // Fond blanc global
+    ctx.fillStyle = '#212121'; // Fond global
     ctx.fillRect(0, 0, width, height);
 
     let yOffset = padding;
