@@ -49,7 +49,7 @@ module.exports = {
             switch (statistique) {
                 case 'heatmap':
                     const heatmapPath = path.join(dataDir, `${utilisateur.id}_heatmap.png`);
-                    generateHeatmap(jsonData, heatmapPath, utilisateur.username);
+                    generateHeatmap(jsonData, heatmapPath, interaction.member.displayName);
         
                     const attachment = new AttachmentBuilder(heatmapPath, { name: 'heatmap.png' });
         
