@@ -112,7 +112,7 @@ module.exports = {
 
         // Build the message
         const message = `
-📊 **Statistiques globales du serveur BasicFit** :
+📊 **Statistiques globales du serveur** :
 
 👥 **Membres avec données :** ${totalUsersWithData}
 🏋️‍♂️ **Total des séances :** ${totalSessions}
