@@ -7,20 +7,35 @@ Un bot Discord conçu pour fournir des outils liés à la musculation, des calcu
 ### **Commandes Slash**
 Le bot propose plusieurs commandes pour aider les utilisateurs :
 
-| Commande       | Description                                                                 |
-|----------------|-----------------------------------------------------------------------------|
-| `/motivation`  | Envoie une citation motivante aléatoire.                                   |
-| `/imc`         | Calcule l'indice de masse corporelle (IMC) en fonction du poids et de la taille. |
-| `/bodyfat`     | Estime le pourcentage de masse grasse à partir de plusieurs paramètres.    |
-| `/calories`    | Calcule les besoins caloriques journaliers en fonction de l'activité.      |
-| `/macro`       | Propose une répartition des macronutriments selon les besoins caloriques.  |
-| `/fatloss`     | Estime le déficit calorique nécessaire pour atteindre un poids cible.      |
-| `/maxrp`       | Calcule le poids maximum pour une répétition (1RM).                       |
-| `/energyburn`  | Estime les calories brûlées en fonction de l'activité et de la durée.      |
-| `/birthday`    | Enregistre et affiche les anniversaires des membres du serveur.           |
-| `/clear`       | Supprime un certain nombre de messages dans un canal.                     |
-| `/mute`        | Attribue un rôle "mute" à un utilisateur.                                |
-| `/unmute`      | Retire le rôle "mute" d'un utilisateur.                                   |
+| Commande                        | Description                                                                 |
+|---------------------------------|-----------------------------------------------------------------------------|
+| `/motivation`                   | Envoie une citation motivante aléatoire.                                   |
+| `/imc`                          | Calcule l'indice de masse corporelle (IMC) en fonction du poids et de la taille. |
+| `/bodyfat`                      | Estime le pourcentage de masse grasse à partir de plusieurs paramètres.    |
+| `/calories`                     | Calcule les besoins caloriques journaliers en fonction de l'activité.      |
+| `/macro`                        | Propose une répartition des macronutriments selon les besoins caloriques.  |
+| `/fatloss`                      | Estime le déficit calorique nécessaire pour atteindre un poids cible.      |
+| `/maxrp`                        | Calcule le poids maximum pour une répétition (1RM).                       |
+| `/energyburn`                   | Estime les calories brûlées en fonction de l'activité et de la durée.      |
+| `/birthday`                     | Enregistre et affiche les anniversaires des membres du serveur.           |
+| `/clear`                        | Supprime un certain nombre de messages dans un canal.                     |
+| `/mute`                         | Attribue un rôle "mute" à un utilisateur.                                 |
+| `/unmute`                       | Retire le rôle "mute" d'un utilisateur.                                   |
+| `/upload`                       | Téléchargez vos données depuis Basic Fit - My Data pour utiliser les outils d'analyse. |
+| `/stats heatmap`                | Génère une heatmap pour visualiser vos visites en salle.                  |
+| `/stats streakDay`              | Affiche le plus grand nombre de jours consécutifs où vous êtes allé à la salle. |
+| `/stats streakWeek`             | Affiche le plus grand nombre de semaines consécutives où vous êtes allé à la salle. |
+| `/stats averageWeek`            | Calcule la moyenne des jours où vous êtes allé à la salle par semaine.     |
+| `/stats bestMonth`              | Identifie le mois où vous avez été le plus assidu.                        |
+| `/stats favoriteDay`            | Affiche le jour de la semaine où vous allez le plus souvent à la salle.    |
+| `/stats visitsByDay`            | Affiche combien de fois vous êtes allé à la salle chaque jour de la semaine. |
+| `/stats timeOfDay`              | Analyse les horaires de vos séances pour identifier vos périodes d’entraînement préférées. |
+| `/stats activePercentage`       | Calcule le pourcentage de jours où vous êtes allé à la salle par rapport à la période totale couverte. |
+| `/stats locations`              | Liste les clubs visités et leur fréquence.                                |
+| `/stats avgTimeBetweenVisits`   | Calcule la moyenne de temps entre deux séances.                           |
+| `/compare` | Comparez vos statistiques avec celles d’un autre membre du serveur. Qui est le plus actif ? Qui a le meilleur mois ? |
+| `/serverStats`                  | Découvrez les statistiques globales du serveur, incluant le total des séances, le jour préféré, l’utilisateur le plus actif, la moyenne de séances par utilisateur, et bien plus encore ! |
+
 
 ### **Messages quotidiens**
 - Le bot envoie une citation motivante chaque jour à 7h dans un canal spécifique.
