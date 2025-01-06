@@ -359,8 +359,38 @@ module.exports = {
 
 
                 case 'locations':
-                    await interaction.reply({ content: `Clubs visités listés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visitsLocations = jsonData.visits;
+                
+                    if (!visitsLocations.length) {
+                        await interaction.reply({
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Group visits by club
+                    const locationCounts = {};
+                    visitsLocations.forEach(entry => {
+                        const club = entry.club || "Club inconnu"; // Handle cases where the club field is missing
+                        if (!locationCounts[club]) {
+                            locationCounts[club] = 0;
+                        }
+                        locationCounts[club]++;
+                    });
+                
+                    // Format the results into a readable message
+                    let message = `📍 **Locations Visited** : Voici la liste des clubs visités par <@${utilisateur.id}> et leur fréquence :\n\n`;
+                    Object.entries(locationCounts).forEach(([club, count]) => {
+                        message += `- **${club}** : ${count} visite(s)\n`;
+                    });
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: message
+                    });
                     break;
+
 
                 case 'avgTimeBetweenVisits':
                     await interaction.reply({ content: `Temps moyen entre visites calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
