@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const { createCanvas } = require('canvas');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -47,7 +48,15 @@ module.exports = {
         try {
             switch (statistique) {
                 case 'heatmap':
-                    await interaction.reply({ content: `Heatmap générée pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    const heatmapPath = path.join(dataDir, `${utilisateur.id}_heatmap.png`);
+                    generateHeatmap(jsonData, heatmapPath);
+        
+                    const attachment = new AttachmentBuilder(heatmapPath, { name: 'heatmap.png' });
+        
+                    await interaction.reply({
+                        content: `Voici la heatmap des visites de ${utilisateur.username} :`,
+                        files: [attachment],
+                    });
                     break;
 
                 case 'streakDay':
@@ -124,3 +133,47 @@ module.exports = {
         }
     },
 };
+
+function generateHeatmap(jsonData, outputPath) {
+    const visits = jsonData.visits || [];
+    const visitDates = visits.map(visit => new Date(visit.date.split('-').reverse().join('-')));
+
+    // Préparation des données pour la heatmap
+    const dayCounts = {};
+    visitDates.forEach(date => {
+        const dayOfYear = getDayOfYear(date);
+        dayCounts[dayOfYear] = (dayCounts[dayOfYear] || 0) + 1;
+    });
+
+    // Configuration de la heatmap
+    const width = 53 * 15; // 53 semaines, 15 pixels par semaine
+    const height = 7 * 15; // 7 jours, 15 pixels par jour
+    const cellSize = 15;
+
+    const canvas = createCanvas(width, height);
+    const ctx = canvas.getContext('2d');
+
+    // Couleurs pour les intensités
+    const colors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
+
+    // Dessiner les cellules
+    for (let week = 0; week < 53; week++) {
+        for (let day = 0; day < 7; day++) {
+            const dayOfYear = week * 7 + day + 1;
+            const intensity = dayCounts[dayOfYear] || 0;
+            const colorIndex = Math.min(intensity, colors.length - 1);
+
+            ctx.fillStyle = colors[colorIndex];
+            ctx.fillRect(week * cellSize, day * cellSize, cellSize, cellSize);
+        }
+    }
+
+    // Sauvegarder l'image
+    fs.writeFileSync(outputPath, canvas.toBuffer('image/png'));
+}
+
+function getDayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 0);
+    const diff = date - start + (start.getTimezoneOffset() - date.getTimezoneOffset()) * 60 * 1000;
+    return Math.floor(diff / (1000 * 60 * 60 * 24));
+}
