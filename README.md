@@ -11,7 +11,7 @@ Un bot Discord conçu pour accompagner les passionnés de musculation et de fitn
 4. [Installation](#installation)
 5. [Configuration](#configuration)
    - [Ajouter des Citations](#ajouter-des-citations)
-   - [Modifier les Messages Automatiques](#modifie)
+   - [Modifier les Messages Automatiques](#modifier-les-messages-automatiques)
 6. [Statistiques Personnalisées](#statistiques-personnalisées)
 7. [Architecture du Projet](#architecture-du-projet)
 8. [Dépendances](#dépendances)
