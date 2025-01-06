@@ -59,6 +59,14 @@ module.exports = {
         const duree = interaction.options.getNumber('duree');
         const activite = interaction.options.getString('activite');
 
+        // Vérification : le poids actuel doit être supérieur au poids cible
+            if (poidsCible >= poidsActuel) {
+                return interaction.reply({
+                    content: "❌ **Erreur :** Le poids cible doit être inférieur au poids actuel pour une perte de poids.",
+                    ephemeral: true, // Rendu visible uniquement à l'utilisateur
+                });
+            }
+
         // Facteurs d'activité
         const facteurs = {
             sedentaire: 1.2,
