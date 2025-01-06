@@ -23,7 +23,8 @@ module.exports = {
                     { name: 'Time Of Day', value: 'timeOfDay' },
                     { name: 'Active Percentage', value: 'activePercentage' },
                     { name: 'Locations', value: 'locations' },
-                    { name: 'Avg Time Between Visits', value: 'avgTimeBetweenVisits' }
+                    { name: 'Avg Time Between Visits', value: 'avgTimeBetweenVisits' },
+                    { name: 'best Day Overall', value: 'bestDayOverall' }
                 )
                 .setRequired(true)
         )
