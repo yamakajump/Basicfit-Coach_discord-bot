@@ -11,19 +11,30 @@ module.exports = {
         .setDescription('Affiche les statistiques globales du serveur (exemple : total des séances, jour préféré, etc.).'),
     async execute(interaction) {
         const dataDir = path.join(__dirname, '../data/basicfit');
-        const allMembers = interaction.guild.members.cache;
+        
+        if (!fs.existsSync(dataDir)) {
+            return interaction.reply({
+                content: `Le répertoire des données n'existe pas. Veuillez vérifier la configuration.`,
+                ephemeral: true
+            });
+        }
+
+        const files = fs.readdirSync(dataDir).filter(file => file.endsWith('.json'));
+        if (files.length === 0) {
+            return interaction.reply({
+                content: `Aucune donnée trouvée dans le répertoire. Veuillez uploader des fichiers JSON.`,
+                ephemeral: true
+            });
+        }
 
         let totalSessions = 0; // Total de toutes les séances
         let dayCountsOverall = new Array(7).fill(0); // Comptes pour chaque jour de la semaine
         let totalUsersWithData = 0; // Nombre de membres avec des fichiers valides
 
-        // Parcourir tous les membres du serveur
-        allMembers.forEach((member) => {
-            const filePath = path.join(dataDir, `${member.user.id}.json`);
+        files.forEach(file => {
+            const filePath = path.join(dataDir, file);
 
-            if (fs.existsSync(filePath)) {
-                totalUsersWithData++; // Compter ce membre comme actif
-
+            try {
                 const memberData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
                 // Extraire les visites
@@ -32,22 +43,26 @@ module.exports = {
                     return new Date(`${year}-${month}-${day}`);
                 });
 
-                // Ajouter au total des séances
-                totalSessions += visits.length;
+                if (visits.length > 0) {
+                    totalUsersWithData++; // Compter l'utilisateur comme actif
+                    totalSessions += visits.length; // Ajouter au total des séances
 
-                // Comptabiliser les visites par jour de la semaine
-                visits.forEach(date => {
-                    const day = date.getDay(); // Obtenir le jour (0 = Dimanche)
-                    const adjustedDay = (day === 0) ? 6 : day - 1; // Ajuster pour que Lundi soit en premier
-                    dayCountsOverall[adjustedDay]++;
-                });
+                    // Comptabiliser les visites par jour de la semaine
+                    visits.forEach(date => {
+                        const day = date.getDay(); // Obtenir le jour (0 = Dimanche)
+                        const adjustedDay = (day === 0) ? 6 : day - 1; // Ajuster pour que Lundi soit en premier
+                        dayCountsOverall[adjustedDay]++;
+                    });
+                }
+            } catch (error) {
+                console.error(`Erreur lors de la lecture du fichier ${file}:`, error.message);
             }
         });
 
         if (totalUsersWithData === 0) {
             return interaction.reply({
-                content: `Aucune donnée trouvée pour les membres de ce serveur. Veuillez demander à vos membres d'uploader leurs fichiers JSON.`,
-                ephemeral: true,
+                content: `Aucune donnée valide trouvée dans les fichiers JSON.`,
+                ephemeral: true
             });
         }
 
