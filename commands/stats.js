@@ -60,21 +60,6 @@ module.exports = {
                     break;
 
                 case 'streakDay':
-                    // Définir le chemin du fichier JSON de l'utilisateur
-                    const dataDir = path.join(__dirname, '../data/basicfit');
-                    const filePath = path.join(dataDir, `${utilisateur.id}.json`);
-                
-                    // Vérifier si le fichier existe
-                    if (!fs.existsSync(filePath)) {
-                        await interaction.reply({
-                            content: `❌ **Erreur** : Les données pour ${utilisateur.username} sont introuvables. Veuillez téléverser vos données avec \`/basicfit upload\`.`
-                        });
-                        break;
-                    }
-                
-                    // Charger les données JSON
-                    const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-                
                     // Récupérer les visites à partir des données JSON
                     const visits = jsonData.visits
                         .map(entry => {
