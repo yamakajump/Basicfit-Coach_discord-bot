@@ -149,7 +149,6 @@ function generateHeatmap(jsonData, outputPath) {
     const visits = jsonData.visits || [];
     const visitDates = visits.map(visit => new Date(visit.date.split('-').reverse().join('-')));
 
-    // Préparation des données par année
     const yearData = {};
     visitDates.forEach(date => {
         const year = date.getFullYear();
@@ -158,58 +157,50 @@ function generateHeatmap(jsonData, outputPath) {
         yearData[year][dayOfYear] = (yearData[year][dayOfYear] || 0) + 1;
     });
 
-    // Configuration générale
     const cellSize = 15;
     const cellGap = 2;
     const padding = 50;
     const fontSize = 12;
 
-    const width = 53 * (cellSize + cellGap) + padding * 2; // 53 semaines
-    const height = (Object.keys(yearData).length * (7 * (cellSize + cellGap) + 50)) + padding; // Années empilées
+    const width = 53 * (cellSize + cellGap) + padding * 2;
+    const height = (Object.keys(yearData).length * (7 * (cellSize + cellGap) + 80)) + padding;
 
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    // Fond global
-    ctx.fillStyle = '#212121';
+    ctx.fillStyle = '#FFFFFF'; // Fond blanc global
     ctx.fillRect(0, 0, width, height);
 
-    // Dessiner chaque année
     let yOffset = padding;
     Object.keys(yearData).forEach((year, index) => {
-        // Fond de l'année
-        ctx.fillStyle = '#2F2F2F';
+        ctx.fillStyle = '#2A2A2A'; // Gris foncé pour le fond de l'année
         ctx.fillRect(padding, yOffset - 30, width - padding * 2, 30);
 
-        // Texte de l'année
-        ctx.fillStyle = '#FFFFFF';
+        ctx.fillStyle = '#FFFFFF'; // Blanc pour le texte de l'année
         ctx.font = `${fontSize}px Arial`;
         ctx.textAlign = 'center';
         ctx.fillText(year, width / 2, yOffset - 10);
 
-        // Dessiner la heatmap
         drawYearHeatmap(ctx, yearData[year], yOffset, cellSize, cellGap, padding);
 
-        // Décalage pour la prochaine année
-        yOffset += 7 * (cellSize + cellGap) + 50;
+        drawMonths(ctx, yOffset, cellSize, cellGap, padding, width); // Ajout des mois
+
+        yOffset += 7 * (cellSize + cellGap) + 80; // Décalage pour les années
     });
 
-    // Sauvegarder l'image
     fs.writeFileSync(outputPath, canvas.toBuffer('image/png'));
 }
 
 function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
-    // Dessiner les jours de la semaine (à droite)
-    ctx.fillStyle = '#FFFFFF';
+    ctx.fillStyle = '#2A2A2A'; // Couleur des jours de la semaine
     ctx.font = '10px Arial';
     ctx.textAlign = 'right';
     daysOfWeek.forEach((day, index) => {
         ctx.fillText(day, padding - 5, yOffset + index * (cellSize + cellGap) + cellSize / 2);
     });
 
-    // Dessiner les cellules
     for (let week = 0; week < 53; week++) {
         for (let day = 0; day < 7; day++) {
             const dayOfYear = week * 7 + day + 1;
@@ -217,20 +208,35 @@ function drawYearHeatmap(ctx, data, yOffset, cellSize, cellGap, padding) {
 
             // Couleurs selon l'intensité
             if (intensity === 0) {
-                ctx.fillStyle = '#212121'; // Vide
+                ctx.fillStyle = '#FFFFFF'; // Case vide : blanc
             } else if (intensity === 1) {
                 ctx.fillStyle = '#FB7819'; // Clair
             } else {
                 ctx.fillStyle = '#FF6500'; // Foncé
             }
 
-            // Calcul des positions
             const x = padding + week * (cellSize + cellGap);
             const y = yOffset + day * (cellSize + cellGap);
 
             ctx.fillRect(x, y, cellSize, cellSize);
         }
     }
+}
+
+function drawMonths(ctx, yOffset, cellSize, cellGap, padding, width) {
+    const months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'];
+
+    ctx.fillStyle = '#2A2A2A'; // Gris foncé pour le texte des mois
+    ctx.font = '10px Arial';
+    ctx.textAlign = 'center';
+
+    // Position approximative des mois en bas des semaines
+    const monthPositions = [0, 4, 8, 13, 17, 21, 26, 30, 35, 39, 43, 48];
+    monthPositions.forEach((week, index) => {
+        const x = padding + week * (cellSize + cellGap) + (cellSize + cellGap) / 2;
+        const y = yOffset + 7 * (cellSize + cellGap) + 15; // En bas des cellules
+        ctx.fillText(months[index], x, y);
+    });
 }
 
 function getDayOfYear(date) {
