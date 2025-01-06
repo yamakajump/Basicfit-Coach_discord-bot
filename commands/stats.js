@@ -163,11 +163,11 @@ module.exports = {
                         break;
                     }
                 
-                    // Group visits by ISO week-year
+                    // Group visits by week-year
                     const weeklyVisits = {};
                     averageWeekVisits.forEach(date => {
-                        const week = date.getUTCISOWeek();
                         const year = date.getUTCFullYear();
+                        const week = Math.floor((date - new Date(year, 0, 1)) / (1000 * 60 * 60 * 24 * 7)); // Approximate week calculation
                         const weekKey = `${year}-W${week}`;
                 
                         if (!weeklyVisits[weekKey]) {
@@ -186,6 +186,7 @@ module.exports = {
                         content: `📊 **Average Week** : <@${utilisateur.id}> va à la salle en moyenne **${averagePerWeek} jours par semaine** !`
                     });
                     break;
+                
 
                 case 'timeOfDay':
                     await interaction.reply({ content: `Horaires préférés analysés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
