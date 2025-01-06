@@ -289,14 +289,14 @@ module.exports = {
                     }
                 
                     // Initialize day labels and counters
+                    const dayCountsVisitsByDay = new Array(7).fill(0); // Renommé pour éviter les conflits
                     const daysOfWeekVisitsByDay = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-                    const dayCounts = new Array(7).fill(0);
                 
                     // Count visits for each day of the week
                     visitsByDay.forEach(date => {
                         const day = date.getDay(); // Get the day of the week (0 = Sunday, ..., 6 = Saturday)
                         const adjustedDay = (day === 0) ? 6 : day - 1; // Adjust so Monday is first (0 = Sunday -> 6 = Dimanche)
-                        dayCounts[adjustedDay]++;
+                        dayCountsVisitsByDay[adjustedDay]++;
                     });
                 
                     // Generate a bar chart using canvas
@@ -320,9 +320,9 @@ module.exports = {
                     ctx.stroke();
                 
                     // Draw the bars
-                    const maxVisits = Math.max(...dayCounts);
+                    const maxVisits = Math.max(...dayCountsVisitsByDay);
                     const barWidth = 70;
-                    dayCounts.forEach((count, index) => {
+                    dayCountsVisitsByDay.forEach((count, index) => {
                         const x = 100 + index * (barWidth + 10);
                         const barHeight = (count / maxVisits) * 300;
                 
