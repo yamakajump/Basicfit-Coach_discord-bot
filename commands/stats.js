@@ -289,7 +289,7 @@ module.exports = {
                 
                     if (!visitsTime.length) {
                         await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
                         });
                         break;
                     }
@@ -316,14 +316,47 @@ module.exports = {
                 
                     // Send the result to the channel
                     await interaction.reply({
-                        content: `🕒 **Time of Day** : Les horaires préférés de <@${utilisateur.id}> pour aller à la salle sont : **${favoriteTimePeriods}** avec **${maxVisits} visites** durant ces périodes !`
+                        content: `\<a:rveille:1321847935155048530> **Time of Day** : Les horaires préférés de <@${utilisateur.id}> pour aller à la salle sont : **${favoriteTimePeriods}** avec **${maxVisits} visites** durant ces périodes !`
                     });
                     break;
 
 
                 case 'activePercentage':
-                    await interaction.reply({ content: `Pourcentage d’activité calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visitsActive = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                    if (!visitsActive.length) {
+                        await interaction.reply({
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Find the first and last visit dates
+                    const sortedVisits = visitsActive.sort((a, b) => a - b); // Sort chronologically
+                    const firstVisit = sortedVisits[0];
+                    const lastVisit = sortedVisits[sortedVisits.length - 1];
+                
+                    // Calculate the total period in days
+                    const totalDays = Math.ceil((lastVisit - firstVisit) / (1000 * 60 * 60 * 24)) + 1;
+                
+                    // Count unique active days
+                    const uniqueActiveDays = new Set(sortedVisits.map(date => date.toDateString())).size;
+                
+                    // Calculate the active percentage
+                    const activePercentage = ((uniqueActiveDays / totalDays) * 100).toFixed(2);
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `\<a:cible:1321847819782590464> **Active Percentage** : <@${utilisateur.id}> a été actif **${activePercentage}%** des jours sur la période totale (${uniqueActiveDays} jours actifs sur ${totalDays} jours).`
+                    });
                     break;
+
 
                 case 'locations':
                     await interaction.reply({ content: `Clubs visités listés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
