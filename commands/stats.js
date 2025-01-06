@@ -289,14 +289,14 @@ module.exports = {
                     }
                 
                     // Initialize day labels and counters
-                    const dayCountsVisitsByDay = new Array(7).fill(0); // Renommé pour éviter les conflits
-                    const daysOfWeekVisitsByDay = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const dayCounts = new Array(7).fill(0);
                 
                     // Count visits for each day of the week
                     visitsByDay.forEach(date => {
                         const day = date.getDay(); // Get the day of the week (0 = Sunday, ..., 6 = Saturday)
                         const adjustedDay = (day === 0) ? 6 : day - 1; // Adjust so Monday is first (0 = Sunday -> 6 = Dimanche)
-                        dayCountsVisitsByDay[adjustedDay]++;
+                        dayCounts[adjustedDay]++;
                     });
                 
                     // Generate a bar chart using canvas
@@ -320,9 +320,9 @@ module.exports = {
                     ctx.stroke();
                 
                     // Draw the bars
-                    const maxVisits = Math.max(...dayCountsVisitsByDay);
+                    const maxVisits = Math.max(...dayCounts);
                     const barWidth = 70;
-                    dayCountsVisitsByDay.forEach((count, index) => {
+                    dayCounts.forEach((count, index) => {
                         const x = 100 + index * (barWidth + 10);
                         const barHeight = (count / maxVisits) * 300;
                 
@@ -333,7 +333,7 @@ module.exports = {
                         ctx.fillStyle = '#FFFFFF';
                         ctx.font = '16px Arial';
                         ctx.textAlign = 'center';
-                        ctx.fillText(daysOfWeekVisitsByDay[index], x + barWidth / 2, height - 25); // Day labels
+                        ctx.fillText(daysOfWeek[index], x + barWidth / 2, height - 25); // Day labels
                         ctx.fillText(count.toString(), x + barWidth / 2, height - 60 - barHeight); // Count labels
                     });
                 
@@ -346,9 +346,7 @@ module.exports = {
                         files: [attachment]
                     });
                     break;
-
-
-
+    
 
                 case 'timeOfDay':
                     // Retrieve visits from JSON data
