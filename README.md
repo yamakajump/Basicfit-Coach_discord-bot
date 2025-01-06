@@ -31,6 +31,11 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 
 ## Fonctionnalités
 
+![heatmap](https://github.com/user-attachments/assets/e0c5d7c9-c539-4030-b1e5-52d79c869eed)
+
+![serverstats](https://github.com/user-attachments/assets/d32faea6-0d68-422d-b627-b8f6fe045a53)
+
+
 ### Commandes Slash
 
 | Commande                        | Description                                                                 |
@@ -65,6 +70,8 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 ### Messages quotidiens
 
 - Le bot envoie chaque jour une citation motivante à une heure définie dans un canal spécifique. Ces citations peuvent être personnalisées.
+
+![daily](https://github.com/user-attachments/assets/f5cb0f0e-57cb-410b-9937-7a3959fa5b93)
 
 ## Prérequis
 
@@ -115,6 +122,8 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
    }
    ```
 3. Relancez le bot pour appliquer les modifications.
+
+![motivation](https://github.com/user-attachments/assets/434ee8a6-7657-4bae-ac91-45babf81bae4)
 
 ### Modifier les Messages Automatiques
 1. Accédez à `events/dailyMotivation.js`.
