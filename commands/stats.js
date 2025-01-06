@@ -273,13 +273,10 @@ module.exports = {
                     break;
 
                 case 'visitsByDay':
-                    // Retrieve visits from JSON data
-                    const visitsByDay = jsonData.visits
-                        .map(entry => {
-                            // Convert dates to JavaScript Date objects
-                            const [day, month, year] = entry.date.split('-');
-                            return new Date(`${year}-${month}-${day}`);
-                        });
+                    const visitsByDay = jsonData.visits.map(entry => {
+                        const [day, month, year] = entry.date.split('-');
+                        return new Date(`${year}-${month}-${day}`);
+                    });
                 
                     if (!visitsByDay.length) {
                         await interaction.reply({
@@ -288,64 +285,23 @@ module.exports = {
                         break;
                     }
                 
-                    // Initialize day labels and counters
-                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-                    const dayCounts = new Array(7).fill(0);
+                    const daysOfWeekVisitsByDay = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const dayCountsVisitsByDay = new Array(7).fill(0);
                 
-                    // Count visits for each day of the week
                     visitsByDay.forEach(date => {
-                        const day = date.getDay(); // Get the day of the week (0 = Sunday, ..., 6 = Saturday)
-                        const adjustedDay = (day === 0) ? 6 : day - 1; // Adjust so Monday is first (0 = Sunday -> 6 = Dimanche)
-                        dayCounts[adjustedDay]++;
+                        const day = date.getDay();
+                        const adjustedDay = (day === 0) ? 6 : day - 1;
+                        dayCountsVisitsByDay[adjustedDay]++;
                     });
                 
-                    // Generate a bar chart using canvas
-                    const width = 700;
-                    const height = 400;
-                    const canvas = createCanvas(width, height);
-                    const ctx = canvas.getContext('2d');
-                
-                    // Background
-                    ctx.fillStyle = '#2A2A2A';
-                    ctx.fillRect(0, 0, width, height);
-                
-                    // Draw the axes
-                    ctx.strokeStyle = '#FFFFFF';
-                    ctx.lineWidth = 2;
-                    ctx.beginPath();
-                    ctx.moveTo(50, height - 50);
-                    ctx.lineTo(width - 50, height - 50); // X-axis
-                    ctx.moveTo(50, height - 50);
-                    ctx.lineTo(50, 50); // Y-axis
-                    ctx.stroke();
-                
-                    // Draw the bars
-                    const maxVisits = Math.max(...dayCounts);
-                    const barWidth = 70;
-                    dayCounts.forEach((count, index) => {
-                        const x = 100 + index * (barWidth + 10);
-                        const barHeight = (count / maxVisits) * 300;
-                
-                        ctx.fillStyle = '#FB7819'; // Bar color
-                        ctx.fillRect(x, height - 50 - barHeight, barWidth, barHeight);
-                
-                        // Add labels
-                        ctx.fillStyle = '#FFFFFF';
-                        ctx.font = '16px Arial';
-                        ctx.textAlign = 'center';
-                        ctx.fillText(daysOfWeek[index], x + barWidth / 2, height - 25); // Day labels
-                        ctx.fillText(count.toString(), x + barWidth / 2, height - 60 - barHeight); // Count labels
+                    let message = `📅 **Visits by Day** for <@${utilisateur.id}>:\n\n`;
+                    daysOfWeekVisitsByDay.forEach((day, index) => {
+                        message += `- **${day}**: ${dayCountsVisitsByDay[index]} visite(s)\n`;
                     });
                 
-                    // Send the chart as a file attachment
-                    const buffer = canvas.toBuffer('image/png');
-                    const attachment = new AttachmentBuilder(buffer, { name: 'visits_by_day.png' });
-                
-                    await interaction.reply({
-                        content: `📊 **Visits by Day** : Voici le graphique des visites pour ${utilisateur.username} :`,
-                        files: [attachment]
-                    });
+                    await interaction.reply({ content: message });
                     break;
+
     
 
                 case 'timeOfDay':
