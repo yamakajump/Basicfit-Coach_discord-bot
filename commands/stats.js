@@ -273,7 +273,9 @@ module.exports = {
                     break;
 
                 case 'visitsByDay':
+                    // Retrieve visits from JSON data
                     const visitsByDay = jsonData.visits.map(entry => {
+                        // Convert dates to JavaScript Date objects
                         const [day, month, year] = entry.date.split('-');
                         return new Date(`${year}-${month}-${day}`);
                     });
@@ -285,22 +287,29 @@ module.exports = {
                         break;
                     }
                 
+                    // Initialize day labels and counters
                     const daysOfWeekVisitsByDay = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
                     const dayCountsVisitsByDay = new Array(7).fill(0);
                 
+                    // Count visits for each day of the week
                     visitsByDay.forEach(date => {
-                        const day = date.getDay();
-                        const adjustedDay = (day === 0) ? 6 : day - 1;
+                        const day = date.getDay(); // Get the day of the week (0 = Sunday, ..., 6 = Saturday)
+                        const adjustedDay = (day === 0) ? 6 : day - 1; // Adjust so Monday is first (0 = Sunday -> 6 = Dimanche)
                         dayCountsVisitsByDay[adjustedDay]++;
                     });
                 
-                    let message = `📅 **Visits by Day** for <@${utilisateur.id}>:\n\n`;
+                    // Create a message with visits by day
+                    let messageVisitsByDay = `📅 **Visits by Day** pour <@${utilisateur.id}> :\n\n`;
                     daysOfWeekVisitsByDay.forEach((day, index) => {
-                        message += `- **${day}**: ${dayCountsVisitsByDay[index]} visite(s)\n`;
+                        messageVisitsByDay += `- **${day}** : ${dayCountsVisitsByDay[index]} visite(s)\n`;
                     });
                 
-                    await interaction.reply({ content: message });
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: messageVisitsByDay
+                    });
                     break;
+
 
     
 
