@@ -26,7 +26,7 @@
   "memberships": [
     {
       "contract_end_date_g": "2025-10-11T00:00:00.000",
-      "join_date_g": "2024-08-31T00:00:00.000",
+      "join_date_g": "2023-12-31T00:00:00.000",
       "membership_name_g": "Premium",
       "start_date_g": "2024-08-31T00:00:00.000",
       "end_date_g": null,
@@ -157,6 +157,126 @@
     ]
   },
   "visits": [
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "20-12-2023",
+      "time": "19:24"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "19-12-2023",
+      "time": "19:25"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "18-12-2023",
+      "time": "19:12"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "17-12-2023",
+      "time": "11:55"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-12-2023",
+      "time": "13:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "13-12-2023",
+      "time": "19:21"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "12-12-2023",
+      "time": "19:46"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-12-2023",
+      "time": "19:20"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "9-12-2023",
+      "time": "09:50"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "12-9-2023",
+      "time": "16:05"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-9-2023",
+      "time": "16:20"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "5-9-2023",
+      "time": "16:51"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "16-5-2023",
+      "time": "04:28"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "10-5-2023",
+      "time": "04:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-2-2023",
+      "time": "20:25"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-12-2022",
+      "time": "20:14"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "5-12-2022",
+      "time": "20:21"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "4-12-2022",
+      "time": "16:49"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "3-12-2022",
+      "time": "16:40"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "30-11-2022",
+      "time": "19:59"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "28-11-2022",
+      "time": "19:43"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "27-11-2022",
+      "time": "15:49"
+    },
     {
       "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
       "date": "5-1-2025",
