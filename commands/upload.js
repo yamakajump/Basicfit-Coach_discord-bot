@@ -42,9 +42,13 @@ client.on('messageCreate', async (message) => {
             return message.reply('Veuillez fournir un fichier JSON à téléverser.');
         }
 
+        if (!message.attachments || !message.attachments.size) {
+            return message.reply('Veuillez fournir un fichier JSON à téléverser.');
+        }
+        
         const attachment = message.attachments.first();
-        if (!attachment.name.endsWith('.json')) {
-            return message.reply('Seuls les fichiers JSON sont acceptés.');
+        if (!attachment) {
+            return message.reply('Aucune pièce jointe trouvée.');
         }
 
         try {
