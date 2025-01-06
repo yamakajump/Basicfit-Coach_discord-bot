@@ -61,7 +61,7 @@ module.exports = {
 
                 case 'streakDay':
                     // Définir le chemin du fichier JSON de l'utilisateur
-                    const dataDir = path.join(__dirname, '../../data/basicfit');
+                    const dataDir = path.join(__dirname, '../data/basicfit');
                     const filePath = path.join(dataDir, `${utilisateur.id}.json`);
                 
                     // Vérifier si le fichier existe
