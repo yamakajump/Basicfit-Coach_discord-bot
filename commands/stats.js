@@ -394,7 +394,7 @@ module.exports = {
 
                 case 'avgTimeBetweenVisits':
                     // Retrieve visits from JSON data
-                    const visits = jsonData.visits
+                    const avgVisits = jsonData.visits
                         .map(entry => {
                             // Convert dates to JavaScript Date objects
                             const [day, month, year] = entry.date.split('-');
