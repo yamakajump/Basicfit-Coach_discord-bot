@@ -48,15 +48,16 @@ module.exports = {
         try {
             switch (statistique) {
                 case 'heatmap':
-                    const imageBuffer = generateHeatmap(jsonData, interaction.member.displayName);
-        
+                    const imageBuffer = generateHeatmap(jsonData, utilisateur.username); // Utilise le nom de l'utilisateur choisi
+                
                     const attachment = new AttachmentBuilder(imageBuffer, { name: 'heatmap.png' });
         
                     await interaction.reply({
-                        content: `Voici la heatmap des visites de <@${utilisateur.id}> :`,
+                        content: `Voici la heatmap des visites de <@${utilisateur.id}> :`, // Mentionne l'utilisateur choisi
                         files: [attachment],
                     });
                     break;
+
 
                 case 'streakDay':
                     // Récupérer les visites à partir des données JSON
