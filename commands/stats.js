@@ -187,7 +187,7 @@ module.exports = {
                     });
                     break;
                 
-                 case 'bestMonth':
+                case 'bestMonth':
                     // Retrieve visits from JSON data
                     const visitsMonth = jsonData.visits
                         .map(entry => {
@@ -206,10 +206,9 @@ module.exports = {
                     // Group visits by month-year
                     const monthlyVisits = {};
                     visitsMonth.forEach(date => {
-                        const month = date.getUTCMonth() + 1; // Months are zero-indexed
+                        const month = date.getUTCMonth(); // Months are zero-indexed
                         const year = date.getUTCFullYear();
-                        const monthKey = `${year}-${month.toString().padStart(2, '0')}`;
-                
+                        const monthKey = `${year}-${month}`; // Use zero-indexed month
                         if (!monthlyVisits[monthKey]) {
                             monthlyVisits[monthKey] = 0;
                         }
@@ -222,12 +221,21 @@ module.exports = {
                     );
                 
                     const [bestMonthKey, bestMonthCount] = bestMonth;
+                    const [year, monthIndex] = bestMonthKey.split('-').map(Number);
+                
+                    // Convert zero-indexed month to readable month name
+                    const monthNames = [
+                        "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+                        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+                    ];
+                    const bestMonthName = `${monthNames[monthIndex]} ${year}`;
                 
                     // Send the result to the channel
                     await interaction.reply({
-                        content: `\<:coin_info:1321862685578756167> **Best Month** : Le mois où ${utilisateur.username} est allé le plus souvent à la salle est : **${bestMonthKey}** avec **${bestMonthCount} visites** !`
+                        content: `\<:coin_info:1321862685578756167> **Best Month** : Le mois où <@${utilisateur.id}> est allé le plus souvent à la salle est : **${bestMonthName}** avec **${bestMonthCount} visites** !`
                     });
                     break;
+
 
 
                 case 'timeOfDay':
