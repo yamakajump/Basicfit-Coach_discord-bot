@@ -23,16 +23,22 @@ module.exports = {
                     { name: 'Avg Time Between Visits', value: 'avgTimeBetweenVisits' }
                 )
                 .setRequired(true)
+        )
+        .addUserOption(option =>
+            option.setName('utilisateur')
+                .setDescription("Sélectionnez un utilisateur (par défaut, vous-même).")
+                .setRequired(false)
         ),
     async execute(interaction) {
         const statistique = interaction.options.getString('statistique');
+        const utilisateur = interaction.options.getUser('utilisateur') || interaction.user; // Utilise l'utilisateur mentionné ou celui qui exécute la commande
 
         // Chargement des données JSON de l'utilisateur
         const dataDir = path.join(__dirname, '../../data/basicfit');
-        const filePath = path.join(dataDir, `${interaction.user.id}.json`);
+        const filePath = path.join(dataDir, `${utilisateur.id}.json`);
 
         if (!fs.existsSync(filePath)) {
-            return interaction.reply({ content: "Aucune donnée trouvée. Veuillez téléverser vos données avec `/basicfit upload`.", ephemeral: true });
+            return interaction.reply({ content: `Aucune donnée trouvée pour ${utilisateur.username}. Veuillez téléverser les données avec \`/basicfit upload\`.`, ephemeral: true });
         }
 
         const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -41,58 +47,47 @@ module.exports = {
         try {
             switch (statistique) {
                 case 'heatmap':
-                    // Ajoutez ici l'implémentation de la heatmap
-                    await interaction.reply({ content: 'Heatmap générée (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Heatmap générée pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'streakDay':
-                    // Ajoutez ici l'implémentation du streak day
-                    await interaction.reply({ content: 'Streak Day calculé (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Streak Day calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'streakWeek':
-                    // Ajoutez ici l'implémentation du streak week
-                    await interaction.reply({ content: 'Streak Week calculé (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Streak Week calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'averageWeek':
-                    // Ajoutez ici l'implémentation de la moyenne hebdomadaire
-                    await interaction.reply({ content: 'Moyenne hebdomadaire calculée (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Moyenne hebdomadaire calculée pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'bestMonth':
-                    // Ajoutez ici l'implémentation du meilleur mois
-                    await interaction.reply({ content: 'Meilleur mois identifié (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Meilleur mois identifié pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'favoriteDay':
-                    // Ajoutez ici l'implémentation du jour préféré
-                    await interaction.reply({ content: 'Jour préféré calculé (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Jour préféré calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'visitsByDay':
-                    // Ajoutez ici l'implémentation des visites par jour
-                    await interaction.reply({ content: 'Visites par jour affichées (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Visites par jour affichées pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'timeOfDay':
-                    // Ajoutez ici l'implémentation des horaires préférés
-                    await interaction.reply({ content: 'Horaires préférés analysés (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Horaires préférés analysés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'activePercentage':
-                    // Ajoutez ici l'implémentation du pourcentage d’activité
-                    await interaction.reply({ content: 'Pourcentage d’activité calculé (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Pourcentage d’activité calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'locations':
-                    // Ajoutez ici l'implémentation des clubs visités
-                    await interaction.reply({ content: 'Clubs visités listés (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Clubs visités listés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 case 'avgTimeBetweenVisits':
-                    // Ajoutez ici l'implémentation du temps moyen entre visites
-                    await interaction.reply({ content: 'Temps moyen entre visites calculé (à implémenter).', ephemeral: true });
+                    await interaction.reply({ content: `Temps moyen entre visites calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
 
                 default:
