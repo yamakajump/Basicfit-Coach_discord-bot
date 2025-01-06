@@ -51,8 +51,32 @@ module.exports = {
                     break;
 
                 case 'streakDay':
-                    await interaction.reply({ content: `Streak Day calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    const visits = jsonData.visits.map(date => new Date(date).getTime()).sort((a, b) => a - b);
+                
+                    if (!visits.length) {
+                        await interaction.reply({ content: `Aucune visite enregistrée pour ${utilisateur.username}.`, ephemeral: true });
+                        break;
+                    }
+                
+                    let maxStreak = 1;
+                    let currentStreak = 1;
+                
+                    for (let i = 1; i < visits.length; i++) {
+                        const diffInDays = (visits[i] - visits[i - 1]) / (1000 * 60 * 60 * 24); // Différence en jours
+                        if (diffInDays === 1) {
+                            currentStreak++;
+                            maxStreak = Math.max(maxStreak, currentStreak);
+                        } else {
+                            currentStreak = 1;
+                        }
+                    }
+                
+                    await interaction.reply({
+                        content: `Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours**.`,
+                        ephemeral: true
+                    });
                     break;
+
 
                 case 'streakWeek':
                     await interaction.reply({ content: `Streak Week calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
