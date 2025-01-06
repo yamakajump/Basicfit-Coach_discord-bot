@@ -1,11 +1,37 @@
-# Discord Bot - GoMuscu
+# GoMuscu - Discord Bot
 
-Un bot Discord conçu pour fournir des outils liés à la musculation, des calculs nutritionnels, des citations de motivation et bien plus encore pour encourager les membres d'un serveur à atteindre leurs objectifs.
+Un bot Discord conçu pour accompagner les passionnés de musculation et de fitness en leur proposant des outils pratiques, des calculs nutritionnels, des statistiques personnalisées et des citations motivantes pour atteindre leurs objectifs.
+
+## Table des matières
+1. [Introduction](#introduction)
+2. [Fonctionnalités](#fonctionnalités)
+    - [Commandes Slash](#commandes-slash)
+    - [Messages quotidiens](#messages-quotidiens)
+3. [Prérequis](#prérequis)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+   - [Ajouter des Citations](#ajouter-des-citations)
+   - [Modifier les Messages Automatiques](#modifie)
+6. [Statistiques Personnalisées](#statistiques-personnalisées)
+7. [Architecture du Projet](#architecture-du-projet)
+8. [Dépendances](#dépendances)
+9. [Contribution](#contribution)
+10. [Licence](#licence)
+
+---
+
+## Introduction
+
+GoMuscu est un bot Discord dédié à la musculation et au bien-être. Que vous soyez débutant ou confirmé, ce bot vous propose :
+- Des calculs personnalisés (IMC, besoins caloriques, macro-nutriments, etc.).
+- Des outils pour suivre vos performances en salle de sport.
+- Des statistiques de vos activités.
+- Des citations motivantes pour garder la flamme.
+- Une intégration simple et intuitive pour améliorer l'expérience des membres du serveur.
 
 ## Fonctionnalités
 
-### **Commandes Slash**
-Le bot propose plusieurs commandes pour aider les utilisateurs :
+### Commandes Slash
 
 | Commande                        | Description                                                                 |
 |---------------------------------|-----------------------------------------------------------------------------|
@@ -33,107 +59,110 @@ Le bot propose plusieurs commandes pour aider les utilisateurs :
 | `/stats activePercentage`       | Calcule le pourcentage de jours où vous êtes allé à la salle par rapport à la période totale couverte. |
 | `/stats locations`              | Liste les clubs visités et leur fréquence.                                |
 | `/stats avgTimeBetweenVisits`   | Calcule la moyenne de temps entre deux séances.                           |
-| `/compare` | Comparez vos statistiques avec celles d’un autre membre du serveur. Qui est le plus actif ? Qui a le meilleur mois ? |
-| `/serverStats`                  | Découvrez les statistiques globales du serveur, incluant le total des séances, le jour préféré, l’utilisateur le plus actif, la moyenne de séances par utilisateur, et bien plus encore ! |
+| `/compare`                      | Compare vos statistiques avec celles d’un autre membre du serveur.        |
+| `/serverStats`                  | Affiche des statistiques globales du serveur.                            |
 
+### Messages quotidiens
 
-### **Messages quotidiens**
-- Le bot envoie une citation motivante chaque jour à 7h dans un canal spécifique.
-
----
+- Le bot envoie chaque jour une citation motivante à une heure définie dans un canal spécifique. Ces citations peuvent être personnalisées.
 
 ## Prérequis
 
 - [Node.js](https://nodejs.org/) version 16 ou supérieure.
-- Un compte Discord avec accès au portail des développeurs.
-- Permissions pour ajouter un bot à un serveur.
-
----
+- Un compte Discord avec accès au portail développeur.
+- Permissions d’administration pour ajouter un bot sur un serveur.
 
 ## Installation
 
-1. **Cloner le dépôt :**
+1. **Cloner le dépôt**
    ```bash
    git clone <URL_DU_DEPOT>
    cd <NOM_DU_DEPOT>
    ```
 
-2. **Installer les dépendances :**
+2. **Installer les dépendances**
    ```bash
    npm install
    ```
 
-3. **Configurer le fichier `.env` :**
-   Créez un fichier `.env` à la racine du projet et ajoutez votre token de bot Discord :
+3. **Configurer le fichier `.env`**
+   Créez un fichier `.env` à la racine et ajoutez votre token de bot Discord :
    ```env
    TOKEN=your_discord_bot_token_here
    ```
 
-4. **Configurer les commandes :**
-   Dans le fichier `index.js`, remplacez les valeurs par :
-   - `clientId` : L'ID de votre bot (disponible sur le portail développeur Discord).
-   - `guildId` : L'ID de votre serveur (obtenez-le en activant le mode développeur dans Discord).
+4. **Configurer les commandes**
+   Dans le fichier `index.js`, remplacez les valeurs suivantes :
+   - `clientId` : L'ID de votre bot (portail développeur Discord).
+   - `guildId` : L'ID de votre serveur.
 
-5. **Démarrer le bot :**
+5. **Lancer le bot**
    ```bash
    node index.js
    ```
 
----
+## Configuration
 
-## Ajouter des Citations
-
+### Ajouter des Citations
 1. Ouvrez le fichier `data/motivation.json`.
-2. Ajoutez vos propres citations au format suivant :
+2. Ajoutez vos citations dans le tableau `"citations"` au format suivant :
    ```json
    {
        "citations": [
-           "Votre nouvelle citation ici.",
-           "Une autre citation motivante."
+           "Soyez meilleur qu'hier.",
+           "Chaque jour est une nouvelle opportunité."
        ]
    }
    ```
-3. Relancez le bot pour appliquer les changements.
+3. Relancez le bot pour appliquer les modifications.
 
----
+### Modifier les Messages Automatiques
+1. Accédez à `events/dailyMotivation.js`.
+2. Remplacez `YOUR_CHANNEL_ID` par l’ID du canal cible.
+3. Modifiez l'heure dans le planificateur pour l’adapter à vos besoins.
 
-## Configuration des Messages Automatiques
+## Statistiques Personnalisées
 
-Le bot envoie une citation motivante chaque jour à une heure spécifique dans un canal.
+Le bot propose des outils pour analyser vos performances et vos habitudes d’entraînement grâce à l’upload de données.
+- **Upload des Données** : Utilisez `/upload` pour importer un fichier JSON (Basic Fit - My Data).
+- **Visualisation** : Les commandes `/stats` permettent d'explorer vos habitudes sous forme de graphiques et de chiffres clés.
 
-1. Ouvrez le fichier `events/dailyMotivation.js`.
-2. Remplacez `YOUR_CHANNEL_ID` par l'ID du canal souhaité.
-3. Ajustez l'heure dans le planificateur pour correspondre à vos besoins.
+## Architecture du Projet
 
----
+- **`commands/`** : Contient les commandes du bot.
+- **`events/`** : Gère les événements Discord (comme les messages quotidiens).
+- **`data/`** : Contient les fichiers JSON (citations, configurations, etc.).
+- **`index.js`** : Point d'entrée principal.
 
 ## Dépendances
 
-- `discord.js` : Pour l'interaction avec l'API Discord.
-- `dotenv` : Pour gérer les variables d'environnement.
-- `node-schedule` : Pour planifier l'envoi de messages quotidiens.
+- [discord.js](https://discord.js.org/) : Bibliothèque pour interagir avec l’API Discord.
+- [dotenv](https://www.npmjs.com/package/dotenv) : Gestion des variables d’environnement.
+- [node-schedule](https://www.npmjs.com/package/node-schedule) : Planification des tâches répétitives.
+- [chart.js](https://www.chartjs.org/) : Génération de graphiques pour les statistiques.
 
----
+## Contribution
 
-## Contribuer
+Les contributions sont bienvenues ! Voici comment vous pouvez contribuer :
 
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. Forkez le dépôt.
-2. Créez une branche pour votre fonctionnalité ou correction :
+1. Forkez le projet.
+2. Créez une branche pour votre fonctionnalité :
    ```bash
-   git checkout -b ma-branche
+   git checkout -b feature-ma-nouvelle-fonctionnalite
    ```
-3. Effectuez vos modifications et poussez la branche :
+3. Commitez vos modifications :
    ```bash
-   git push origin ma-branche
+   git commit -m "Ajout d'une nouvelle fonctionnalité"
    ```
-4. Ouvrez une pull request.
-
----
+4. Poussez votre branche :
+   ```bash
+   git push origin feature-ma-nouvelle-fonctionnalite
+   ```
+5. Ouvrez une pull request.
 
 ## Licence
 
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le redistribuer tant que vous respectez les termes de la licence.  
-Voir le fichier [LICENSE](./LICENSE) pour plus de détails.
+Ce projet est sous licence MIT. Vous êtes libre de l’utiliser, de le modifier et de le redistribuer dans le respect des termes de la licence.
+
+Pour plus de détails, consultez le fichier [LICENSE](./LICENSE).
 
