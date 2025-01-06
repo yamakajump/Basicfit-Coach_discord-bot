@@ -289,7 +289,7 @@ module.exports = {
                     }
                 
                     // Initialize day labels and counters
-                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const daysOfWeekVisitsByDay = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
                     const dayCounts = new Array(7).fill(0);
                 
                     // Count visits for each day of the week
@@ -333,7 +333,7 @@ module.exports = {
                         ctx.fillStyle = '#FFFFFF';
                         ctx.font = '16px Arial';
                         ctx.textAlign = 'center';
-                        ctx.fillText(daysOfWeek[index], x + barWidth / 2, height - 25); // Day labels
+                        ctx.fillText(daysOfWeekVisitsByDay[index], x + barWidth / 2, height - 25); // Day labels
                         ctx.fillText(count.toString(), x + barWidth / 2, height - 60 - barHeight); // Count labels
                     });
                 
@@ -346,6 +346,7 @@ module.exports = {
                         files: [attachment]
                     });
                     break;
+
 
 
 
