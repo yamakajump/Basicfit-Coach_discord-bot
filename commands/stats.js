@@ -98,7 +98,53 @@ module.exports = {
                     break;
                 
                 case 'streakWeek':
-                    await interaction.reply({ content: `Streak Week calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Récupérer les visites à partir des données JSON
+                    const visitsWeek = jsonData.visits
+                        .map(entry => {
+                            // Convertir les dates au format standard
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        })
+                        .sort((a, b) => a - b); // Trier par ordre chronologique
+                
+                    // Vérifier si des visites existent
+                    if (!visitsWeek.length) {
+                        await interaction.reply({
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Grouper les visites par semaine (ISO Week)
+                    const weeks = new Set();
+                    visitsWeek.forEach(date => {
+                        const year = date.getUTCFullYear();
+                        const week = date.getUTCISOWeek();
+                        weeks.add(`${year}-W${week}`);
+                    });
+                
+                    // Calculer le streak maximal de semaines consécutives
+                    const sortedWeeks = Array.from(weeks).sort(); // Trier les semaines
+                    let maxWeekStreak = 1;
+                    let currentWeekStreak = 1;
+                
+                    for (let i = 1; i < sortedWeeks.length; i++) {
+                        const [year1, week1] = sortedWeeks[i - 1].split('-W').map(Number);
+                        const [year2, week2] = sortedWeeks[i].split('-W').map(Number);
+                
+                        // Calculer si les semaines sont consécutives (gérer le changement d'année)
+                        if ((year1 === year2 && week2 === week1 + 1) || (year2 === year1 + 1 && week1 === 52 && week2 === 1)) {
+                            currentWeekStreak++;
+                            maxWeekStreak = Math.max(maxWeekStreak, currentWeekStreak);
+                        } else {
+                            currentWeekStreak = 1;
+                        }
+                    }
+                
+                    // Envoyer le résultat au canal
+                    await interaction.reply({
+                        content: `<a:feu:1321793901350223932> **Streak Week** : Le plus grand nombre de semaines consécutives où <@${utilisateur.id}> est allé à la salle est : **${maxWeekStreak} semaines** !`
+                    });
                     break;
 
                 case 'averageWeek':
