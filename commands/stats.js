@@ -236,6 +236,41 @@ module.exports = {
                     });
                     break;
 
+                case 'favoriteDay':
+                    // Retrieve visits from JSON data
+                    const visitsDay = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                    if (!visitsDay.length) {
+                        await interaction.reply({
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Group visits by day of the week
+                    const daysOfWeek = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+                    const dayCounts = new Array(7).fill(0); // Initialize counts for each day
+                
+                    visitsDay.forEach(date => {
+                        const day = date.getDay(); // Get the day of the week (0 = Sunday, 6 = Saturday)
+                        dayCounts[day]++;
+                    });
+                
+                    // Find the favorite day
+                    const favoriteDayIndex = dayCounts.indexOf(Math.max(...dayCounts));
+                    const favoriteDay = daysOfWeek[favoriteDayIndex];
+                    const favoriteDayCount = dayCounts[favoriteDayIndex];
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `\\<:coin_info:1321862685578756167> **Favorite Day** : Le jour où <@${utilisateur.id}> va le plus souvent à la salle est : **${favoriteDay}** avec **${favoriteDayCount} visites** !`
+                    });
+                    break;
 
 
                 case 'timeOfDay':
