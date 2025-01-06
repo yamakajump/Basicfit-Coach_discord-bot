@@ -149,15 +149,14 @@ module.exports = {
 
                 case 'averageWeek':
                     // Retrieve visits from JSON data
-                    const visitsWeek = jsonData.visits
+                    const averageWeekVisits = jsonData.visits
                         .map(entry => {
                             // Convert dates to JavaScript Date objects
                             const [day, month, year] = entry.date.split('-');
                             return new Date(`${year}-${month}-${day}`);
-                        })
-                        .sort((a, b) => a - b); // Sort dates chronologically
+                        });
                 
-                    if (!visitsWeek.length) {
+                    if (!averageWeekVisits.length) {
                         await interaction.reply({
                             content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
                         });
@@ -166,7 +165,7 @@ module.exports = {
                 
                     // Group visits by ISO week-year
                     const weeklyVisits = {};
-                    visitsWeek.forEach(date => {
+                    averageWeekVisits.forEach(date => {
                         const week = date.getUTCISOWeek();
                         const year = date.getUTCFullYear();
                         const weekKey = `${year}-W${week}`;
@@ -187,126 +186,6 @@ module.exports = {
                         content: `📊 **Average Week** : <@${utilisateur.id}> va à la salle en moyenne **${averagePerWeek} jours par semaine** !`
                     });
                     break;
-
-
-                case 'bestMonth':
-                    // Retrieve visits from JSON data
-                    const visitsMonth = jsonData.visits
-                        .map(entry => {
-                            // Convert dates to JavaScript Date objects
-                            const [day, month, year] = entry.date.split('-');
-                            return new Date(`${year}-${month}-${day}`);
-                        });
-                
-                    if (!visitsMonth.length) {
-                        await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
-                        });
-                        break;
-                    }
-                
-                    // Group visits by month-year
-                    const monthlyVisits = {};
-                    visitsMonth.forEach(date => {
-                        const month = date.getUTCMonth() + 1; // Months are zero-indexed
-                        const year = date.getUTCFullYear();
-                        const monthKey = `${year}-${month.toString().padStart(2, '0')}`;
-                
-                        if (!monthlyVisits[monthKey]) {
-                            monthlyVisits[monthKey] = 0;
-                        }
-                        monthlyVisits[monthKey]++;
-                    });
-                
-                    // Find the month with the most visits
-                    const bestMonth = Object.entries(monthlyVisits).reduce((best, current) =>
-                        current[1] > best[1] ? current : best
-                    );
-                
-                    const [bestMonthKey, bestMonthCount] = bestMonth;
-                
-                    // Send the result to the channel
-                    await interaction.reply({
-                        content: `📅 **Best Month** : Le mois où ${utilisateur.username} est allé le plus souvent à la salle est : **${bestMonthKey}** avec **${bestMonthCount} visites** !`
-                    });
-                    break;
-
-
-                case 'favoriteDay':
-                    // Retrieve visits from JSON data
-                    const visitsDay = jsonData.visits
-                        .map(entry => {
-                            // Convert dates to JavaScript Date objects
-                            const [day, month, year] = entry.date.split('-');
-                            return new Date(`${year}-${month}-${day}`);
-                        });
-                
-                    if (!visitsDay.length) {
-                        await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
-                        });
-                        break;
-                    }
-                
-                    // Group visits by day of the week
-                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-                    const dayCounts = new Array(7).fill(0);
-                
-                    visitsDay.forEach(date => {
-                        const day = date.getUTCDay(); // Get the day of the week (0 = Sunday, 6 = Saturday)
-                        dayCounts[day]++;
-                    });
-                
-                    // Find the favorite day
-                    const favoriteDayIndex = dayCounts.indexOf(Math.max(...dayCounts));
-                    const favoriteDay = daysOfWeek[favoriteDayIndex];
-                    const favoriteDayCount = dayCounts[favoriteDayIndex];
-                
-                    // Send the result to the channel
-                    await interaction.reply({
-                        content: `📅 **Favorite Day** : Le jour où ${utilisateur.username} va le plus souvent à la salle est : **${favoriteDay}** avec **${favoriteDayCount} visites** !`
-                    });
-                    break;
-
-
-                case 'visitsByDay':
-                    // Retrieve visits from JSON data
-                    const visitsByDay = jsonData.visits
-                        .map(entry => {
-                            // Convert dates to JavaScript Date objects
-                            const [day, month, year] = entry.date.split('-');
-                            return new Date(`${year}-${month}-${day}`);
-                        });
-                
-                    if (!visitsByDay.length) {
-                        await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
-                        });
-                        break;
-                    }
-                
-                    // Initialize day labels and counters
-                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-                    const dayCounts = new Array(7).fill(0);
-                
-                    // Count visits for each day of the week
-                    visitsByDay.forEach(date => {
-                        const day = date.getUTCDay(); // Get the day of the week (0 = Sunday, 6 = Saturday)
-                        dayCounts[day]++;
-                    });
-                
-                    // Create a message with visits by day
-                    let message = `📅 **Visits by Day** for ${utilisateur.username}:\n\n`;
-                    daysOfWeek.forEach((day, index) => {
-                        message += `- **${day}**: ${dayCounts[index]} visite(s)\n`;
-                    });
-                
-                    // Send the result to the channel
-                    await interaction.reply({
-                        content: message
-                    });
-                    break;
-
 
                 case 'timeOfDay':
                     await interaction.reply({ content: `Horaires préférés analysés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
