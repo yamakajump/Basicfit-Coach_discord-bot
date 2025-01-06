@@ -273,47 +273,53 @@ module.exports = {
                     break;
 
                 case 'visitsByDay':
+                    await interaction.reply({ content: ` (à implémenter).`, ephemeral: true });
+                    break;
+
+
+                case 'timeOfDay':
                     // Retrieve visits from JSON data
-                    const visitsByDay = jsonData.visits
+                    const visitsTime = jsonData.visits
                         .map(entry => {
-                            // Convert dates to JavaScript Date objects
+                            // Convert dates and times to JavaScript Date objects
                             const [day, month, year] = entry.date.split('-');
-                            return new Date(`${year}-${month}-${day}`);
+                            const [hour, minute] = entry.time.split(':'); // Assumes "time" is available in JSON data
+                            return new Date(`${year}-${month}-${day}T${hour}:${minute}`);
                         });
                 
-                    if (!visitsByDay.length) {
+                    if (!visitsTime.length) {
                         await interaction.reply({
                             content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
                         });
                         break;
                     }
                 
-                    // Initialize day labels and counters
-                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-                    const dayCounts = new Array(7).fill(0); // Initialize counts for each day
-                
-                    // Count visits for each day of the week
-                    visitsByDay.forEach(date => {
-                        const day = date.getDay(); // Get the day of the week (0 = Sunday, 6 = Saturday)
-                        const adjustedDay = (day === 0) ? 6 : day - 1; // Adjust for Monday as the first day (0 = Sunday -> 6 = Dimanche)
-                        dayCounts[adjustedDay]++;
+                    // Group visits by hour of the day
+                    const hours = new Array(24).fill(0); // Initialize counts for each hour
+                    visitsTime.forEach(date => {
+                        const hour = date.getHours(); // Get the hour (0-23)
+                        hours[hour]++;
                     });
                 
-                    // Create a message with visits by day
-                    let message = `📅 **Visits by Day** for ${utilisateur.username}:\n\n`;
-                    daysOfWeek.forEach((day, index) => {
-                        message += `- **${day}**: ${dayCounts[index]} visite(s)\n`;
-                    });
+                    // Find the preferred time period
+                    const maxVisits = Math.max(...hours);
+                    const favoriteHours = hours
+                        .map((count, index) => (count === maxVisits ? index : null))
+                        .filter(hour => hour !== null);
+                
+                    // Format the result
+                    const favoriteTimePeriods = favoriteHours.map(hour => {
+                        const start = `${hour.toString().padStart(2, '0')}:00`;
+                        const end = `${(hour + 1).toString().padStart(2, '0')}:00`;
+                        return `${start} - ${end}`;
+                    }).join(', ');
                 
                     // Send the result to the channel
                     await interaction.reply({
-                        content: message
+                        content: `🕒 **Time of Day** : Les horaires préférés de <@${utilisateur.id}> pour aller à la salle sont : **${favoriteTimePeriods}** avec **${maxVisits} visites** durant ces périodes !`
                     });
                     break;
 
-                case 'timeOfDay':
-                    await interaction.reply({ content: `Horaires préférés analysés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
-                    break;
 
                 case 'activePercentage':
                     await interaction.reply({ content: `Pourcentage d’activité calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
