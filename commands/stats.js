@@ -37,7 +37,7 @@ module.exports = {
         const statistique = interaction.options.getString('statistique');
         const utilisateur = interaction.options.getUser('utilisateur') || interaction.user; // Utilise l'utilisateur mentionné ou celui qui exécute la commande
 
-        // Chargement des données JSON de l'utilisateur
+         // Chargement des données JSON de l'utilisateur
         const dataDir = path.join(__dirname, '../data/basicfit');
         const filePath = path.join(dataDir, `${utilisateur.id}.json`);
 
@@ -46,7 +46,20 @@ module.exports = {
         }
 
         const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-
+    
+            // Vérifiez si la statistique ne dépend pas d'un utilisateur
+            if (statistique === 'bestDayOverall') {
+                await interaction.reply({
+                    content: `Calcul en cours pour **Best Day Overall** pour toute la communauté.`,
+                    ephemeral: true,
+                });
+                // Ajoutez ici la logique pour 'bestDayOverall'
+                return interaction.reply({ content: `zizi`, ephemeral: true });
+            }
+    
+            // Si une autre statistique est choisie, continuez avec la logique habituelle
+            const targetUser = utilisateur || interaction.user;
+  
         // Logique en fonction de la statistique sélectionnée
         try {
             switch (statistique) {
