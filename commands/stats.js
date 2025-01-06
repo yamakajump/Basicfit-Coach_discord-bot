@@ -187,6 +187,48 @@ module.exports = {
                     });
                     break;
                 
+                 case 'bestMonth':
+                    // Retrieve visits from JSON data
+                    const visitsMonth = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                    if (!visitsMonth.length) {
+                        await interaction.reply({
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Group visits by month-year
+                    const monthlyVisits = {};
+                    visitsMonth.forEach(date => {
+                        const month = date.getUTCMonth() + 1; // Months are zero-indexed
+                        const year = date.getUTCFullYear();
+                        const monthKey = `${year}-${month.toString().padStart(2, '0')}`;
+                
+                        if (!monthlyVisits[monthKey]) {
+                            monthlyVisits[monthKey] = 0;
+                        }
+                        monthlyVisits[monthKey]++;
+                    });
+                
+                    // Find the month with the most visits
+                    const bestMonth = Object.entries(monthlyVisits).reduce((best, current) =>
+                        current[1] > best[1] ? current : best
+                    );
+                
+                    const [bestMonthKey, bestMonthCount] = bestMonth;
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `\<:coin_info:1321862685578756167> **Best Month** : Le mois où ${utilisateur.username} est allé le plus souvent à la salle est : **${bestMonthKey}** avec **${bestMonthCount} visites** !`
+                    });
+                    break;
+
 
                 case 'timeOfDay':
                     await interaction.reply({ content: `Horaires préférés analysés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
