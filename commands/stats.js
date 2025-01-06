@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { createCanvas } = require('canvas');
