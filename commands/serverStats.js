@@ -76,10 +76,19 @@ module.exports = {
             }
         });
 
-        // Identify top user
+        // Identifier l'utilisateur avec le plus de séances
         const topUserId = Object.keys(userStats).reduce((a, b) => userStats[a] > userStats[b] ? a : b, null);
         const topUserSessions = userStats[topUserId] || 0;
-        const topUserMention = interaction.guild.members.cache.get(topUserId)?.toString() || `Utilisateur inconnu`;
+        
+        // Extraire le pseudo depuis l'ID trouvé
+        let topUserMention = `Utilisateur inconnu (${topUserId})`;
+        const member = interaction.guild.members.cache.get(topUserId);
+        if (member) {
+            topUserMention = member.displayName; // Utilise le pseudo du serveur s'il existe
+        } else {
+            topUserMention = `<@${topUserId}>`; // Mentionne l'utilisateur par son ID s'il n'est pas trouvé dans le cache
+        }
+
 
         // Calculate stats
         const avgSessionsPerUser = (totalSessions / totalUsersWithData).toFixed(2);
