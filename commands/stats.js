@@ -53,7 +53,7 @@ module.exports = {
                     const attachment = new AttachmentBuilder(imageBuffer, { name: 'heatmap.png' });
         
                     await interaction.reply({
-                        content: `Voici la heatmap des visites de ${utilisateur.username} :`,
+                        content: `Voici la heatmap des visites de <@${utilisateur.id}> :`,
                         files: [attachment],
                     });
                     break;
@@ -93,7 +93,7 @@ module.exports = {
                 
                     // Envoyer le résultat au canal
                     await interaction.reply({
-                        content: `<a:feu:1321793901350223932> **Streak Day** : Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours** !`
+                        content: `<a:feu:1321793901350223932> **Streak Day** : Le plus grand nombre de jours consécutifs où <@${utilisateur.id}> est allé à la salle est : **${maxStreak} jours** !`
                     });
                     break;
                 
