@@ -60,6 +60,21 @@ module.exports = {
                     break;
 
                 case 'streakDay':
+                    // Définir le chemin du fichier JSON de l'utilisateur
+                    const dataDir = path.join(__dirname, '../../data/basicfit');
+                    const filePath = path.join(dataDir, `${utilisateur.id}.json`);
+                
+                    // Vérifier si le fichier existe
+                    if (!fs.existsSync(filePath)) {
+                        await interaction.reply({
+                            content: `❌ **Erreur** : Les données pour ${utilisateur.username} sont introuvables. Veuillez téléverser vos données avec \`/basicfit upload\`.`
+                        });
+                        break;
+                    }
+                
+                    // Charger les données JSON
+                    const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                
                     // Récupérer les visites à partir des données JSON
                     const visits = jsonData.visits
                         .map(entry => {
@@ -72,7 +87,7 @@ module.exports = {
                     // Vérifier si des visites existent
                     if (!visits.length) {
                         await interaction.reply({ 
-                            content: `Aucune visite enregistrée pour ${utilisateur.username}.` 
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.` 
                         });
                         break;
                     }
@@ -94,10 +109,10 @@ module.exports = {
                 
                     // Envoyer le résultat au canal
                     await interaction.reply({
-                        content: `\<a:feu:1321793901350223932> **Streak Day** : Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours** !`
+                        content: `<a:feu:1321793901350223932> **Streak Day** : Le plus grand nombre de jours consécutifs où ${utilisateur.username} est allé à la salle est : **${maxStreak} jours** !`
                     });
                     break;
-
+                
                 case 'streakWeek':
                     await interaction.reply({ content: `Streak Week calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
                     break;
