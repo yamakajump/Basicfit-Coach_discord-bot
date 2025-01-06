@@ -464,6 +464,46 @@ module.exports = {
                         content: `<:info:1322215662621425674> **Average Time Between Visits** : <@${utilisateur.id}> a une moyenne de **${avgTimeBetweenVisits} jours** entre deux séances.`
                     });
                     break;
+
+                case 'bestDayOverall':
+                    const allMembers = interaction.guild.members.cache;
+                    const dayCountsOverall = new Array(7).fill(0); // Initialize counts for each day of the week
+                
+                    // Parcourir les membres du serveur
+                    for (const [memberId, member] of allMembers) {
+                        const filePath = path.join(dataDir, `${memberId}.json`);
+                
+                        if (!fs.existsSync(filePath)) {
+                            continue; // Skip members without uploaded data
+                        }
+                
+                        const memberData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                        const visits = memberData.visits.map(entry => {
+                            // Convertir les dates en objets Date
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                        // Compter les visites par jour de la semaine
+                        visits.forEach(date => {
+                            const day = date.getDay(); // Get the day of the week (0 = Sunday, ..., 6 = Saturday)
+                            const adjustedDay = (day === 0) ? 6 : day - 1; // Adjust so Monday is first (0 = Sunday -> 6 = Dimanche)
+                            dayCountsOverall[adjustedDay]++;
+                        });
+                    }
+                
+                    // Identifier le jour le plus actif
+                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const bestDayIndex = dayCountsOverall.indexOf(Math.max(...dayCountsOverall));
+                    const bestDay = daysOfWeek[bestDayIndex];
+                    const totalVisitsOnBestDay = dayCountsOverall[bestDayIndex];
+                
+                    // Envoyer le résultat au canal
+                    await interaction.reply({
+                        content: `📅 **Best Day Overall** : Le jour le plus actif pour toute la communauté du serveur est : **${bestDay}** avec un total de **${totalVisitsOnBestDay} visites** !`
+                    });
+                    break;
+
                 
 
                 default:
