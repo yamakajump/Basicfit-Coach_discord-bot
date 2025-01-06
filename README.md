@@ -1,4 +1,4 @@
-# GoMuscu - Discord Bot
+# Basicfit Coach - Discord Bot
 
 Un bot Discord conçu pour accompagner les passionnés de musculation et de fitness en leur proposant des outils pratiques, des calculs nutritionnels, des statistiques personnalisées et des citations motivantes pour atteindre leurs objectifs.
 
@@ -22,7 +22,7 @@ Un bot Discord conçu pour accompagner les passionnés de musculation et de fitn
 
 ## Introduction
 
-GoMuscu est un bot Discord dédié à la musculation et au bien-être. Que vous soyez débutant ou confirmé, ce bot vous propose :
+Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Que vous soyez débutant ou confirmé, ce bot vous propose :
 - Des calculs personnalisés (IMC, besoins caloriques, macro-nutriments, etc.).
 - Des outils pour suivre vos performances en salle de sport.
 - Des statistiques de vos activités.
