@@ -364,7 +364,7 @@ module.exports = {
                 
                     if (!visitsLocations.length) {
                         await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
                         });
                         break;
                     }
@@ -393,8 +393,39 @@ module.exports = {
 
 
                 case 'avgTimeBetweenVisits':
-                    await interaction.reply({ content: `Temps moyen entre visites calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visits = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        })
+                        .sort((a, b) => a - b); // Sort visits chronologically
+                
+                    if (visits.length < 2) {
+                        await interaction.reply({
+                            content: `\<:coin_info:1321862685578756167> Pas assez de données pour calculer la moyenne de temps entre les visites pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Calculate time differences between consecutive visits
+                    let totalDaysBetweenVisits = 0;
+                    for (let i = 1; i < visits.length; i++) {
+                        const diffInTime = visits[i] - visits[i - 1]; // Difference in milliseconds
+                        const diffInDays = diffInTime / (1000 * 60 * 60 * 24); // Convert to days
+                        totalDaysBetweenVisits += diffInDays;
+                    }
+                
+                    // Calculate average time between visits
+                    const avgTimeBetweenVisits = (totalDaysBetweenVisits / (visits.length - 1)).toFixed(2);
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `\<:info:1322215662621425674> **Average Time Between Visits** : <@${utilisateur.id}> a une moyenne de **${avgTimeBetweenVisits} jours** entre deux séances.`
+                    });
                     break;
+
 
                 default:
                     await interaction.reply({ content: 'Option invalide.', ephemeral: true });
