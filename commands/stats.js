@@ -233,8 +233,41 @@ module.exports = {
 
 
                 case 'favoriteDay':
-                    await interaction.reply({ content: `Jour préféré calculé pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visitsDay = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                    if (!visitsDay.length) {
+                        await interaction.reply({
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Group visits by day of the week
+                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const dayCounts = new Array(7).fill(0);
+                
+                    visitsDay.forEach(date => {
+                        const day = date.getUTCDay(); // Get the day of the week (0 = Sunday, 6 = Saturday)
+                        dayCounts[day]++;
+                    });
+                
+                    // Find the favorite day
+                    const favoriteDayIndex = dayCounts.indexOf(Math.max(...dayCounts));
+                    const favoriteDay = daysOfWeek[favoriteDayIndex];
+                    const favoriteDayCount = dayCounts[favoriteDayIndex];
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: `📅 **Favorite Day** : Le jour où ${utilisateur.username} va le plus souvent à la salle est : **${favoriteDay}** avec **${favoriteDayCount} visites** !`
+                    });
                     break;
+
 
                 case 'visitsByDay':
                     await interaction.reply({ content: `Visites par jour affichées pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
