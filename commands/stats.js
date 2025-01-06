@@ -34,7 +34,7 @@ module.exports = {
         const utilisateur = interaction.options.getUser('utilisateur') || interaction.user; // Utilise l'utilisateur mentionné ou celui qui exécute la commande
 
         // Chargement des données JSON de l'utilisateur
-        const dataDir = path.join(__dirname, '../../data/basicfit');
+        const dataDir = path.join(__dirname, '../data/basicfit');
         const filePath = path.join(dataDir, `${utilisateur.id}.json`);
 
         if (!fs.existsSync(filePath)) {
