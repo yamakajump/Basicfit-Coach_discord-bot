@@ -71,7 +71,7 @@ module.exports = {
                     // Vérifier si des visites existent
                     if (!visits.length) {
                         await interaction.reply({ 
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.` 
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.` 
                         });
                         break;
                     }
@@ -110,7 +110,7 @@ module.exports = {
                     // Vérifier si des visites existent
                     if (!visitsWeek.length) {
                         await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
                         });
                         break;
                     }
@@ -158,7 +158,7 @@ module.exports = {
                 
                     if (!averageWeekVisits.length) {
                         await interaction.reply({
-                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                            content: `\<:coin_info:1321862685578756167> Aucune visite enregistrée pour ${utilisateur.username}.`
                         });
                         break;
                     }
@@ -183,7 +183,7 @@ module.exports = {
                 
                     // Send the result to the channel
                     await interaction.reply({
-                        content: `📊 **Average Week** : <@${utilisateur.id}> va à la salle en moyenne **${averagePerWeek} jours par semaine** !`
+                        content: `\<a:boule:1321847679441178737> **Average Week** : <@${utilisateur.id}> va à la salle en moyenne **${averagePerWeek} jours par semaine** !`
                     });
                     break;
                 
