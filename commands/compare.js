@@ -106,7 +106,7 @@ module.exports = {
         const message = `
 📊 **Comparaison des statistiques** :
 
-👤 **Utilisateur 1 :** <@${utilisateur1.id}>
+👤 <@${utilisateur1.id}>
 🏋️‍♂️ **Total des séances :** ${stats1.totalVisits}
 📅 **Jour préféré :** ${stats1.favoriteDay}
 📆 **Mois préféré :** ${stats1.bestMonthName}
@@ -114,7 +114,7 @@ module.exports = {
 ⏰ **Heure la plus populaire :** ${stats1.favoriteHour}
 📍 **Total de clubs visités :** ${stats1.totalClubs}
 
-👤 **Utilisateur 2 :** <@${utilisateur2.id}>
+👤 <@${utilisateur2.id}>
 🏋️‍♂️ **Total des séances :** ${stats2.totalVisits}
 📅 **Jour préféré :** ${stats2.favoriteDay}
 📆 **Mois préféré :** ${stats2.bestMonthName}
