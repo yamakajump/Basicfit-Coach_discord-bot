@@ -270,8 +270,43 @@ module.exports = {
 
 
                 case 'visitsByDay':
-                    await interaction.reply({ content: `Visites par jour affichées pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
+                    // Retrieve visits from JSON data
+                    const visitsByDay = jsonData.visits
+                        .map(entry => {
+                            // Convert dates to JavaScript Date objects
+                            const [day, month, year] = entry.date.split('-');
+                            return new Date(`${year}-${month}-${day}`);
+                        });
+                
+                    if (!visitsByDay.length) {
+                        await interaction.reply({
+                            content: `📉 Aucune visite enregistrée pour ${utilisateur.username}.`
+                        });
+                        break;
+                    }
+                
+                    // Initialize day labels and counters
+                    const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+                    const dayCounts = new Array(7).fill(0);
+                
+                    // Count visits for each day of the week
+                    visitsByDay.forEach(date => {
+                        const day = date.getUTCDay(); // Get the day of the week (0 = Sunday, 6 = Saturday)
+                        dayCounts[day]++;
+                    });
+                
+                    // Create a message with visits by day
+                    let message = `📅 **Visits by Day** for ${utilisateur.username}:\n\n`;
+                    daysOfWeek.forEach((day, index) => {
+                        message += `- **${day}**: ${dayCounts[index]} visite(s)\n`;
+                    });
+                
+                    // Send the result to the channel
+                    await interaction.reply({
+                        content: message
+                    });
                     break;
+
 
                 case 'timeOfDay':
                     await interaction.reply({ content: `Horaires préférés analysés pour ${utilisateur.username} (à implémenter).`, ephemeral: true });
