@@ -6,9 +6,6 @@ require('dotenv').config();
 // Créez une instance du bot
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-// ID du canal pour rapporter les erreurs
-const ERROR_CHANNEL_ID = '1320725724994474015';
-
 // Collection des commandes
 client.commands = new Collection();
 const commands = [];
@@ -45,8 +42,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
     try {
         console.log('Démarrage de l\'enregistrement des commandes slash.');
 
-        const clientId = '1320700475414151198';
-        const guildId = '1308349546648174602';
+        const clientId = process.env.ID;
 
         await rest.put(
             Routes.applicationCommands(clientId),

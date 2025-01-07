@@ -90,10 +90,13 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
    ```
 
 3. **Configurer le fichier `.env`**
-   Créez un fichier `.env` à la racine et ajoutez votre token de bot Discord :
+   Le fichier .env est essentiel pour le bon fonctionnement du bot. Voici les variables à configurer :
    ```env
    TOKEN=your_discord_bot_token_here
+   ID=your_discord_bot_id_here
    ```
+> [!WARNING]
+> Assurez-vous que ce fichier est placé à la racine du projet et que son contenu reste confidentiel. Ne partagez pas votre token, car il permet de contrôler votre bot. 
 
 4. **Configurer les commandes**
    Dans le fichier `index.js`, remplacez les valeurs suivantes :
