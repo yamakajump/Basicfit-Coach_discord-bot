@@ -1,39 +1,10 @@
-const { SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const { createCanvas } = require('canvas');
-// Déclaration globale en haut du fichier
-const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+const fetch = require('node-fetch');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('basicfit_stats')
-        .setDescription('Afficher différentes statistiques en fonction de vos données.')
-        .addStringOption(option =>
-            option.setName('statistique')
-                .setDescription('Choisissez la statistique à afficher.')
-                .addChoices(
-                    { name: 'Heatmap', value: 'heatmap' },
-                    { name: 'Streak Day', value: 'streakDay' },
-                    { name: 'Streak Week', value: 'streakWeek' },
-                    { name: 'Average Week', value: 'averageWeek' },
-                    { name: 'Best Month', value: 'bestMonth' },
-                    { name: 'Favorite Day', value: 'favoriteDay' },
-                    { name: 'Visits By Day', value: 'visitsByDay' },
-                    { name: 'Time Of Day', value: 'timeOfDay' },
-                    { name: 'Active Percentage', value: 'activePercentage' },
-                    { name: 'Locations', value: 'locations' },
-                    { name: 'Avg Time Between Visits', value: 'avgTimeBetweenVisits' }
-                )
-                .setRequired(true)
-        )
-        .addUserOption(option =>
-            option.setName('utilisateur')
-                .setDescription("Sélectionnez un utilisateur (par défaut, vous-même).")
-                .setRequired(false)
-        ),
     async execute(interaction) {
-        const statistique = interaction.options.getString('statistique');
+const statistique = interaction.options.getString('statistique');
         const utilisateur = interaction.options.getUser('utilisateur') || interaction.user; // Utilise l'utilisateur mentionné ou celui qui exécute la commande
 
         // Chargement des données JSON de l'utilisateur
@@ -474,7 +445,7 @@ module.exports = {
             console.error(error);
             await interaction.reply({ content: `Erreur : ${error.message}`, ephemeral: true });
         }
-    },
+    }
 };
 
 function generateHeatmap(jsonData, username) {
@@ -586,3 +557,4 @@ function getDayOfYear(date) {
     const diff = date - start + (start.getTimezoneOffset() - date.getTimezoneOffset()) * 60 * 1000;
     return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
+

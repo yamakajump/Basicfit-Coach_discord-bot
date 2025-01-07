@@ -1,21 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
-const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('basicfit_upload')
-        .setDescription("Téléverse un fichier JSON contenant vos données Basic-Fit.")
-        .addAttachmentOption(option =>
-            option.setName('fichier')
-                .setDescription('Fichier JSON contenant vos données.')
-                .setRequired(true)
-        ),
-
     async execute(interaction) {
         const attachment = interaction.options.getAttachment('fichier');
-
+        
         if (!attachment || !attachment.name.endsWith('.json')) {
             return interaction.reply({ content: 'Seuls les fichiers JSON sont acceptés.', ephemeral: true });
         }
@@ -40,5 +30,5 @@ module.exports = {
             console.error(error);
             return interaction.reply({ content: `Erreur lors du traitement du fichier : ${error.message}`, ephemeral: true });
         }
-    },
+    }
 };
