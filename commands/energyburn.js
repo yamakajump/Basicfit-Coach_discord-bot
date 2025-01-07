@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('calcul energyburn')
+        .setName('calcul_energyburn')
         .setDescription("Estime les calories brûlées en fonction de l'activité et de la durée.")
         .addStringOption(option =>
             option.setName('activite')

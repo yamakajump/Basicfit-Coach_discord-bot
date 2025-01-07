@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('calcul fatloss')
+        .setName('calcul_fatloss')
         .setDescription("Estime le déficit calorique nécessaire pour perdre du poids.")
         .addNumberOption(option =>
             option.setName('poids_actuel')

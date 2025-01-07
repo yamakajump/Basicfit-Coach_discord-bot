@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('calcul imc')
+        .setName('calcul_imc')
         .setDescription("Calcule votre indice de masse corporelle (IMC).")
         .addNumberOption(option =>
             option.setName('poids')

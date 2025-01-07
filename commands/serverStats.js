@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('basicfit serverstats')
+        .setName('basicfit_serverstats')
         .setDescription('Affiche les statistiques globales du serveur BasicFit.'),
     async execute(interaction) {
         const dataDir = path.join(__dirname, '../data/basicfit');

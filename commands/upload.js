@@ -5,7 +5,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('basicfit upload')
+        .setName('basicfit_upload')
         .setDescription("Téléverse un fichier JSON contenant vos données Basic-Fit.")
         .addAttachmentOption(option =>
             option.setName('fichier')

@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('calcul bodyfat')
+        .setName('calcul_bodyfat')
         .setDescription("Calcule votre pourcentage de masse grasse.")
         .addNumberOption(option =>
             option.setName('poids')
