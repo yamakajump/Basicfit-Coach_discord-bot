@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('compare')
+        .setName('basicfit compare')
         .setDescription('Compare les statistiques entre deux utilisateurs.')
         .addUserOption(option =>
             option.setName('utilisateur1')

@@ -7,7 +7,7 @@ const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi",
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('stats')
+        .setName('basicfit stats')
         .setDescription('Afficher différentes statistiques en fonction de vos données.')
         .addStringOption(option =>
             option.setName('statistique')

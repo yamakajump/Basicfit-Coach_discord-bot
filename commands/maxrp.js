@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('maxrep')
+        .setName('calcul maxrep')
         .setDescription("Calcule votre poids maximum pour une répétition (1RM).")
         .addNumberOption(option =>
             option.setName('poids')

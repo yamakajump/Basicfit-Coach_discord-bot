@@ -36,30 +36,33 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 
 ### Commandes Slash
 
-| Commande                        | Description                                                                 |
-|---------------------------------|-----------------------------------------------------------------------------|
-| `/motivation`                   | Envoie une citation motivante aléatoire.                                   |
-| `/imc`                          | Calcule l'indice de masse corporelle (IMC) en fonction du poids et de la taille. |
-| `/bodyfat`                      | Estime le pourcentage de masse grasse à partir de plusieurs paramètres.    |
-| `/calories`                     | Calcule les besoins caloriques journaliers en fonction de l'activité.      |
-| `/macro`                        | Propose une répartition des macronutriments selon les besoins caloriques.  |
-| `/fatloss`                      | Estime le déficit calorique nécessaire pour atteindre un poids cible.      |
-| `/maxrp`                        | Calcule le poids maximum pour une répétition (1RM).                       |
-| `/energyburn`                   | Estime les calories brûlées en fonction de l'activité et de la durée.      |
-| `/upload`                       | Téléchargez vos données depuis Basic Fit - My Data pour utiliser les outils d'analyse. |
-| `/stats heatmap`                | Génère une heatmap pour visualiser vos visites en salle.                  |
-| `/stats streakDay`              | Affiche le plus grand nombre de jours consécutifs où vous êtes allé à la salle. |
-| `/stats streakWeek`             | Affiche le plus grand nombre de semaines consécutives où vous êtes allé à la salle. |
-| `/stats averageWeek`            | Calcule la moyenne des jours où vous êtes allé à la salle par semaine.     |
-| `/stats bestMonth`              | Identifie le mois où vous avez été le plus assidu.                        |
-| `/stats favoriteDay`            | Affiche le jour de la semaine où vous allez le plus souvent à la salle.    |
-| `/stats visitsByDay`            | Affiche combien de fois vous êtes allé à la salle chaque jour de la semaine. |
-| `/stats timeOfDay`              | Analyse les horaires de vos séances pour identifier vos périodes d’entraînement préférées. |
-| `/stats activePercentage`       | Calcule le pourcentage de jours où vous êtes allé à la salle par rapport à la période totale couverte. |
-| `/stats locations`              | Liste les clubs visités et leur fréquence.                                |
-| `/stats avgTimeBetweenVisits`   | Calcule la moyenne de temps entre deux séances.                           |
-| `/compare`                      | Compare vos statistiques avec celles d’un autre membre du serveur.        |
-| `/serverStats`                  | Affiche des statistiques globales du serveur.                            |
+| Commande                               | Description                                                                                            |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `/motivation`                          | Envoie une citation motivante aléatoire.                                                               |
+| `/logSession`                          | Enregistre les heures des séances de sport pour recevoir une notification                              |
+| `/topSeance`                           | Affiche le classement des séances validées et non effectuées.                                          |
+| `/calcul imc`                          | Calcule l'indice de masse corporelle (IMC) en fonction du poids et de la taille.                       |
+| `/calcul bodyfat`                      | Estime le pourcentage de masse grasse à partir de plusieurs paramètres.                                |
+| `/calcul calories`                     | Calcule les besoins caloriques journaliers en fonction de l'activité.                                  |
+| `/calcul macro`                        | Propose une répartition des macronutriments selon les besoins caloriques.                              |
+| `/calcul fatloss`                      | Estime le déficit calorique nécessaire pour atteindre un poids cible.                                  |
+| `/calcul maxrp`                        | Calcule le poids maximum pour une répétition (1RM).                                                    |
+| `/calcul energyburn`                   | Estime les calories brûlées en fonction de l'activité et de la durée.                                  |
+| `/basicfit upload`                     | Téléchargez vos données depuis Basic Fit - My Data pour utiliser les outils d'analyse.                 |
+| `/basicfit stats heatmap`              | Génère une heatmap pour visualiser vos visites en salle.                                               |
+| `/basicfit stats streakDay`            | Affiche le plus grand nombre de jours consécutifs où vous êtes allé à la salle.                        |
+| `/basicfit stats streakWeek`           | Affiche le plus grand nombre de semaines consécutives où vous êtes allé à la salle.                    |
+| `/basicfit stats averageWeek`          | Calcule la moyenne des jours où vous êtes allé à la salle par semaine.                                 |
+| `/basicfit stats bestMonth`            | Identifie le mois où vous avez été le plus assidu.                                                     |
+| `/basicfit stats favoriteDay`          | Affiche le jour de la semaine où vous allez le plus souvent à la salle.                                |
+| `/basicfit stats visitsByDay`          | Affiche combien de fois vous êtes allé à la salle chaque jour de la semaine.                           |
+| `/basicfit stats timeOfDay`            | Analyse les horaires de vos séances pour identifier vos périodes d’entraînement préférées.             |
+| `/basicfit stats activePercentage`     | Calcule le pourcentage de jours où vous êtes allé à la salle par rapport à la période totale couverte. |
+| `/basicfit stats locations`            | Liste les clubs visités et leur fréquence.                                                             |
+| `/basicfit stats avgTimeBetweenVisits` | Calcule la moyenne de temps entre deux séances.                                                        |
+| `/basicfit compare`                    | Compare vos statistiques avec celles d’un autre membre du serveur.                                     |
+| `/basicfit serverStats`                | Affiche des statistiques globales du serveur.                                                          |
+| `/reload`                              | Reload le bot                                                                                          |
 
 ### Messages quotidiens
 

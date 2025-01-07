@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('calories')
+        .setName('calcul calories')
         .setDescription("Estime vos besoins caloriques quotidiens.")
         .addNumberOption(option =>
             option.setName('poids')

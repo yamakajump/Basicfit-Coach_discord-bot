@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('macro')
+        .setName('calcul macro')
         .setDescription("Calcule la répartition des macronutriments en fonction de vos besoins caloriques.")
         .addNumberOption(option =>
             option.setName('calories')
