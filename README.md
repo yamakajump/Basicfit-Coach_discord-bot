@@ -149,7 +149,9 @@ Le bot propose des outils pour analyser vos performances et vos habitudes d’en
 - [discord.js](https://discord.js.org/) : Bibliothèque pour interagir avec l’API Discord.
 - [dotenv](https://www.npmjs.com/package/dotenv) : Gestion des variables d’environnement.
 - [node-schedule](https://www.npmjs.com/package/node-schedule) : Planification des tâches répétitives.
-- [chart.js](https://www.chartjs.org/) : Génération de graphiques pour les statistiques.
+- [canvas](https://www.npmjs.com/package/canvas) : Génération d'images personnalisées, comme les heatmaps.
+- [date-fns-tz](https://www.npmjs.com/package/date-fns-tz) : Gestion des fuseaux horaires pour la planification.
+- [undici](https://www.npmjs.com/package/undici) : Client HTTP moderne et performant pour effectuer des requêtes.
 
 ## Contribution
 
