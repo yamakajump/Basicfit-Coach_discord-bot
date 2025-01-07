@@ -1,6 +1,8 @@
+const { AttachmentBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { createCanvas } = require('canvas');
+
 
 module.exports = {
     async execute(interaction) {
