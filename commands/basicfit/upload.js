@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const fetch = require('node-fetch');
+const { request } = require('undici');
 
 module.exports = {
     async execute(interaction) {
@@ -12,8 +12,8 @@ module.exports = {
 
         try {
             // Télécharge le fichier JSON
-            const response = await fetch(attachment.url);
-            const jsonData = await response.json();
+            const { body } = await request(attachment.url);
+            const jsonData = await body.json();
 
             // Définit le chemin du dossier ../data/basicfit
             const dataDir = path.join(__dirname, '../../data/basicfit/');
@@ -25,7 +25,7 @@ module.exports = {
             const filePath = path.join(dataDir, `${interaction.user.id}.json`);
             fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
 
-            return interaction.reply({ content: 'Données envoyé avec succès !', ephemeral: true });
+            return interaction.reply({ content: 'Données envoyées avec succès !', ephemeral: true });
         } catch (error) {
             console.error(error);
             return interaction.reply({ content: `Erreur lors du traitement du fichier : ${error.message}`, ephemeral: true });
