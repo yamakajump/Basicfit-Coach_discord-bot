@@ -1,18 +1,6 @@
 {
     "motivationChannels": [
         {
-            "channelId": "1320741423032832050",
-            "ping": "user",
-            "userId": "829613924391059476",
-            "customHour": null
-        },
-        {
-            "channelId": "1320741448630534175",
-            "ping": "user",
-            "userId": "396373256053194752",
-            "customHour": null
-        },
-        {
             "channelId": "1320741324256968786",
             "ping": "user",
             "userId": "690488124480028692",
@@ -25,6 +13,18 @@
             "customHour": null
         },
         {
+            "channelId": "1320746909316550697",
+            "ping": "user",
+            "userId": "479675859222003712",
+            "customHour": null
+        },
+        {
+            "channelId": "1320741501768044575",
+            "ping": "user",
+            "userId": "430759169407320087",
+            "customHour": null
+        },
+        {
             "channelId": "1320741423032832050",
             "ping": "user",
             "userId": "829613924391059476",
@@ -37,15 +37,9 @@
             "customHour": null
         },
         {
-            "channelId": "1320746909316550697",
+            "channelId": "1326222846686396559",
             "ping": "user",
-            "userId": "479675859222003712",
-            "customHour": null
-        },
-        {
-            "channelId": "1320741501768044575",
-            "ping": "user",
-            "userId": "430759169407320087",
+            "userId": "536536419854712843",
             "customHour": null
         }
     ],
