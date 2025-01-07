@@ -4,9 +4,14 @@ const { formatInTimeZone } = require("date-fns-tz");
 const { parse } = require("date-fns");
 const fs = require("fs");
 const path = require("path");
+const { loadJson } = require('../utils/fileManager');
+
+// Charger la configuration
+const configPath = path.join(__dirname, '../data/config.json');
+const config = loadJson(configPath);
 
 // ID du canal où envoyer les notifications
-const CHANNEL_ID = "1320775045940904090";
+const CHANNEL_ID = config.notificationChannel;
 
 // Fichiers pour les données
 const dataPath = path.join(__dirname, "../data/sessions.json");

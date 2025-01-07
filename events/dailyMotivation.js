@@ -1,42 +1,55 @@
 const { scheduleJob } = require('node-schedule');
-const fs = require('fs');
 const path = require('path');
+const { loadJson } = require('../utils/fileManager');
 
 module.exports = {
     name: 'ready',
     once: true,
     execute(client) {
         const dataPath = path.join(__dirname, '../data/motivation.json');
-        const motivations = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        const configPath = path.join(__dirname, '../data/config.json');
 
-        // Mapping des utilisateurs et leurs salons
-        const userChannels = [
-            { userId: '634433284285268006', channelId: '1320740603486539835' }, // Tristan
-            { userId: '690488124480028692', channelId: '1320741324256968786' }, // Corentin
-            { userId: '829613924391059476', channelId: '1320741423032832050' }, // Nathan
-            { userId: '396373256053194752', channelId: '1320741448630534175' }, // Rémy
-            { userId: '430759169407320087', channelId: '1320741501768044575' }, // Axel
-            { userId: '479675859222003712', channelId: '1320746909316550697' }, // Alexis 
-        ];
+        // Charger les fichiers JSON
+        const motivations = loadJson(dataPath, { citations: [] });
+        const config = loadJson(configPath, {
+            motivationChannels: [],
+            defaultMotivationHour: '07:00',
+        });
 
-        // Programmer le message quotidien à 7h
-        scheduleJob('0 7 * * *', async () => {
-            for (const { userId, channelId } of userChannels) {
+        // Programmer le message quotidien pour chaque configuration
+        config.motivationChannels.forEach(({ channelId, ping, userId, customHour }) => {
+            const hour = customHour || config.defaultMotivationHour;
+            const [hourPart, minutePart] = hour.split(':').map(Number);
+
+            scheduleJob({ hour: hourPart, minute: minutePart }, async () => {
                 const channel = client.channels.cache.get(channelId);
                 if (!channel) {
                     console.error(`Impossible de trouver le canal avec l'ID ${channelId}`);
-                    continue;
+                    return;
                 }
 
                 const randomIndex = Math.floor(Math.random() * motivations.citations.length);
                 const randomCitation = motivations.citations[randomIndex];
 
                 try {
-                    await channel.send(`<@${userId}> ${randomCitation}`);
+                    // Construire le message avec le ping
+                    let pingMessage = '';
+                    if (ping === 'user') {
+                        pingMessage = `<@${userId}> `;
+                    } else if (ping === 'everyone') {
+                        pingMessage = '@everyone ';
+                    } else if (ping === 'none') {
+                        pingMessage = '';
+                    }
+
+                    // Envoyer le message
+                    await channel.send(`${pingMessage}${randomCitation}`);
                 } catch (error) {
                     console.error(`Erreur lors de l'envoi du message dans le canal ${channelId}:`, error);
                 }
-            }
+            });
         });
+
+        console.log('Le bot est prêt et les messages quotidiens ont été programmés !');
     },
 };
