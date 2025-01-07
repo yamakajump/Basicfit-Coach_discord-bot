@@ -83,11 +83,11 @@ function scheduleNotifications(client) {
 
             const actionRow = new ActionRowBuilder().addComponents(
               new ButtonBuilder()
-                .setCustomId(`confirm_${userId}_${day}_yes`)
+                .setCustomId(`confirm:${userId}:${day}:yes`)
                 .setLabel("Oui")
                 .setStyle(ButtonStyle.Success),
               new ButtonBuilder()
-                .setCustomId(`confirm_${userId}_${day}_no`)
+                .setCustomId(`confirm:${userId}:${day}:no`)
                 .setLabel("Non")
                 .setStyle(ButtonStyle.Danger)
             );
