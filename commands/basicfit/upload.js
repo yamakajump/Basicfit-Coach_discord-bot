@@ -16,7 +16,7 @@ module.exports = {
             const jsonData = await response.json();
 
             // Définit le chemin du dossier ../data/basicfit
-            const dataDir = path.join(__dirname, '../data/basicfit/');
+            const dataDir = path.join(__dirname, '../../data/basicfit/');
             if (!fs.existsSync(dataDir)) {
                 fs.mkdirSync(dataDir, { recursive: true });
             }
@@ -25,7 +25,7 @@ module.exports = {
             const filePath = path.join(dataDir, `${interaction.user.id}.json`);
             fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
 
-            return interaction.reply({ content: 'Données téléchargées avec succès dans ../data/basicfit/ !', ephemeral: true });
+            return interaction.reply({ content: 'Données envoyé avec succès !', ephemeral: true });
         } catch (error) {
             console.error(error);
             return interaction.reply({ content: `Erreur lors du traitement du fichier : ${error.message}`, ephemeral: true });
