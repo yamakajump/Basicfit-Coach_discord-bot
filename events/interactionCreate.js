@@ -151,16 +151,17 @@ module.exports = {
             
             const [action, targetUserId, day, response] = interaction.customId.split('_');
 
-            // vérifie si c'est le bon utilisateur qui a cliqué sur le bouton
-            if (targetUserId !== userId) {
-                await interaction.reply({
-                    content: 'Vous ne pouvez pas confirmer ou annuler les séances d\'un autre utilisateur.',
-                    ephemeral: true,
-                });
-                return;
-            }
-
             if (action === 'confirm') {
+
+                // vérifie si c'est le bon utilisateur qui a cliqué sur le bouton
+                if (targetUserId !== userId) {
+                    await interaction.reply({
+                        content: 'Vous ne pouvez pas confirmer ou annuler les séances d\'un autre utilisateur.',
+                        ephemeral: true,
+                    });
+                    return;
+                }
+                
                 const topSeance = loadTopSeance();
             
                 // Initialiser les données de l'utilisateur si elles n'existent pas
