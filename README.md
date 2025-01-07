@@ -46,10 +46,6 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 | `/fatloss`                      | Estime le déficit calorique nécessaire pour atteindre un poids cible.      |
 | `/maxrp`                        | Calcule le poids maximum pour une répétition (1RM).                       |
 | `/energyburn`                   | Estime les calories brûlées en fonction de l'activité et de la durée.      |
-| `/birthday`                     | Enregistre et affiche les anniversaires des membres du serveur.           |
-| `/clear`                        | Supprime un certain nombre de messages dans un canal.                     |
-| `/mute`                         | Attribue un rôle "mute" à un utilisateur.                                 |
-| `/unmute`                       | Retire le rôle "mute" d'un utilisateur.                                   |
 | `/upload`                       | Téléchargez vos données depuis Basic Fit - My Data pour utiliser les outils d'analyse. |
 | `/stats heatmap`                | Génère une heatmap pour visualiser vos visites en salle.                  |
 | `/stats streakDay`              | Affiche le plus grand nombre de jours consécutifs où vous êtes allé à la salle. |
