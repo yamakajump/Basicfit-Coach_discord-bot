@@ -15,13 +15,13 @@ module.exports = {
             const { body } = await request(attachment.url);
             const jsonData = await body.json();
 
-            // Définit le chemin du dossier ../data/basicfit
+            // Définit le chemin du dossier ../../data/basicfit
             const dataDir = path.join(__dirname, '../../data/basicfit/');
             if (!fs.existsSync(dataDir)) {
                 fs.mkdirSync(dataDir, { recursive: true });
             }
 
-            // Définit le chemin complet du fichier à sauvegarder (../data/basicfit/<IdUser>.json)
+            // Définit le chemin complet du fichier à sauvegarder (../../data/basicfit/<IdUser>.json)
             const filePath = path.join(dataDir, `${interaction.user.id}.json`);
             fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
 

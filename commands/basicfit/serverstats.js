@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   async execute(interaction) {
-    const dataDir = path.join(__dirname, "../data/basicfit");
+    const dataDir = path.join(__dirname, "../../data/basicfit");
     const files = fs.readdirSync(dataDir);
 
     if (!files.length) {

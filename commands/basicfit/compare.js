@@ -6,7 +6,7 @@ module.exports = {
     const utilisateur1 = interaction.options.getUser("utilisateur1");
     const utilisateur2 = interaction.options.getUser("utilisateur2");
 
-    const dataDir = path.join(__dirname, "../data/basicfit");
+    const dataDir = path.join(__dirname, "../../data/basicfit");
     const filePath1 = path.join(dataDir, `${utilisateur1.id}.json`);
     const filePath2 = path.join(dataDir, `${utilisateur2.id}.json`);
 
