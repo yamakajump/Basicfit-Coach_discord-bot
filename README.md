@@ -98,12 +98,7 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 > [!WARNING]
 > Assurez-vous que ce fichier est placé à la racine du projet et que son contenu reste confidentiel. Ne partagez pas votre token, car il permet de contrôler votre bot. 
 
-4. **Configurer les commandes**
-   Dans le fichier `index.js`, remplacez les valeurs suivantes :
-   - `clientId` : L'ID de votre bot (portail développeur Discord).
-   - `guildId` : L'ID de votre serveur.
-
-5. **Lancer le bot**
+4. **Lancer le bot**
    ```bash
    node index.js
    ```
