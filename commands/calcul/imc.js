@@ -1,19 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
-
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('calcul_imc')
-        .setDescription("Calcule votre indice de masse corporelle (IMC).")
-        .addNumberOption(option =>
-            option.setName('poids')
-                .setDescription('Votre poids en kg.')
-                .setRequired(true)
-        )
-        .addNumberOption(option =>
-            option.setName('taille')
-                .setDescription('Votre taille en cm.')
-                .setRequired(true)
-        ),
     async execute(interaction) {
         const poids = interaction.options.getNumber('poids');
         const tailleCm = interaction.options.getNumber('taille');
@@ -32,6 +17,10 @@ module.exports = {
         else classification = "Obésité";
 
         // Réponse
-        await interaction.reply(`\<:info:1322215662621425674> **Résultat de votre IMC** :\n\n- **IMC** : ${imc}\n- **Classification** : ${classification}`);
+        await interaction.reply({
+            content: `\<:info:1322215662621425674> **Résultat de votre IMC** :\n\n` +
+                `- **IMC** : ${imc}\n` +
+                `- **Classification** : ${classification}`,
+        });
     },
 };

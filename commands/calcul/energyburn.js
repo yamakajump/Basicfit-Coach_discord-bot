@@ -1,31 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
-
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('calcul_energyburn')
-        .setDescription("Estime les calories brûlées en fonction de l'activité et de la durée.")
-        .addStringOption(option =>
-            option.setName('activite')
-                .setDescription('Le type d\'activité.')
-                .setRequired(true)
-                .addChoices(
-                    { name: 'Course à pied', value: 'course' },
-                    { name: 'Marche', value: 'marche' },
-                    { name: 'Cyclisme', value: 'cyclisme' },
-                    { name: 'Natation', value: 'natation' },
-                    { name: 'Musculation', value: 'musculation' }
-                )
-        )
-        .addNumberOption(option =>
-            option.setName('duree')
-                .setDescription('Durée de l\'activité en minutes.')
-                .setRequired(true)
-        )
-        .addNumberOption(option =>
-            option.setName('poids')
-                .setDescription('Votre poids en kg.')
-                .setRequired(true)
-        ),
     async execute(interaction) {
         const activite = interaction.options.getString('activite');
         const duree = interaction.options.getNumber('duree');

@@ -1,25 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
-
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('calcul_macro')
-        .setDescription("Calcule la répartition des macronutriments en fonction de vos besoins caloriques.")
-        .addNumberOption(option =>
-            option.setName('calories')
-                .setDescription('Vos besoins caloriques journaliers en kcal.')
-                .setRequired(true)
-        )
-        .addStringOption(option =>
-            option.setName('objectif')
-                .setDescription('Votre objectif nutritionnel.')
-                .setRequired(true)
-                .addChoices(
-                    { name: 'Perte de poids', value: 'perte' },
-                    { name: 'Maintien', value: 'maintien' },
-                    { name: 'Prise de masse', value: 'prise' },
-                    { name: 'Recomposition corporelle', value: 'recomp' }
-                )
-        ),
     async execute(interaction) {
         const calories = interaction.options.getNumber('calories');
         const objectif = interaction.options.getString('objectif');
@@ -55,6 +34,14 @@ module.exports = {
                               objectif === 'maintien' ? 'Maintien' :
                               objectif === 'prise' ? 'Prise de masse' : 'Recomposition corporelle';
 
-        await interaction.reply(`\<:coin_info:1321862685578756167>  **Répartition des macronutriments** :\n\n- **Objectif** : ${objectifTexte}\n- **Calories totales** : ${calories} kcal\n\n\<:cookie:1321862688095080548> **Macronutriments** :\n- **Protéines** : ${proteinesGr} g (${proteinesPct}%)\n- **Lipides** : ${lipidesGr} g (${lipidesPct}%)\n- **Glucides** : ${glucidesGr} g (${glucidesPct}%)`);
+        await interaction.reply({
+            content: `\<:coin_info:1321862685578756167>  **Répartition des macronutriments** :\n\n` +
+                     `- **Objectif** : ${objectifTexte}\n` +
+                     `- **Calories totales** : ${calories} kcal\n\n` +
+                     `\<:cookie:1321862688095080548> **Macronutriments** :\n` +
+                     `- **Protéines** : ${proteinesGr} g (${proteinesPct}%)\n` +
+                     `- **Lipides** : ${lipidesGr} g (${lipidesPct}%)\n` +
+                     `- **Glucides** : ${glucidesGr} g (${glucidesPct}%)`,
+        });
     },
 };
