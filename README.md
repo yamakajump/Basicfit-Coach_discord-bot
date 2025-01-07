@@ -41,6 +41,11 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 | `/motivation`                          | Envoie une citation motivante aléatoire.                                                               |
 | `/notif_seance`                        | Enregistre les heures des séances de sport pour recevoir une notification                              |
 | `/topSeance`                           | Affiche le classement des séances validées et non effectuées.                                          |
+| `/config add_motivation_channel`       | Configure les salons pour l'envoi des citations motivantes, avec options pour ping (utilisateur, everyone, ou personne). |
+| `/config delete_motivation_channel`    | Supprime un salon de la liste des salons de motivation.                                                |
+| `/config set_default_motivation_hour`  | Modifie l'heure d'envoi par défaut des messages de motivation quotidienne.                             |
+| `/config add_notif_channel`            | Configure le salon pour les notifications des séances.                                                 |
+| `/config toggle_startup_message`       | Active ou désactive le message au démarrage du bot, avec une option pour personnaliser le message.     |
 | `/calcul imc`                          | Calcule l'indice de masse corporelle (IMC) en fonction du poids et de la taille.                       |
 | `/calcul bodyfat`                      | Estime le pourcentage de masse grasse à partir de plusieurs paramètres.                                |
 | `/calcul calories`                     | Calcule les besoins caloriques journaliers en fonction de l'activité.                                  |
@@ -103,6 +108,17 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
    node index.js
    ```
 
+5. **Configurer le bot**
+Le bot offre des commandes dédiées pour personnaliser son comportement directement depuis Discord :
+
+- Configurez les salons pour les messages de motivation avec `/config motivation_channel`.
+- Modifiez l'heure d'envoi des messages de motivation avec `/config set_default_motivation_hour`.
+- Définissez le salon pour les notifications de séances avec `/config notif_channel`.
+- Activez ou désactivez le message au démarrage avec `/config toggle_startup_message`.
+
+Ces options vous permettent d'adapter facilement le bot aux besoins de votre serveur.
+
+
 ## Configuration
 
 ### Ajouter des Citations
@@ -120,11 +136,6 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 
 ![motivation](https://github.com/user-attachments/assets/434ee8a6-7657-4bae-ac91-45babf81bae4)
 
-### Modifier les Messages Automatiques
-1. Accédez à `events/dailyMotivation.js`.
-2. Remplacez `YOUR_CHANNEL_ID` par l’ID du canal cible.
-3. Modifiez l'heure dans le planificateur pour l’adapter à vos besoins.
-
 ## Statistiques Personnalisées
 
 Le bot propose des outils pour analyser vos performances et vos habitudes d’entraînement grâce à l’upload de données.
@@ -138,6 +149,7 @@ Le bot propose des outils pour analyser vos performances et vos habitudes d’en
 - **`commands/`** : Contient les commandes du bot.
     - **`basicfit/`** : Commandes spécifiques à l'analyse des données BasicFit (exemple : `/basicfit stats heatmap`, `/basicfit compare`).
     - **`calcul/`** : Commandes pour effectuer divers calculs liés à la musculation et au fitness (IMC, besoins caloriques, etc.).
+    - **`config`** : Commandes pour configurer divers paramètres du bot (ID, heure, message).
 - **`events/`** : Gère les événements Discord (comme les messages quotidiens).
 - **`data/`** : Contient les fichiers JSON (citations, configurations, etc.).
 - **`buttons/`** : Contient les gestionnaires des interactions avec les boutons.
