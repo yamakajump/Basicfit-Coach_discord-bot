@@ -136,6 +136,8 @@ Le bot propose des outils pour analyser vos performances et vos habitudes d’en
 ## Architecture du Projet
 
 - **`commands/`** : Contient les commandes du bot.
+    - **`basicfit/`** : Commandes spécifiques à l'analyse des données BasicFit (exemple : `/basicfit stats heatmap`, `/basicfit compare`).
+    - **`calcul/`** : Commandes pour effectuer divers calculs liés à la musculation et au fitness (IMC, besoins caloriques, etc.).
 - **`events/`** : Gère les événements Discord (comme les messages quotidiens).
 - **`data/`** : Contient les fichiers JSON (citations, configurations, etc.).
 - **`buttons/`** : Contient les gestionnaires des interactions avec les boutons.
