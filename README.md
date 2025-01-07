@@ -33,8 +33,6 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 
 ![heatmap](https://github.com/user-attachments/assets/e0c5d7c9-c539-4030-b1e5-52d79c869eed)
 
-![serverstats](https://github.com/user-attachments/assets/d32faea6-0d68-422d-b627-b8f6fe045a53)
-
 
 ### Commandes Slash
 
@@ -135,6 +133,8 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 Le bot propose des outils pour analyser vos performances et vos habitudes d’entraînement grâce à l’upload de données.
 - **Upload des Données** : Utilisez `/upload` pour importer un fichier JSON (Basic Fit - My Data).
 - **Visualisation** : Les commandes `/stats` permettent d'explorer vos habitudes sous forme de graphiques et de chiffres clés.
+
+![serverstats](https://github.com/user-attachments/assets/d32faea6-0d68-422d-b627-b8f6fe045a53)
 
 ## Architecture du Projet
 
