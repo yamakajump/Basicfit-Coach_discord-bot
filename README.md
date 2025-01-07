@@ -39,7 +39,7 @@ Basicfit Coach est un bot Discord dédié à la musculation et au bien-être. Qu
 | Commande                               | Description                                                                                            |
 |----------------------------------------|--------------------------------------------------------------------------------------------------------|
 | `/motivation`                          | Envoie une citation motivante aléatoire.                                                               |
-| `/logSession`                          | Enregistre les heures des séances de sport pour recevoir une notification                              |
+| `/notif_seance`                        | Enregistre les heures des séances de sport pour recevoir une notification                              |
 | `/topSeance`                           | Affiche le classement des séances validées et non effectuées.                                          |
 | `/calcul imc`                          | Calcule l'indice de masse corporelle (IMC) en fonction du poids et de la taille.                       |
 | `/calcul bodyfat`                      | Estime le pourcentage de masse grasse à partir de plusieurs paramètres.                                |
@@ -140,6 +140,8 @@ Le bot propose des outils pour analyser vos performances et vos habitudes d’en
 - **`commands/`** : Contient les commandes du bot.
 - **`events/`** : Gère les événements Discord (comme les messages quotidiens).
 - **`data/`** : Contient les fichiers JSON (citations, configurations, etc.).
+- **`buttons/`** : Contient les gestionnaires des interactions avec les boutons.
+- **`modals/`** : Contient les gestionnaires des interactions avec les modals.
 - **`index.js`** : Point d'entrée principal.
 
 ## Dépendances
