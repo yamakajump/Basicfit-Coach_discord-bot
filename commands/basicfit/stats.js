@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const fetch = require('node-fetch');
+const { createCanvas } = require('canvas');
 
 module.exports = {
     async execute(interaction) {
