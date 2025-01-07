@@ -16,8 +16,8 @@ function loadSessions() {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('logsession')
-        .setDescription('Enregistre vos heures de séance pour la semaine.'),
+        .setName('notif_seance')
+        .setDescription('Planifiez vos heures de séance hebdomadaires et recevez des rappels personnalisés.'),
     async execute(interaction) {
         const userId = interaction.user.id;
         const sessions = loadSessions();
