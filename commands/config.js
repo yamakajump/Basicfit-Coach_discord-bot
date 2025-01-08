@@ -4,7 +4,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('config')
         .setDescription('Configure les différentes fonctionnalités du bot.')
-        .setDefaultMemberPermissions('0x20') // 0x20 = Gérer le serveur
+        .setDefaultMemberPermissions('32') // = Gérer le serveur
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add_motivation_channel')

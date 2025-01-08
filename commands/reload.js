@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('reload')
         .setDescription('Redémarre le bot si une minute s\'est écoulée depuis son lancement.')
-        .setDefaultMemberPermissions('0x20'), // 0x20 = Gérer le serveur
+        .setDefaultMemberPermissions('32'), // = Gérer le serveur
     async execute(interaction) {
         // Vérification explicite des permissions
         if (!interaction.member.permissions.has('ManageGuild')) {
