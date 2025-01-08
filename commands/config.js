@@ -4,6 +4,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('config')
         .setDescription('Configure les différentes fonctionnalités du bot.')
+        .setDefaultMemberPermissions('0x20') // 0x20 = Gérer le serveur
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add_motivation_channel')
@@ -68,7 +69,6 @@ module.exports = {
                     option.setName('salon')
                         .setDescription('Salon où envoyer le message de démarrage (optionnel).')
                 )
-                
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -82,6 +82,14 @@ module.exports = {
         ),
 
     async execute(interaction) {
+        // Vérification explicite des permissions "Gérer le serveur"
+        if (!interaction.member.permissions.has('ManageGuild')) { // 'ManageGuild' correspond à "Gérer le serveur"
+            return interaction.reply({
+                content: "❌ Vous n'avez pas la permission d'utiliser cette commande.",
+                ephemeral: true,
+            });
+        }
+
         const subcommand = interaction.options.getSubcommand();
 
         try {
