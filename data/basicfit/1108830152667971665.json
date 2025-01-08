@@ -1,0 +1,291 @@
+{
+  "member": {
+    "birth_date": "2003-08-22T22:00:00.000Z",
+    "card_number_s": "V001082508",
+    "email": "ingenieurrs@gmail.com",
+    "first_name": "Tristan",
+    "gender_s": "male",
+    "gxr_views_s": 0,
+    "home_club": "Basic-Fit Séné Place des Vosges",
+    "iban": "***********************4085",
+    "iban_account_holder": "Joncour",
+    "last_name": "Joncour",
+    "mail_opt_1_s": true,
+    "mail_opt_2_s": true,
+    "mail_opt_3_s": true,
+    "mail_opt_4_s": true,
+    "mail_opt_5_s": true,
+    "mailing_city": "Combrit",
+    "mailing_country": "France",
+    "mailing_house_number": "8",
+    "mailing_street": "Lucien simon",
+    "membership_number_s": "A43004549",
+    "middle_name": "",
+    "mobile_number": ""
+  },
+  "memberships": [
+    {
+      "contract_end_date_g": "2024-02-29T00:00:00.000",
+      "join_date_g": "2023-12-31T00:00:00.000",
+      "membership_name_g": "Comfort",
+      "start_date_g": "2023-12-31T00:00:00.000",
+      "end_date_g": "2024-02-19T00:00:00.000",
+      "payment_plan": {
+        "interval": "fourWeeks",
+        "joining_fee": 0,
+        "term_fee": 0,
+        "minimal_contract_period": "twoMonths"
+      }
+    }
+  ],
+  "friends": [],
+  "articles": [],
+  "transactions": {
+    "invoices": [
+      {
+        "from": "2023-12-03T00:00:00.000Z",
+        "to": "2023-12-30T00:00:00.000Z",
+        "amount": "€ 19,99",
+        "paid": true
+      },
+      {
+        "from": "2023-11-05T00:00:00.000Z",
+        "to": "2023-12-02T00:00:00.000Z",
+        "amount": "€ 19,99",
+        "paid": true
+      },
+      {
+        "from": "2023-03-26T00:00:00.000Z",
+        "to": "2023-04-22T00:00:00.000Z",
+        "amount": "€ 19,99",
+        "paid": true
+      },
+      {
+        "from": "2023-02-26T00:00:00.000Z",
+        "to": "2023-03-25T00:00:00.000Z",
+        "amount": "€ 19,99",
+        "paid": true
+      },
+      {
+        "from": "2023-01-29T00:00:00.000Z",
+        "to": "2023-02-25T00:00:00.000Z",
+        "amount": "€ 19,99",
+        "paid": true
+      },
+      {
+        "from": "2023-01-01T00:00:00.000Z",
+        "to": "2023-01-28T00:00:00.000Z",
+        "amount": "€ 19,99",
+        "paid": true
+      },
+      {
+        "from": "2023-12-31T00:00:00.000",
+        "to": "2023-01-01T00:00:00.000Z",
+        "amount": "€ 159,92",
+        "paid": true
+      }
+    ],
+    "payments": [
+      {
+        "date": "2023-12-01T00:00:00.000Z",
+        "description": "Period: 03-12-2023 / 30-12-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-11-03T00:00:00.000Z",
+        "description": "Period: 05-11-2023 / 02-12-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-10-05T23:00:00.000Z",
+        "description": "Period: 08-10-2023 / 04-11-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-09-07T23:00:00.000Z",
+        "description": "Period: 10-09-2023 / 07-10-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-08-10T23:00:00.000Z",
+        "description": "Period: 13-08-2023 / 09-09-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-07-13T23:00:00.000Z",
+        "description": "Period: 16-07-2023 / 12-08-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-06-15T23:00:00.000Z",
+        "description": "Period: 18-06-2023 / 15-07-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-05-18T23:00:00.000Z",
+        "description": "Period: 21-05-2023 / 17-06-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-04-20T23:00:00.000Z",
+        "description": "Period: 23-04-2023 / 20-05-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-03-24T00:00:00.000Z",
+        "description": "Period: 26-03-2023 / 22-04-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-02-24T00:00:00.000Z",
+        "description": "Period: 26-02-2023 / 25-03-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2023-01-27T00:00:00.000Z",
+        "description": "Period: 29-01-2023 / 25-02-2023 (SEPA)",
+        "amount": "€ 19,99",
+        "code": "dd"
+      },
+      {
+        "date": "2022-11-27T00:00:00.000Z",
+        "description": "Adyen - MBF - scheme - 6ede3d00-6e54-11ed-b53a-cdb24da112f1",
+        "amount": "€ 39,98",
+        "code": "bpm"
+      }
+    ]
+  },
+  "visits": [
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "20-12-2023",
+      "time": "19:24"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "19-12-2023",
+      "time": "19:25"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "18-12-2023",
+      "time": "19:12"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "17-12-2023",
+      "time": "11:55"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-12-2023",
+      "time": "13:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "13-12-2023",
+      "time": "19:21"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "12-12-2023",
+      "time": "19:46"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-12-2023",
+      "time": "19:20"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "9-12-2023",
+      "time": "09:50"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "14-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "12-9-2023",
+      "time": "16:05"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "11-9-2023",
+      "time": "16:20"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-9-2023",
+      "time": "16:34"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "5-9-2023",
+      "time": "16:51"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "16-5-2023",
+      "time": "04:28"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "10-5-2023",
+      "time": "04:19"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-2-2023",
+      "time": "20:25"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "6-12-2022",
+      "time": "20:14"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "5-12-2022",
+      "time": "20:21"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "4-12-2022",
+      "time": "16:49"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "3-12-2022",
+      "time": "16:40"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "30-11-2022",
+      "time": "19:59"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "28-11-2022",
+      "time": "19:43"
+    },
+    {
+      "club": "Basic-Fit Séné Place des Vosges",
+      "date": "27-11-2022",
+      "time": "15:49"
+    }
+  ]
+}

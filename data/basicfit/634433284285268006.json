@@ -26,7 +26,7 @@
   "memberships": [
     {
       "contract_end_date_g": "2025-10-11T00:00:00.000",
-      "join_date_g": "2023-12-31T00:00:00.000",
+      "join_date_g": "2024-08-31T00:00:00.000",
       "membership_name_g": "Premium",
       "start_date_g": "2024-08-31T00:00:00.000",
       "end_date_g": null,
@@ -158,132 +158,17 @@
   },
   "visits": [
     {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "20-12-2023",
-      "time": "19:24"
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
+      "date": "6-1-2025",
+      "time": "22:32"
     },
     {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "19-12-2023",
-      "time": "19:25"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "18-12-2023",
-      "time": "19:12"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "17-12-2023",
-      "time": "11:55"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "14-12-2023",
-      "time": "13:19"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "13-12-2023",
-      "time": "19:21"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "12-12-2023",
-      "time": "19:46"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "11-12-2023",
-      "time": "19:20"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "9-12-2023",
-      "time": "09:50"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "14-9-2023",
-      "time": "16:34"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "12-9-2023",
-      "time": "16:05"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "11-9-2023",
-      "time": "16:20"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "6-9-2023",
-      "time": "16:34"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "5-9-2023",
-      "time": "16:51"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "16-5-2023",
-      "time": "04:28"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "10-5-2023",
-      "time": "04:19"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "6-2-2023",
-      "time": "20:25"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "6-12-2022",
-      "time": "20:14"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "5-12-2022",
-      "time": "20:21"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "4-12-2022",
-      "time": "16:49"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "3-12-2022",
-      "time": "16:40"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "30-11-2022",
-      "time": "19:59"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "28-11-2022",
-      "time": "19:43"
-    },
-    {
-      "club": "Basic-Fit Séné Place des Vosges",
-      "date": "27-11-2022",
-      "time": "15:49"
-    },
-    {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "5-1-2025",
       "time": "18:10"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "5-1-2025",
       "time": "18:10"
     },
@@ -403,7 +288,7 @@
       "time": "18:04"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "22-10-2024",
       "time": "18:11"
     },
@@ -413,7 +298,7 @@
       "time": "17:00"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "14-10-2024",
       "time": "18:20"
     },
@@ -423,32 +308,32 @@
       "time": "16:17"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "8-10-2024",
       "time": "18:09"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "7-10-2024",
       "time": "18:13"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "6-10-2024",
       "time": "15:30"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "5-10-2024",
       "time": "12:45"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "4-10-2024",
       "time": "18:19"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "1-10-2024",
       "time": "18:03"
     },
@@ -458,22 +343,22 @@
       "time": "16:09"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "26-9-2024",
       "time": "17:14"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "25-9-2024",
       "time": "16:17"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "24-9-2024",
       "time": "17:39"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "23-9-2024",
       "time": "16:11"
     },
@@ -483,7 +368,7 @@
       "time": "16:14"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "19-9-2024",
       "time": "17:10"
     },
@@ -493,7 +378,7 @@
       "time": "06:31"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "18-9-2024",
       "time": "17:51"
     },
@@ -503,37 +388,37 @@
       "time": "08:05"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "14-9-2024",
       "time": "12:42"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "12-9-2024",
       "time": "17:21"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "12-9-2024",
       "time": "17:20"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "10-9-2024",
       "time": "17:45"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "9-9-2024",
       "time": "17:45"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "5-9-2024",
       "time": "17:35"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "4-9-2024",
       "time": "17:38"
     },
@@ -543,7 +428,7 @@
       "time": "19:26"
     },
     {
-      "club": "Basic-Fit Vannes Rue Aristide Boucicaut",
+      "club": "Basic-Fit Vannes Rue Aristide Boucicaut 24/7",
       "date": "2-9-2024",
       "time": "17:40"
     },
