@@ -40,16 +40,12 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 (async () => {
     try {
-        console.log('Démarrage de l\'enregistrement des commandes slash.');
-
         const clientId = process.env.ID;
 
         await rest.put(
             Routes.applicationCommands(clientId),
             { body: commands }
         );
-
-        console.log('Les commandes slash ont été enregistrées avec succès.');
     } catch (error) {
         console.error('Erreur lors de l\'enregistrement des commandes:', error);
         reportError(client, `Erreur lors de l'enregistrement des commandes:\n\`\`\`${error.message}\`\`\``);
