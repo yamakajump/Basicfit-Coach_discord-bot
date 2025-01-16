@@ -1,4 +1,3 @@
-const { scheduleNotifications } = require('./notificationScheduler');
 const { loadJson } = require('../utils/fileManager');
 const path = require('path');
 
@@ -29,8 +28,5 @@ module.exports = {
                 console.error('Aucun salon configuré pour le message de démarrage.');
             }
         }
-
-        // Planifier les notifications
-        scheduleNotifications(client);
     },
 };
