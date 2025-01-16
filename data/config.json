@@ -1,7 +1,7 @@
 {
     "startupMessage": {
-        "enabled": true,
+        "enabled": false,
         "message": "Je suis de retour mes GymBro !",
-        "channelId": "1326523387404881954"
+        "channelId": "1326523165102575698"
     }
 }
