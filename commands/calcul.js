@@ -72,11 +72,11 @@ module.exports = {
                     option.setName('activite')
                         .setDescription("Votre niveau d'activité.")
                         .addChoices(
-                            { name: 'Sédentaire', value: 'sedentaire' },
-                            { name: 'Légèrement actif', value: 'leger' },
-                            { name: 'Modérément actif', value: 'modere' },
-                            { name: 'Très actif', value: 'actif' },
-                            { name: 'Extrêmement actif', value: 'extreme' }
+                            { name: 'Sédentaire (peu ou pas d\'exercice)', value: 'sedentaire' },
+                            { name: 'Légèrement actif (exercice léger ou sport 1-3 jours par semaine)', value: 'leger' },
+                            { name: 'Modérément actif (exercice modéré ou sport 3-5 jours par semaine)', value: 'modere' },
+                            { name: 'Très actif (exercice intense ou sport 6-7 jours par semaine)', value: 'actif' },
+                            { name: 'Extrêmement actif (exercice très intense ou sport 1-3 jours par semaine)', value: 'extreme' }
                         )
                         .setRequired(true)
                 )
